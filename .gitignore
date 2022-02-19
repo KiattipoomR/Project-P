@@ -24,6 +24,10 @@
 .vscode/
 .vsconfig
 
+# Jetbrain Rider Cache
+.idea/
+Assets/Plugins/Editor/JetBrains*
+
 # Gradle cache directory
 .gradle/
 
