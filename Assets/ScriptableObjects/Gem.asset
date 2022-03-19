@@ -15,4 +15,5 @@ MonoBehaviour:
   id: 2
   name: Gem
   maxStackSize: 2
+  icon: {fileID: 21300000, guid: d1c1523651c71449cb32c2c7933acf8c, type: 3}
   runeValue: 0

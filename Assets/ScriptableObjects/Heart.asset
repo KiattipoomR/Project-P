@@ -15,4 +15,5 @@ MonoBehaviour:
   id: 3
   name: Heart
   maxStackSize: 2
+  icon: {fileID: 21300000, guid: 8f03d65eca65243d0963f648c2e9824a, type: 3}
   runeValue: 0
