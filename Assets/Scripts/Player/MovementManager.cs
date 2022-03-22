@@ -95,7 +95,9 @@ public class MovementManager : MonoBehaviour, PlayerControls.IPlayerActions
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        return;
+        if (context.performed) {
+            FarmManager.instance.InteractWithTile(tf, new Vector3(0, -0.75f, 0));
+        }
     }
 
     void FixedUpdate()

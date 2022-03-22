@@ -8,5 +8,6 @@ public class Bed : MonoBehaviour, IInteractable
 
     public void interact() {
         Date.instance.AddDay();
+        StaminaSystem.instance.RecoverFullStamina();
     }
 }

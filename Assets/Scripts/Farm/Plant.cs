@@ -12,6 +12,8 @@ public class Plant : MonoBehaviour
     [SerializeField] private PlantStage[] plantStages;
     [SerializeField] private List<PlantFlag> currentStatus;
 
+    [SerializeField] private ItemData water;
+
     private void Awake() {
         Date.instance.OnDayChanged.AddListener(UpdateTimeToNextStage);
     }
@@ -39,7 +41,6 @@ public class Plant : MonoBehaviour
         var inventoryHolder = other.transform.GetComponent<InventoryHolder>();
         if (!inventoryHolder) return;
 
-        ItemData water = Resources.Load<ItemData>("Water");
         if (!currentStatus.Contains(PlantFlag.WATER) && inventoryHolder.InventoryManager.ContainsItem(water, out var invSlots))
         {
             currentStatus.Add(PlantFlag.WATER);
