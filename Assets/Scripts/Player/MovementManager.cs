@@ -4,14 +4,17 @@ using UnityEngine.InputSystem;
 public class MovementManager : MonoBehaviour, PlayerControls.IPlayerActions
 {
     // Components
+    [SerializeField] private Transform tf;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
 
 
     // Player attributes
     [SerializeField] private float movementSpeed = 5f;
+    [SerializeField] private int staminaConsumeRate = 1;
     private PlayerControls playerControls;
     private Vector2 playerMovement;
+    private Vector2 bedPosition;
 
     // Animations and states
     private string currentAnimationState;
@@ -31,6 +34,7 @@ public class MovementManager : MonoBehaviour, PlayerControls.IPlayerActions
     {
         playerControls = new PlayerControls();
         playerControls.Player.SetCallbacks(this);
+        bedPosition = tf.position;
     }
 
     private void OnEnable()
@@ -89,9 +93,21 @@ public class MovementManager : MonoBehaviour, PlayerControls.IPlayerActions
         }
     }
 
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        return;
+    }
+
     void FixedUpdate()
     {
         rb.velocity = playerMovement * movementSpeed;
+        if (rb.velocity != Vector2.zero) {
+            if (!StaminaSystem.instance.UseStamina(staminaConsumeRate)) {
+                rb.velocity = Vector2.zero;
+                tf.position = bedPosition;
+                StaminaSystem.instance.RecoverFullStamina();
+            }
+        }
     }
 
     // Change player animation states

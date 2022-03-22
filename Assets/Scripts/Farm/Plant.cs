@@ -13,7 +13,7 @@ public class Plant : MonoBehaviour
     [SerializeField] private List<PlantFlag> currentStatus;
 
     private void Awake() {
-        TempTime.instance.OnDayChanged.AddListener(UpdateTimeToNextStage);
+        Date.instance.OnDayChanged.AddListener(UpdateTimeToNextStage);
     }
 
     private void Start()
@@ -22,8 +22,8 @@ public class Plant : MonoBehaviour
     }
 
     private void UpdateTimeToNextStage() {
-        currentStatus.Clear();
         if (timeToNextStage > 0 && currentStatus.SequenceEqual(plantStages[currentStage].statusNeed)) timeToNextStage--;
+        currentStatus.Clear();
         if (timeToNextStage == 0 && currentStage < plantStages.Length - 1) {
             currentStage++;
             SetupNewStage();

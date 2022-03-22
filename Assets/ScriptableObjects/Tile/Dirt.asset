@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fe85b00349276c46b3aa5cf834e8eae, type: 3}
-  m_Name: Water
+  m_Script: {fileID: 11500000, guid: 0b5f4f6a78fd7714c85aaeec7b90a447, type: 3}
+  m_Name: Dirt
   m_EditorClassIdentifier: 
-  id: 4
-  name: Water
-  maxStackSize: 1
-  runeValue: 0
+  tiles:
+  - {fileID: 11400000, guid: e8232df601c78af449e6463965c11400, type: 2}

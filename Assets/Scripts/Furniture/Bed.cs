@@ -7,6 +7,6 @@ public class Bed : MonoBehaviour, IInteractable
     }
 
     public void interact() {
-        TempTime.instance.AddDay();
+        Date.instance.AddDay();
     }
 }
