@@ -207,7 +207,27 @@ public class Date : MonoBehaviour
     }
 
     public void AddDay() {
+        min = 0;
+        hr = 8;
         day++;
+        dayOfWeek++;
+        if (day >= maxDay)
+        {
+            day = 1;
+            season++;
+            if (season >= maxSeason)
+            {
+                season = 1;
+                year++;
+            }
+
+            SetSeason();
+
+        }
+        if (dayOfWeek >= maxDayOfWeek)
+        {
+            dayOfWeek = 1;
+        };
         SetTimeDate();
         OnDayChanged.Invoke();
     }

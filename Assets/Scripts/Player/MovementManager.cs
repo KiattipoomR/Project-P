@@ -108,6 +108,7 @@ public class MovementManager : MonoBehaviour, PlayerControls.IPlayerActions
                 rb.velocity = Vector2.zero;
                 tf.position = bedPosition;
                 StaminaSystem.instance.RecoverFullStamina();
+                Date.instance.AddDay();
             }
         }
     }

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2fe85b00349276c46b3aa5cf834e8eae, type: 3}
-  m_Name: Corn
+  m_Name: Hoe
   m_EditorClassIdentifier: 
-  id: 6
-  name: Corn
-  maxStackSize: 10
-  icon: {fileID: 21300000, guid: 231f2f2b3b652bf40ada171e7c1e6bfc, type: 3}
-  runeValue: 10
+  id: 7
+  name: Hoe
+  maxStackSize: 1
+  icon: {fileID: 21300000, guid: ea0bfe2665e54de41a6450b484e5cd67, type: 3}
+  runeValue: 0

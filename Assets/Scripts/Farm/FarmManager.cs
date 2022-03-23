@@ -10,6 +10,8 @@ public class FarmManager : MonoBehaviour
     [SerializeField] private TileBase dirt;
     [SerializeField] private GameObject plantParent;
     [SerializeField] private GameObject plant;
+    [SerializeField] private ItemData hoe;
+    [SerializeField] private ItemData seed;
     public static FarmManager instance;
 
     private void Awake() {
@@ -27,10 +29,14 @@ public class FarmManager : MonoBehaviour
             TileBase tb = tilemaps[i].GetTile(gridPos);
             if (tb) {
                 if (tb == grass) {
-                    tilemaps[i].SetTile(gridPos, dirt);
+                    if (player.gameObject.GetComponent<InventoryHolder>().InventoryManager.ContainsItem(hoe, out List<InventorySlot> invSlots)) {
+                        tilemaps[i].SetTile(gridPos, dirt);
+                    }
                 }
                 else if (tb == dirt) {
-                    Instantiate(plant, tilemaps[i].CellToWorld(gridPos) + new Vector3(0.5f, 0.5f, 0), Quaternion.identity, plantParent.transform);
+                    if (player.gameObject.GetComponent<InventoryHolder>().InventoryManager.ContainsItem(seed, out List<InventorySlot> invSlots)) {
+                        Instantiate(plant, tilemaps[i].CellToWorld(gridPos) + new Vector3(0.5f, 0.5f, 0), Quaternion.identity, plantParent.transform);
+                    }
                 } 
                 print(tb);
                 return;
