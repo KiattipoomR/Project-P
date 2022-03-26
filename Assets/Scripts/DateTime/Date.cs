@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
+
 public class Date : MonoBehaviour
 {
     public TextMeshProUGUI UI_TIME_TEXT;
@@ -35,6 +37,20 @@ public class Date : MonoBehaviour
     int maxSeason = 5;
     float timer = 0;
 
+    public UnityEvent OnDayChanged;
+
+    public static Date instance;
+
+    private void Awake() {
+        if (instance == null) {
+            instance = this;
+        }
+        else {
+            Destroy(this);
+        }
+        OnDayChanged = new UnityEvent();
+    }
+
     void Start()
     {
         hr = 7;
@@ -48,7 +64,7 @@ public class Date : MonoBehaviour
 
     void Update()
     {
-
+        bool dayChanged = false;
         if (timer >= secPer15Min)
         {
             min += 15;
@@ -60,6 +76,7 @@ public class Date : MonoBehaviour
                 {
                     hr = 0;
                     day++;
+                    dayChanged = true;
                     dayOfWeek++;
                     if (day >= maxDay)
                     {
@@ -84,12 +101,13 @@ public class Date : MonoBehaviour
 
             SetTimeDate();
 
-
         }
         else
         {
             timer += Time.deltaTime;
         }
+        
+        if (dayChanged) OnDayChanged.Invoke();
     }
 
     void SetSeason()
@@ -188,5 +206,30 @@ public class Date : MonoBehaviour
 
     }
 
+    public void AddDay() {
+        min = 0;
+        hr = 8;
+        day++;
+        dayOfWeek++;
+        if (day >= maxDay)
+        {
+            day = 1;
+            season++;
+            if (season >= maxSeason)
+            {
+                season = 1;
+                year++;
+            }
+
+            SetSeason();
+
+        }
+        if (dayOfWeek >= maxDayOfWeek)
+        {
+            dayOfWeek = 1;
+        };
+        SetTimeDate();
+        OnDayChanged.Invoke();
+    }
 
 }

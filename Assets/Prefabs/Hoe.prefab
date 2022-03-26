@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 965259136840605559}
   - component: {fileID: 965259136840605558}
   m_Layer: 0
-  m_Name: Water
+  m_Name: Hoe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,10 +72,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -393580949
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a78b236f142b1d7458761f09d7ebf4d8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ea0bfe2665e54de41a6450b484e5cd67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,5 +125,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 0.1
-  itemData: {fileID: 11400000, guid: c9fde650c05480f499586b1e1ae2dae1, type: 2}
+  itemData: {fileID: 11400000, guid: 18f2f5c9f06447c47b0032937eb46414, type: 2}
   boxCollider: {fileID: 965259136840605559}

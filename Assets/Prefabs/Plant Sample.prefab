@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1245433769, guid: c29c4634ff6200344b133f741b10b446, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -130,12 +130,18 @@ MonoBehaviour:
   - crop: {fileID: 0}
     sprite: {fileID: -1245433769, guid: c29c4634ff6200344b133f741b10b446, type: 3}
     timeToNextStage: 3
+    statusNeed: 00000000
   - crop: {fileID: 0}
     sprite: {fileID: -1123986791, guid: c29c4634ff6200344b133f741b10b446, type: 3}
     timeToNextStage: 3
+    statusNeed: 00000000
   - crop: {fileID: 0}
     sprite: {fileID: 1291210777, guid: c29c4634ff6200344b133f741b10b446, type: 3}
     timeToNextStage: 3
-  - crop: {fileID: 0}
+    statusNeed: 00000000
+  - crop: {fileID: 11400000, guid: 1778b7100ea32d2439cce60cf245b842, type: 2}
     sprite: {fileID: -562714936, guid: c29c4634ff6200344b133f741b10b446, type: 3}
     timeToNextStage: 3
+    statusNeed: 00000000
+  currentStatus: 
+  water: {fileID: 11400000, guid: c9fde650c05480f499586b1e1ae2dae1, type: 2}

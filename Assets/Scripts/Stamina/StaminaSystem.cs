@@ -10,7 +10,7 @@ public class StaminaSystem : MonoBehaviour
     public TextMeshProUGUI UI_MAX_STAMINA_TEXT;
     public TextMeshProUGUI UI_CURRENT_STAMINA_TEXT;
 
-    private int maxStamina = 100;
+    [SerializeField] private int maxStamina = 100;
     private int currentStamina;
 
     public static StaminaSystem instance;
@@ -28,7 +28,7 @@ public class StaminaSystem : MonoBehaviour
         UI_CURRENT_STAMINA_TEXT.text = currentStamina.ToString();
     }
 
-    public void UseStamina(int amount)
+    public bool UseStamina(int amount)
     {
         int tmpStamina = currentStamina - amount;
         if (tmpStamina >= 0)
@@ -36,6 +36,7 @@ public class StaminaSystem : MonoBehaviour
             currentStamina = tmpStamina;
             staminaBar.value = currentStamina;
             UI_CURRENT_STAMINA_TEXT.text = currentStamina.ToString();
+            return true;
         }
         else
         {
@@ -43,13 +44,14 @@ public class StaminaSystem : MonoBehaviour
             currentStamina = 0;
             staminaBar.value = currentStamina;
             UI_CURRENT_STAMINA_TEXT.text = currentStamina.ToString();
+            return false;
         }
     }
 
     public void RecoverStamina(int amount)
     {
         int tmpStamina = currentStamina + amount;
-        if (tmpStamina <= 100)
+        if (tmpStamina <= maxStamina)
         {
             currentStamina = tmpStamina;
             staminaBar.value = currentStamina;
@@ -58,10 +60,14 @@ public class StaminaSystem : MonoBehaviour
         else
         {
             print("Full recover stamina");
-            currentStamina = 100;
+            currentStamina = maxStamina;
             staminaBar.value = currentStamina;
             UI_CURRENT_STAMINA_TEXT.text = currentStamina.ToString();
         }
+    }
+
+    public void RecoverFullStamina() {
+        currentStamina = maxStamina;
     }
 
 }

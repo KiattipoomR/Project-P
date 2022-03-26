@@ -1,17 +1,20 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MovementManager : MonoBehaviour, PlayerControls.IPlayerActions
+public class MovementManager : MonoBehaviour, PlayerControls.IPlayerActions, PlayerControls.IMenuActions
 {
     // Components
+    private Transform tf => GetComponent<Transform>();
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
 
 
     // Player attributes
     [SerializeField] private float movementSpeed = 5f;
+    [SerializeField] private int staminaConsumeRate = 1;
     private PlayerControls playerControls;
     private Vector2 playerMovement;
+    private Vector2 bedPosition;
 
     // Animations and states
     private string currentAnimationState;
@@ -31,6 +34,8 @@ public class MovementManager : MonoBehaviour, PlayerControls.IPlayerActions
     {
         playerControls = new PlayerControls();
         playerControls.Player.SetCallbacks(this);
+        playerControls.Menu.SetCallbacks(this);
+        bedPosition = tf.position;
     }
 
     private void OnEnable()
@@ -81,7 +86,7 @@ public class MovementManager : MonoBehaviour, PlayerControls.IPlayerActions
                     newAnimationState = PLAYER_IDLE_LEFT;
                     break;
                 default:
-                    newAnimationState = PLAYER_IDLE_FRONT;
+                    newAnimationState = currentAnimationState;
                     break;
             }
 
@@ -89,9 +94,39 @@ public class MovementManager : MonoBehaviour, PlayerControls.IPlayerActions
         }
     }
 
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.performed) 
+        {
+            FarmManager.instance.InteractWithTile(tf, new Vector3(0, -0.75f, 0));
+        }
+    }
+
+    public void OnToggleDashboard(InputAction.CallbackContext context)
+    {
+        if (context.performed) 
+        {
+            bool paused = GamePause.instance.TogglePause();
+            if (paused) {
+                playerControls.Player.Disable();
+            }
+            else {
+                playerControls.Player.Enable();
+            }
+        }
+    }
+
     void FixedUpdate()
     {
         rb.velocity = playerMovement * movementSpeed;
+        if (rb.velocity != Vector2.zero) {
+            if (!StaminaSystem.instance.UseStamina(staminaConsumeRate)) {
+                rb.velocity = Vector2.zero;
+                tf.position = bedPosition;
+                StaminaSystem.instance.RecoverFullStamina();
+                Date.instance.AddDay();
+            }
+        }
     }
 
     // Change player animation states
