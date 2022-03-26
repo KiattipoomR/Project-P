@@ -112,6 +112,45 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ac0e9585-eac8-4bde-adae-6841351c130a"",
+                    ""path"": ""<Mouse>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Menu"",
+            ""id"": ""5f0e1f77-b1d1-4e85-adc2-d90bf5c38af5"",
+            ""actions"": [
+                {
+                    ""name"": ""Toggle Dashboard"",
+                    ""type"": ""Button"",
+                    ""id"": ""5b9ee72b-468d-4a82-af36-7e9d803dcefd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""b34a9142-652b-4518-92fd-c7f737fd8cc5"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Toggle Dashboard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -122,6 +161,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        // Menu
+        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
+        m_Menu_ToggleDashboard = m_Menu.FindAction("Toggle Dashboard", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -218,9 +260,46 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Menu
+    private readonly InputActionMap m_Menu;
+    private IMenuActions m_MenuActionsCallbackInterface;
+    private readonly InputAction m_Menu_ToggleDashboard;
+    public struct MenuActions
+    {
+        private @PlayerControls m_Wrapper;
+        public MenuActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ToggleDashboard => m_Wrapper.m_Menu_ToggleDashboard;
+        public InputActionMap Get() { return m_Wrapper.m_Menu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
+        public void SetCallbacks(IMenuActions instance)
+        {
+            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
+            {
+                @ToggleDashboard.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnToggleDashboard;
+                @ToggleDashboard.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnToggleDashboard;
+                @ToggleDashboard.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnToggleDashboard;
+            }
+            m_Wrapper.m_MenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @ToggleDashboard.started += instance.OnToggleDashboard;
+                @ToggleDashboard.performed += instance.OnToggleDashboard;
+                @ToggleDashboard.canceled += instance.OnToggleDashboard;
+            }
+        }
+    }
+    public MenuActions @Menu => new MenuActions(this);
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+    }
+    public interface IMenuActions
+    {
+        void OnToggleDashboard(InputAction.CallbackContext context);
     }
 }
