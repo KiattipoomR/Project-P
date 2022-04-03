@@ -9,19 +9,24 @@ public class StaticInventoryDisplay : InventoryDisplay
 
     protected void Start()
     {
-        if (inventoryHolder)
-        {
-            inventoryManager = inventoryHolder.InventoryManager;
-            inventoryManager.OnInventorySlotChanged += UpdateSlot;
-        }
-        else
-            Debug.LogWarning($"No inventory assigned to {this.gameObject}");
+        // if (inventoryHolder)
+        // {
+        //     inventoryManager = inventoryHolder.InventoryManager;
+        //     inventoryManager.OnInventorySlotChanged += UpdateSlot;
+
+        //     if (inventoryHolder is PlayerInventoryHolder)
+        //     {
+        //         (inventoryHolder as PlayerInventoryHolder).OnCurrentHotbarSlotChanged += ChangeFocusSlot;
+        //     }
+        // }
+        // else
+        //     Debug.LogWarning($"No inventory assigned to {this.gameObject}");
 
 
-        inventoryManager = inventoryHolder.InventoryManager;
-        inventoryManager.OnInventorySlotChanged += UpdateSlot;
+        // inventoryManager = inventoryHolder.InventoryManager;
+        // inventoryManager.OnInventorySlotChanged += UpdateSlot;
 
-        AssignSlot(inventoryManager);
+        // AssignSlot(inventoryManager);
 
 
         // ------------------------
@@ -37,6 +42,12 @@ public class StaticInventoryDisplay : InventoryDisplay
         inventoryManager.OnInventorySlotChanged += UpdateSlot;
 
         AssignSlot(inventoryManager);
+
+        if (inventoryHolder is PlayerInventoryHolder)
+        {
+            (inventoryHolder as PlayerInventoryHolder).OnCurrentHotbarSlotChanged += ChangeFocusSlot;
+            slots[0].Focus();
+        }
     }
 
     public override void AssignSlot(InventoryManager inventoryToDisplay)
@@ -51,5 +62,11 @@ public class StaticInventoryDisplay : InventoryDisplay
             slotDictionary.Add(slots[i], inventoryManager.InventorySlots[i]);
             slots[i].Init(inventoryManager.InventorySlots[i]);
         }
+    }
+
+    private void ChangeFocusSlot(int previousSlot, int currentSlot)
+    {
+        slots[previousSlot].Defocus();
+        slots[currentSlot].Focus();
     }
 }

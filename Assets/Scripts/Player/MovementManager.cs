@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class MovementManager : MonoBehaviour, PlayerControls.IPlayerActions, PlayerControls.IMenuActions
@@ -7,6 +8,7 @@ public class MovementManager : MonoBehaviour, PlayerControls.IPlayerActions, Pla
     private Transform tf => GetComponent<Transform>();
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
+    public UnityAction<int> OnCurrentHotbarChanged;
 
 
     // Player attributes
@@ -96,7 +98,7 @@ public class MovementManager : MonoBehaviour, PlayerControls.IPlayerActions, Pla
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.performed) 
+        if (context.performed)
         {
             FarmManager.instance.InteractWithTile(tf, new Vector3(0, -0.75f, 0));
         }
@@ -104,13 +106,15 @@ public class MovementManager : MonoBehaviour, PlayerControls.IPlayerActions, Pla
 
     public void OnToggleDashboard(InputAction.CallbackContext context)
     {
-        if (context.performed) 
+        if (context.performed)
         {
             bool paused = GamePause.instance.TogglePause();
-            if (paused) {
+            if (paused)
+            {
                 playerControls.Player.Disable();
             }
-            else {
+            else
+            {
                 playerControls.Player.Enable();
             }
         }
@@ -119,8 +123,10 @@ public class MovementManager : MonoBehaviour, PlayerControls.IPlayerActions, Pla
     void FixedUpdate()
     {
         rb.velocity = playerMovement * movementSpeed;
-        if (rb.velocity != Vector2.zero) {
-            if (!StaminaSystem.instance.UseStamina(staminaConsumeRate)) {
+        if (rb.velocity != Vector2.zero)
+        {
+            if (!StaminaSystem.instance.UseStamina(staminaConsumeRate))
+            {
                 rb.velocity = Vector2.zero;
                 tf.position = bedPosition;
                 StaminaSystem.instance.RecoverFullStamina();
@@ -141,4 +147,14 @@ public class MovementManager : MonoBehaviour, PlayerControls.IPlayerActions, Pla
         // Update current state
         currentAnimationState = newAnimationState;
     }
+
+    public void OnInventory(InputAction.CallbackContext context)
+    {
+        int val = ((int)(context.ReadValue<float>()));
+        if (val > 0)
+        {
+            OnCurrentHotbarChanged?.Invoke(val - 1);
+        };
+    }
+
 }

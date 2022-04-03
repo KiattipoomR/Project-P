@@ -8,7 +8,7 @@ public class InventoryHolder : MonoBehaviour
 
     public InventoryManager InventoryManager => inventoryManager;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         inventoryManager = new InventoryManager(inventorySize);
     }

@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSprite: {fileID: 8052661691640840956}
+  itemBorder: {fileID: 8052661691674704027}
   itemCount: {fileID: 8052661691936386681}
   assignedItemSlot:
     itemData: {fileID: 0}

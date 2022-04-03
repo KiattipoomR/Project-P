@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class InventorySlotUI : MonoBehaviour
 {
     [SerializeField] private Image itemSprite;
+    [SerializeField] private Image itemBorder;
     [SerializeField] private TextMeshProUGUI itemCount;
     [SerializeField] private InventorySlot assignedItemSlot;
     [SerializeField] private Button button;
@@ -55,5 +56,14 @@ public class InventorySlotUI : MonoBehaviour
     public void OnUISlotClick()
     {
         if (ParentDisplay) ParentDisplay.SlotClicked(this);
+    }
+
+    public void Focus()
+    {
+        itemBorder.color = new Color(0.31f, 0.27f, 0.27f, 0.82f);
+    }
+    public void Defocus()
+    {
+        itemBorder.color = new Color(0.31f, 0.27f, 0.27f, 0.39f);
     }
 }
