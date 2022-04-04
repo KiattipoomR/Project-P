@@ -41,9 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Instances
-    uniqueID: 3660996787
-    locked: 0
   - name: Ground - 1
     uniqueID: 1452326755
     locked: 0
@@ -58,6 +55,9 @@ TagManager:
     locked: 0
   - name: Ground Decorations - 2
     uniqueID: 4070107585
+    locked: 0
+  - name: Instances
+    uniqueID: 3660996787
     locked: 0
   - name: Front - 1
     uniqueID: 2643058539
