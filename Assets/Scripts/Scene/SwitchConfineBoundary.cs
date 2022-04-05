@@ -1,4 +1,5 @@
 using Cinemachine;
+using Manager;
 using UnityEngine;
 
 namespace Scene
@@ -7,9 +8,14 @@ namespace Scene
     {
         private const string BoundaryConfinerTag = "BoundaryConfiner";
 
-        private void Start()
+        private void OnEnable()
         {
-            SwitchBoundary();
+            SceneControllerManager.Instance.OnSceneLoaded += SwitchBoundary;
+        }
+
+        private void OnDisable()
+        {
+            SceneControllerManager.Instance.OnSceneLoaded -= SwitchBoundary;
         }
 
         private void SwitchBoundary()
