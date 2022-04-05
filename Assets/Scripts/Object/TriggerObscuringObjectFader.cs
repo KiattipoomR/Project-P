@@ -1,26 +1,29 @@
 using UnityEngine;
 
-public class TriggerObscuringObjectFader : MonoBehaviour
+namespace Object
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    public class TriggerObscuringObjectFader : MonoBehaviour
     {
-        ObscuringObjectFader[] obscuringObjects = other.gameObject.GetComponentsInChildren<ObscuringObjectFader>();
-        if (obscuringObjects.Length < 1) return;
-
-        foreach (ObscuringObjectFader obscuringObject in obscuringObjects)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            obscuringObject.FadeOut();
+            ObscuringObjectFader[] obscuringObjects = other.gameObject.GetComponentsInChildren<ObscuringObjectFader>();
+            if (obscuringObjects.Length < 1) return;
+
+            foreach (ObscuringObjectFader obscuringObject in obscuringObjects)
+            {
+                obscuringObject.FadeOut();
+            }
         }
-    }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        ObscuringObjectFader[] obscuringObjects = other.gameObject.GetComponentsInChildren<ObscuringObjectFader>();
-        if (obscuringObjects.Length < 1) return;
-
-        foreach (ObscuringObjectFader obscuringObject in obscuringObjects)
+        private void OnTriggerExit2D(Collider2D other)
         {
-            obscuringObject.FadeIn();
+            ObscuringObjectFader[] obscuringObjects = other.gameObject.GetComponentsInChildren<ObscuringObjectFader>();
+            if (obscuringObjects.Length < 1) return;
+
+            foreach (ObscuringObjectFader obscuringObject in obscuringObjects)
+            {
+                obscuringObject.FadeIn();
+            }
         }
     }
 }

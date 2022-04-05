@@ -1,20 +1,25 @@
-using UnityEngine;
 using Cinemachine;
+using UnityEngine;
 
-public class SwitchConfineBoundary : MonoBehaviour
+namespace Scene
 {
-    void Start()
+    public class SwitchConfineBoundary : MonoBehaviour
     {
-        SwitchBoundary();
-    }
+        private const string BoundaryConfinerTag = "BoundaryConfiner";
 
-    private void SwitchBoundary()
-    {
-        PolygonCollider2D bounds = GameObject.FindGameObjectWithTag("BoundaryConfiner").GetComponent<PolygonCollider2D>();
+        private void Start()
+        {
+            SwitchBoundary();
+        }
 
-        CinemachineConfiner confiner = GetComponent<CinemachineConfiner>();
-        confiner.m_BoundingShape2D = bounds;
+        private void SwitchBoundary()
+        {
+            PolygonCollider2D bounds = GameObject.FindGameObjectWithTag(BoundaryConfinerTag).GetComponent<PolygonCollider2D>();
 
-        confiner.InvalidatePathCache();
+            CinemachineConfiner confiner = GetComponent<CinemachineConfiner>();
+            confiner.m_BoundingShape2D = bounds;
+
+            confiner.InvalidatePathCache();
+        }
     }
 }

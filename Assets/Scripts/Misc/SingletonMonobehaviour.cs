@@ -1,15 +1,18 @@
 using UnityEngine;
 
-public abstract class SingletonMonobehaviour<T> : MonoBehaviour where T : MonoBehaviour
+namespace Misc
 {
-    private static T _instance;
-
-    public static T Instance => _instance;
-
-    protected virtual void Awake()
+    public abstract class SingletonMonobehaviour<T> : MonoBehaviour where T : MonoBehaviour
     {
-        if (Instance != null) Destroy(gameObject);
+        private static T _instance;
 
-        _instance = this as T;
+        public static T Instance => _instance;
+
+        protected virtual void Awake()
+        {
+            if (Instance != null) Destroy(gameObject);
+
+            _instance = this as T;
+        }
     }
 }
