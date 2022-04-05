@@ -236,7 +236,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53421682}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17, y: 14.1449995, z: -9.982379}
+  m_LocalPosition: {x: 9, y: 14.1449995, z: -9.982379}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -609,7 +609,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.785872, y: 1}
+    m_SensorSize: {x: 1.7880795, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -626,7 +626,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511919524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17, y: 14.1449995, z: -9.982379}
+  m_LocalPosition: {x: 9, y: 14.1449995, z: -9.982379}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -967,10 +967,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2032295000}
   - component: {fileID: 2032295001}
-  - component: {fileID: 2032295002}
-  - component: {fileID: 2032295003}
-  - component: {fileID: 2032295004}
   - component: {fileID: 2032295005}
+  - component: {fileID: 2032295002}
+  - component: {fileID: 2032295004}
+  - component: {fileID: 2032295003}
+  - component: {fileID: 2032295006}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -986,7 +987,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2032294999}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17, y: 14.549999, z: 0.017621316}
+  m_LocalPosition: {x: 9, y: 14.549999, z: 0.017621316}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1029,7 +1030,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -633970509
   m_SortingLayer: 6
-  m_SortingOrder: 10
+  m_SortingOrder: 0
 --- !u!114 &2032295003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1100,3 +1101,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.2}
   m_EdgeRadius: 0
+--- !u!114 &2032295006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032294999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfcd1c6f6e0c467d83af001d5c98d090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
