@@ -63,7 +63,6 @@ namespace Manager
 
         private void TimeAdvance()
         {
-            Debug.Log(_currentTime);
             _currentTime.AdvanceMinute(tickMinutesIncrease);
             OnDateTimeChanged?.Invoke(_currentTime);
         }
