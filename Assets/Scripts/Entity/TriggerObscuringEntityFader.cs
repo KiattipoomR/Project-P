@@ -6,7 +6,7 @@ namespace Entity
     {
         private void OnTriggerEnter2D(Collider2D other)
         {
-            ObscuringEntityFader[] obscuringEntities = other.gameObject.GetComponentsInChildren<ObscuringEntityFader>();
+            ObscuringEntityFader[] obscuringEntities = other.gameObject.GetComponents<ObscuringEntityFader>();
             if (obscuringEntities.Length < 1) return;
 
             foreach (ObscuringEntityFader obscuringEntity in obscuringEntities)
@@ -17,7 +17,7 @@ namespace Entity
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            ObscuringEntityFader[] obscuringEntities = other.gameObject.GetComponentsInChildren<ObscuringEntityFader>();
+            ObscuringEntityFader[] obscuringEntities = other.gameObject.GetComponents<ObscuringEntityFader>();
             if (obscuringEntities.Length < 1) return;
 
             foreach (ObscuringEntityFader obscuringEntity in obscuringEntities)
