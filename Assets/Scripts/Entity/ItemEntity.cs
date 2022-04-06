@@ -15,7 +15,7 @@ namespace Entity
             _renderer = GetComponentInChildren<SpriteRenderer>();
 
             if (!item) return;
-            _renderer.sprite = item.itemIcon;
+            _renderer.sprite = item.ItemIcon;
         }
     }
 }

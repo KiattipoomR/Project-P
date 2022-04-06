@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a88536b27aa4babbd56ea7042a7adaa, type: 3}
   m_Name: Item_Pumpkin
   m_EditorClassIdentifier: 
-  itemID: 1111
-  itemName: Item_Pumpkin
+  itemID: Item_Pumpkin
+  itemName: Pumpkin
   itemDescription: Just a pumpkin. Totally not "Pumpkip".
   itemIcon: {fileID: 21300000, guid: 709947d08509b408db26e4136a0232ee, type: 3}
+  maxStack: 99
+  buyPrice: 0
+  sellPrice: 10
