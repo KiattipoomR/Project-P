@@ -6,7 +6,7 @@ namespace Manager
 {
     public class PauseManager : SingletonMonobehaviour<PauseManager>
     {
-        public UnityAction<bool> OnPauseTriggered;
+        public static UnityAction<bool> OnPauseTriggered;
 
         private bool _isPaused = false;
 

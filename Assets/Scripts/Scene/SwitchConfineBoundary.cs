@@ -10,12 +10,12 @@ namespace Scene
 
         private void OnEnable()
         {
-            SceneControllerManager.Instance.OnSceneLoaded += SwitchBoundary;
+            SceneControllerManager.OnSceneLoaded += SwitchBoundary;
         }
 
         private void OnDisable()
         {
-            SceneControllerManager.Instance.OnSceneLoaded -= SwitchBoundary;
+            SceneControllerManager.OnSceneLoaded -= SwitchBoundary;
         }
 
         private void SwitchBoundary()

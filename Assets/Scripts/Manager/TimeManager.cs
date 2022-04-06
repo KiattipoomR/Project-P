@@ -23,7 +23,7 @@ namespace Manager
         [SerializeField] private int tickMinutesIncrease = 10;
         [SerializeField] private float timeBetweenTicks = 1f;
 
-        public UnityAction<DateTime> OnDateTimeChanged;
+        public static UnityAction<DateTime> OnDateTimeChanged;
 
         private float _currentTimeBetweenTicks;
         private bool _isPaused;
@@ -42,12 +42,16 @@ namespace Manager
 
         private void OnEnable()
         {
-            PauseManager.Instance.OnPauseTriggered += ControlTime;
+            PauseManager.OnPauseTriggered += ControlTime;
+            SceneControllerManager.OnSceneFadedOut += PauseTime;
+            SceneControllerManager.OnSceneFadedIn += UnpauseTime;
         }
 
         private void OnDisable()
         {
-            PauseManager.Instance.OnPauseTriggered -= ControlTime;
+            PauseManager.OnPauseTriggered -= ControlTime;
+            SceneControllerManager.OnSceneFadedOut -= PauseTime;
+            SceneControllerManager.OnSceneFadedIn -= UnpauseTime;
         }
 
         private void Update()
@@ -56,7 +60,7 @@ namespace Manager
 
             _currentTimeBetweenTicks += Time.deltaTime;
             if (_currentTimeBetweenTicks < timeBetweenTicks) return;
-            
+
             _currentTimeBetweenTicks = 0;
             TimeAdvance();
         }
@@ -70,6 +74,16 @@ namespace Manager
         private void ControlTime(bool isPaused)
         {
             _isPaused = isPaused;
+        }
+
+        private void PauseTime()
+        {
+            ControlTime(true);
+        }
+
+        private void UnpauseTime()
+        {
+            ControlTime(false);
         }
     }
 }

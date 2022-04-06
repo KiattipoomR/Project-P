@@ -25,12 +25,12 @@ namespace Player
 
         private void OnEnable()
         {
-            PauseManager.Instance.OnPauseTriggered += ControlPlayerInput;
+            PauseManager.OnPauseTriggered += ControlPlayerInput;
         }
 
         private void OnDisable()
         {
-            PauseManager.Instance.OnPauseTriggered -= ControlPlayerInput;
+            PauseManager.OnPauseTriggered -= ControlPlayerInput;
         }
 
         private void FixedUpdate()

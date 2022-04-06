@@ -1909,7 +1909,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MON
+  m_text: Mon
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2186,6 +2186,7 @@ GameObject:
   - component: {fileID: 1948806120}
   - component: {fileID: 1948806122}
   - component: {fileID: 1948806121}
+  - component: {fileID: 1948806123}
   m_Layer: 0
   m_Name: Date Time Panel
   m_TagString: Untagged
@@ -2256,6 +2257,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1948806119}
   m_CullTransparentMesh: 1
+--- !u!114 &1948806123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948806119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23ffa1e805b944f985b8e5b6a2844531, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clockFace: {fileID: 87500228}
+  seasonIcon: {fileID: 848583969}
+  day: {fileID: 1755344407}
+  date: {fileID: 742414886}
+  time: {fileID: 1384019412}
+  seasonIcons:
+  - {fileID: 21300000, guid: 8b9910d91179b4a099ab476320fa5ae7, type: 3}
+  - {fileID: 21300000, guid: 9a3bd1653028b428e882fa7ea297e736, type: 3}
+  - {fileID: 21300000, guid: a94f97806ef1a4a20ad529791fc938a5, type: 3}
+  - {fileID: 21300000, guid: cf64f70ccd4ea4cb3948f885a2e21562, type: 3}
 --- !u!1 &2032294999
 GameObject:
   m_ObjectHideFlags: 0
@@ -2495,7 +2518,7 @@ MonoBehaviour:
   year: 1
   season: 1
   date: 1
-  hour: 7
+  hour: 6
   minute: 0
   tickMinutesIncrease: 10
   timeBetweenTicks: 1

@@ -18,10 +18,10 @@ namespace Manager
         [SerializeField] private string startingSceneName;
 
 
-        public UnityAction OnSceneFadedOut;
-        public UnityAction OnSceneUnloaded;
-        public UnityAction OnSceneLoaded;
-        public UnityAction OnSceneFadedIn;
+        public static UnityAction OnSceneFadedOut;
+        public static UnityAction OnSceneUnloaded;
+        public static UnityAction OnSceneLoaded;
+        public static UnityAction OnSceneFadedIn;
         
         private bool _isFading;
 

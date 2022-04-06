@@ -41,10 +41,10 @@ namespace GameTime
             _minute = (_minute + deltaMinutes) % 60;
             if (_minute == 0) AdvanceHour();
 
-            if (!(_hour == 2 && _minute == 10)) return;
+            if (!(_hour == 1 && _minute == 10)) return;
 
             AdvanceDay();
-            _hour = 7;
+            _hour = 6;
             _minute = 0;
         }
 
