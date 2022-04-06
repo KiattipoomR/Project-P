@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Misc
 {
-    public abstract class SingletonMonobehaviour<T> : MonoBehaviour where T : MonoBehaviour
+    public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         private static T _instance;
 

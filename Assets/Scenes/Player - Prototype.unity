@@ -1654,7 +1654,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7784679, y: 1}
+    m_SensorSize: {x: 1.7780374, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1717,8 +1717,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1513992596}
+  - component: {fileID: 1513992597}
   m_Layer: 0
-  m_Name: Managers
+  m_Name: Game Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1743,6 +1744,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1513992597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513992595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a78e9a5b8af2475da62d8be5b04025d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataManager: {fileID: 879653618}
+  pauseManager: {fileID: 525376579}
+  sceneControllerManager: {fileID: 1710044611}
+  timeManager: {fileID: 2128085434}
 --- !u!1 &1710044609
 GameObject:
   m_ObjectHideFlags: 0

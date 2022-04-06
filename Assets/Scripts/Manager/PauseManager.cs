@@ -1,10 +1,9 @@
-using Misc;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Manager
 {
-    public class PauseManager : SingletonMonobehaviour<PauseManager>
+    public class PauseManager : MonoBehaviour
     {
         public static UnityAction<bool> OnPauseTriggered;
 

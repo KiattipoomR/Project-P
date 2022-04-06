@@ -1,5 +1,4 @@
 using System.Collections;
-using Misc;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -7,22 +6,21 @@ using UnityEngine.UI;
 
 namespace Manager
 {
-    public class SceneControllerManager : SingletonMonobehaviour<SceneControllerManager>
+    public class SceneControllerManager : MonoBehaviour
     {
         [Header("Components")]
         [SerializeField] private CanvasGroup faderCanvasGroup;
         [SerializeField] private Image fadeImage;
-        
+
         [Header("Attributes")]
         [SerializeField] private float fadeDuration = 1f;
         [SerializeField] private string startingSceneName;
-
 
         public static UnityAction OnSceneFadedOut;
         public static UnityAction OnSceneUnloaded;
         public static UnityAction OnSceneLoaded;
         public static UnityAction OnSceneFadedIn;
-        
+
         private bool _isFading;
 
         private IEnumerator Start()
@@ -32,7 +30,7 @@ namespace Manager
 
             yield return StartCoroutine(LoadSceneAndSetActive(startingSceneName));
             OnSceneLoaded?.Invoke();
-            
+
             StartCoroutine(FadeScreen(0f));
         }
 
@@ -55,14 +53,14 @@ namespace Manager
 
             yield return StartCoroutine(LoadSceneAndSetActive(sceneName));
             OnSceneLoaded?.Invoke();
-            
+
             yield return StartCoroutine(FadeScreen(0f));
             OnSceneFadedIn?.Invoke();
         }
 
         private IEnumerator FadeScreen(float finalAlpha)
         {
-            
+
             _isFading = true;
             faderCanvasGroup.blocksRaycasts = true;
 
@@ -71,7 +69,7 @@ namespace Manager
             {
                 faderCanvasGroup.alpha =
                     Mathf.MoveTowards(faderCanvasGroup.alpha, finalAlpha, fadeSpeed * Time.deltaTime);
-            
+
                 yield return null;
             }
 

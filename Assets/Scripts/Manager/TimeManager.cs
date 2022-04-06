@@ -1,11 +1,10 @@
 using DateTime = GameTime.DateTime;
-using Misc;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Manager
 {
-    public class TimeManager : SingletonMonobehaviour<TimeManager>
+    public class TimeManager : MonoBehaviour
     {
         [Header("Date & Time Settings")]
         [Range(1, 99)]
@@ -29,9 +28,8 @@ namespace Manager
         private bool _isPaused;
         private DateTime _currentTime;
 
-        protected override void Awake()
+        private void Awake()
         {
-            base.Awake();
             _currentTime = new DateTime(year, season, date, hour, minute * 10);
         }
 

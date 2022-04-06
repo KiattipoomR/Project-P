@@ -1,4 +1,3 @@
-using System;
 using Manager;
 using Misc;
 using UnityEngine;
@@ -6,7 +5,7 @@ using UnityEngine.InputSystem;
 
 namespace Player
 {
-    public class Player : SingletonMonobehaviour<Player>
+    public class Player : Singleton<Player>
     {
         [Header("Components")]
         [SerializeField] private Rigidbody2D rb;
@@ -42,10 +41,10 @@ namespace Player
         {
             if (Keyboard.current.oKey.wasPressedThisFrame)
             {
-                SceneControllerManager.Instance.ChangeScene("Farm - Prototype", transform.position);
+                GameManager.Instance.sceneControllerManager.ChangeScene("Farm - Prototype", transform.position);
             }
         }
-        
+
         private void OnMovement(InputValue ctx)
         {
             _playerMovement = ctx.Get<Vector2>();
@@ -53,7 +52,7 @@ namespace Player
 
         private void ControlPlayerInput(bool isPaused)
         {
-            if(isPaused) _playerInput.Disable();
+            if (isPaused) _playerInput.Disable();
             else _playerInput.Enable();
         }
     }

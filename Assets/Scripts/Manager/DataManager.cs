@@ -1,17 +1,15 @@
 using System.Collections.Generic;
 using Item;
-using Misc;
 using UnityEngine;
 
 namespace Manager
 {
-    public class DataManager : SingletonMonobehaviour<DataManager>
+    public class DataManager : MonoBehaviour
     {
         private readonly Dictionary<string, ItemData> _itemDataDictionary = new();
 
-        protected override void Awake()
+        private void Awake()
         {
-            base.Awake();
             ItemData[] itemData = Resources.LoadAll<ItemData>("ScriptableObjects");
 
             foreach (ItemData item in itemData)

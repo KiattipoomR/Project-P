@@ -21,8 +21,8 @@ namespace Scene
             float yPos = Mathf.Approximately(destinationSpawnPoint.y, 0f)
                 ? player.transform.position.y
                 : destinationSpawnPoint.y;
-            
-            SceneControllerManager.Instance.ChangeScene(destinationSceneName, new Vector3(xPos, yPos, 0f));
+
+            GameManager.Instance.sceneControllerManager.ChangeScene(destinationSceneName, new Vector3(xPos, yPos, 0f));
         }
     }
 }
