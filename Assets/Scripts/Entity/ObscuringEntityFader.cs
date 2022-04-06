@@ -1,10 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Object
+namespace Entity
 {
     [RequireComponent(typeof(SpriteRenderer))]
-    public class ObscuringObjectFader : MonoBehaviour
+    public class ObscuringEntityFader : MonoBehaviour
     {
         private SpriteRenderer _renderer;
 
@@ -34,7 +34,7 @@ namespace Object
 
             while (1f - currentAlpha > 0.01f)
             {
-                currentAlpha += distance / FadeOutSeconds * Time.deltaTime;
+                currentAlpha += distance / FadeInSeconds * Time.deltaTime;
                 _renderer.color = new Color(1f, 1f, 1f, currentAlpha);
                 yield return null;
             }
