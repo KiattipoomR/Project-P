@@ -1,9 +1,8 @@
-using System;
 using UnityEngine;
 
-namespace Item
+namespace Entity
 {
-    public class Item : MonoBehaviour
+    public class ItemEntity : MonoBehaviour
     {
         private SpriteRenderer _renderer;
         private void Awake()

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1184176634861935521}
   - component: {fileID: 1184176634861935527}
-  - component: {fileID: 1184176634861935520}
+  - component: {fileID: 6180851704274890539}
   m_Layer: 0
   m_Name: Pumpkin
   m_TagString: Untagged
@@ -60,7 +60,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1184176634861935520
+--- !u!114 &6180851704274890539
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

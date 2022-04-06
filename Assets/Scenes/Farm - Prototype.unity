@@ -178,7 +178,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pumpkin
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2532144725791494683, guid: 7d1e145c5c3b6434c8114f78bfdc10ca, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7d1e145c5c3b6434c8114f78bfdc10ca, type: 3}
 --- !u!4 &74942351 stripped
 Transform:
