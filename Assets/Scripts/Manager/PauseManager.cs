@@ -18,12 +18,12 @@ namespace Manager
 
         private void OnEnable()
         {
-            ControlPlayerInput(false);
+            SetInactiveControlPlayerInput(false);
         }
 
         private void OnDisable()
         {
-            ControlPlayerInput(true);
+            SetInactiveControlPlayerInput(true);
         }
 
         private void OnPause()
@@ -35,9 +35,9 @@ namespace Manager
             OnPauseTriggered?.Invoke(_isPaused);
         }
 
-        private void ControlPlayerInput(bool isPaused)
+        private void SetInactiveControlPlayerInput(bool isInactive)
         {
-            if (isPaused) _playerInput.Disable();
+            if (isInactive) _playerInput.Disable();
             else _playerInput.Enable();
         }
     }

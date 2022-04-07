@@ -1,3 +1,4 @@
+using System;
 using Manager;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,10 +11,12 @@ namespace UI.Inventory
         [SerializeField] private InventoryBarSlotUI[] barSlots;
 
         private RectTransform _rectTransform;
+        private RectTransform[] _hideableObjects;
 
         private void Awake()
         {
             _rectTransform = GetComponent<RectTransform>();
+            _hideableObjects = Array.FindAll(GetComponentsInChildren<RectTransform>(), hideableObject => hideableObject != _rectTransform);
         }
 
         private void Update()
@@ -37,19 +40,19 @@ namespace UI.Inventory
 
         private void OnEnable()
         {
-            PauseManager.OnPauseTriggered += SetActiveInventoryBar;
+            PauseManager.OnPauseTriggered += SetInactiveInventoryBar;
         }
 
         private void OnDisable()
         {
-            PauseManager.OnPauseTriggered -= SetActiveInventoryBar;
+            PauseManager.OnPauseTriggered -= SetInactiveInventoryBar;
         }
 
-        private void SetActiveInventoryBar(bool isPaused)
+        private void SetInactiveInventoryBar(bool isInactive)
         {
-            foreach (InventoryBarSlotUI barSlot in barSlots)
+            foreach (RectTransform hideableObject in _hideableObjects)
             {
-                barSlot.gameObject.SetActive(!isPaused);
+                hideableObject.gameObject.SetActive(!isInactive);
             }
         }
     }

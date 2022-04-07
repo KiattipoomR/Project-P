@@ -24,14 +24,14 @@ namespace Player
 
         private void OnEnable()
         {
-            ControlPlayerInput(false);
-            PauseManager.OnPauseTriggered += ControlPlayerInput;
+            SetInactiveControlPlayerInput(false);
+            PauseManager.OnPauseTriggered += SetInactiveControlPlayerInput;
         }
 
         private void OnDisable()
         {
-            ControlPlayerInput(true);
-            PauseManager.OnPauseTriggered -= ControlPlayerInput;
+            SetInactiveControlPlayerInput(true);
+            PauseManager.OnPauseTriggered -= SetInactiveControlPlayerInput;
         }
 
         private void FixedUpdate()
@@ -44,9 +44,9 @@ namespace Player
             _playerMovement = ctx.Get<Vector2>();
         }
 
-        private void ControlPlayerInput(bool isPaused)
+        private void SetInactiveControlPlayerInput(bool isInactive)
         {
-            if (isPaused) _playerInput.Disable();
+            if (isInactive) _playerInput.Disable();
             else _playerInput.Enable();
         }
     }

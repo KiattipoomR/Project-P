@@ -9,8 +9,7 @@ namespace Item
         [Header("Tool Attributes")]
         [SerializeField] private ToolType toolType;
         [SerializeField] private int staminaCost;
-        
-        
+
         public override int MaxStack => 1;
         public override int BuyPrice => 0;
         public override int SellPrice => 0;
