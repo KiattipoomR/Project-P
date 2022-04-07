@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using DateTime = GameTime.DateTime;
 
-namespace UI
+namespace UI.Time
 {
     public class DateTimeUI : MonoBehaviour
     {
