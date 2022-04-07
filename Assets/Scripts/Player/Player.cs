@@ -39,14 +39,6 @@ namespace Player
             rb.velocity = _playerMovement * movementSpeed;
         }
 
-        private void Update()
-        {
-            if (Keyboard.current.oKey.wasPressedThisFrame)
-            {
-                GameManager.Instance.sceneControllerManager.ChangeScene("Farm - Prototype", transform.position);
-            }
-        }
-
         private void OnMovement(InputValue ctx)
         {
             _playerMovement = ctx.Get<Vector2>();
