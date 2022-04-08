@@ -44,8 +44,6 @@ namespace GameTime
             if (!(_hour == 1 && _minute == 10)) return;
 
             AdvanceDay();
-            _hour = 6;
-            _minute = 0;
         }
 
         private void AdvanceHour()
@@ -58,6 +56,9 @@ namespace GameTime
             _day = (Day)(((int)_day + 1) % 7);
             _date = (_date + 1) % 29;
             _totalDaysPassed++;
+
+            _hour = 6;
+            _minute = 0;
 
             if (_date != 0) return;
 
