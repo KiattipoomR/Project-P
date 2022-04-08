@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Inventory;
 using Manager;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,6 +11,9 @@ namespace UI.Inventory
     {
         [Header("Components")]
         [SerializeField] private InventoryBarSlotUI[] barSlots;
+        [SerializeField] private InventoryHolder inventoryHolder;
+            
+        private Dictionary<InventoryBarSlotUI, ItemStack> _slotDictionary;
 
         private RectTransform _rectTransform;
         private RectTransform[] _hideableObjects;
@@ -17,6 +22,20 @@ namespace UI.Inventory
         {
             _rectTransform = GetComponent<RectTransform>();
             _hideableObjects = Array.FindAll(GetComponentsInChildren<RectTransform>(), hideableObject => hideableObject != _rectTransform);
+        }
+
+        private void Start()
+        {
+            if (!inventoryHolder)
+            {
+                Debug.LogWarning($"No inventory assigned to {this.gameObject}");
+                return;   
+            }
+            
+            InventoryManager inventoryManager = inventoryHolder.Inventory;
+            inventoryManager.OnInventorySlotUpdated += UpdateSlot;
+            
+            AssignSlot(inventoryManager);
         }
 
         private void Update()
@@ -53,6 +72,31 @@ namespace UI.Inventory
             foreach (RectTransform hideableObject in _hideableObjects)
             {
                 hideableObject.gameObject.SetActive(!isInactive);
+            }
+        }
+        
+        private void AssignSlot(InventoryManager inventoryToDisplay)
+        {
+            _slotDictionary = new Dictionary<InventoryBarSlotUI, ItemStack>();
+
+            if(barSlots.Length != inventoryHolder.Inventory.InventorySize)
+                Debug.Log($"Inventory slots out of sync on {gameObject}");
+            
+            for (var i = 0; i < inventoryHolder.Inventory.InventorySize; i++)
+            {
+                _slotDictionary.Add(barSlots[i], inventoryHolder.Inventory.Slots[i]);
+                barSlots[i].Init(inventoryHolder.Inventory.Slots[i]);
+            }
+        }
+        
+        private void UpdateSlot(ItemStack updatedSlot)
+        {
+            foreach (var (key, value) in _slotDictionary)
+            {
+                if (value == updatedSlot)
+                {
+                    key.UpdateUISlot(updatedSlot);
+                }
             }
         }
     }
