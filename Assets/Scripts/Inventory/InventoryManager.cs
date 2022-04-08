@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Item;
@@ -29,11 +30,14 @@ namespace Inventory
         {
             if (ContainsItem(item, out var availableSlots))
             {
-                ItemStack slot = availableSlots.First(invSlot => invSlot.EnoughRoomLeftInStack(amount));
-                slot.AddToStack(amount);
+                ItemStack slot = availableSlots.FirstOrDefault(invSlot => invSlot.EnoughRoomLeftInStack(amount));
+                if (slot != null)
+                {
+                    slot.AddToStack(amount);
 
-                OnInventorySlotUpdated?.Invoke(slot);
-                return true;
+                    OnInventorySlotUpdated?.Invoke(slot);
+                    return true;
+                }
             }
 
             if (!HasFreeSlot(out var freeSlot)) return false;
