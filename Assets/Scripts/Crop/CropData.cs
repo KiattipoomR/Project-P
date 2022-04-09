@@ -9,7 +9,7 @@ namespace Crop
     public class CropData : ScriptableObject
     {
         [SerializeField] private string id;
-        
+
         [SerializeField] private List<CropStage> stages;
         [SerializeField] private ItemData harvestedItem;
 

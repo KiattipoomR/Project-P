@@ -1,4 +1,3 @@
-using System;
 using Crop;
 using Manager;
 using UnityEngine;
@@ -20,13 +19,13 @@ namespace Entity
 
         public void Init(CropData crop)
         {
-            if(!crop || crop.Stages.Count < 1) Destroy(gameObject);
+            if (!crop || crop.Stages.Count < 1) Destroy(gameObject);
             cropData = crop;
-            
+
             _currentCropStage = 0;
             _growthDays = 0;
             SetCropStageSprite();
-            
+
             TimeManager.OnDayChanged += Grow;
         }
 
@@ -36,10 +35,10 @@ namespace Entity
 
             _growthDays++;
             if (_growthDays < cropData.Stages[_currentCropStage].GrowthDays) return;
-            
+
             _growthDays = 0;
             _currentCropStage++;
-            
+
             SetCropStageSprite();
         }
 

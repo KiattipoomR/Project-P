@@ -34,7 +34,7 @@ namespace Item
             return SellPrice > 0;
         }
     }
-    
+
     [System.Serializable]
     public enum ItemType
     {

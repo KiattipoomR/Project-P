@@ -23,7 +23,7 @@ namespace UI.Inventory
         {
             _rectTransform = GetComponent<RectTransform>();
             _hideableObjects = Array.FindAll(GetComponentsInChildren<RectTransform>(), hideableObject => hideableObject != _rectTransform);
-            
+
             if (!playerInventoryHolder)
             {
                 Debug.LogWarning($"No inventory assigned to {this.gameObject}");

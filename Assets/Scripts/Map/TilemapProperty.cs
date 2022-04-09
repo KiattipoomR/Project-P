@@ -19,7 +19,7 @@ namespace Map
             if (Application.IsPlaying(gameObject)) return;
 
             _tilemap = GetComponent<Tilemap>();
-            if(tilePropertyLayer != null) tilePropertyLayer.tileProperty.Clear();
+            if (tilePropertyLayer != null) tilePropertyLayer.tileProperty.Clear();
         }
 
         private void OnDisable()
@@ -27,8 +27,8 @@ namespace Map
             if (Application.IsPlaying(gameObject)) return;
 
             UpdateProperties();
-            
-            if(tilePropertyLayer != null) EditorUtility.SetDirty(tilePropertyLayer);
+
+            if (tilePropertyLayer != null) EditorUtility.SetDirty(tilePropertyLayer);
         }
 
         private void UpdateProperties()
@@ -47,7 +47,7 @@ namespace Map
                 {
                     TileBase tile = _tilemap.GetTile(new Vector3Int(x, y, 0));
                     if (tile == null) continue;
-                    
+
                     tilePropertyLayer.tileProperty.Add(new TileProperty(new TileCoordinate(x, y), tilePropertyType, true));
                 }
             }

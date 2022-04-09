@@ -1,4 +1,3 @@
-using System;
 using Inventory;
 using Item;
 using UnityEngine;
@@ -12,7 +11,7 @@ namespace Entity
 
         private SpriteRenderer _renderer;
         private BoxCollider2D _collider;
-        
+
         private void Awake()
         {
             _renderer = GetComponentInChildren<SpriteRenderer>();

@@ -1,4 +1,3 @@
-using System;
 using Manager;
 using UnityEngine;
 
@@ -12,7 +11,7 @@ namespace UI
         {
             SetActiveInventoryBar(false);
         }
-        
+
         private void OnEnable()
         {
             PauseManager.OnPauseTriggered += SetActiveInventoryBar;

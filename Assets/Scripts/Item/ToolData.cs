@@ -12,7 +12,7 @@ namespace Item
         public override int MaxStack => 1;
         public override int BuyPrice => 0;
         public override int SellPrice => 0;
-        
+
         public int StaminaCost => staminaCost;
     }
 }

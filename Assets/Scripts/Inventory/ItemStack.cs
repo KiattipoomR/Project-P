@@ -34,7 +34,7 @@ namespace Inventory
             itemData = data;
             stack = amount;
         }
-        
+
         private bool EnoughRoomLeftInStack(int amountToAdd, out int amountRemaining)
         {
             amountRemaining = itemData.MaxStack - amountToAdd;
@@ -45,12 +45,12 @@ namespace Inventory
         {
             return stack + amountToAdd <= itemData.MaxStack;
         }
-        
+
         public void AddToStack(int amount)
         {
             stack += amount;
         }
-        
+
         private void RemoveFromStack(int amount)
         {
             stack -= amount;

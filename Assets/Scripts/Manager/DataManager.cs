@@ -15,7 +15,7 @@ namespace Manager
         {
             LoadItemData();
             LoadPrefabData();
-            
+
             // TODO : Remove later
             LoadCropData();
         }
@@ -42,7 +42,7 @@ namespace Manager
                 _prefabDictionary.Add(gameObject.name, gameObject);
             }
         }
-        
+
         // TODO : Remove later
         private static void LoadCropData()
         {
@@ -54,7 +54,7 @@ namespace Manager
                 _cropDictionary.Add(crop.ID, crop);
             }
         }
-        
+
         // TODO : Remove later
         public static CropData GetCropDataByCropID(string cropID)
         {

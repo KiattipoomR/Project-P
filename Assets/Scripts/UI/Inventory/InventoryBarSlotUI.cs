@@ -12,7 +12,7 @@ namespace UI.Inventory
         [SerializeField] private Image focusOverlay;
         [SerializeField] private TextMeshProUGUI itemCount;
         [SerializeField] private ItemStack assignedSlot;
-        
+
         public ItemStack AssignedItemSlot => assignedSlot;
 
         private void Awake()
@@ -33,12 +33,13 @@ namespace UI.Inventory
                 itemImage.color = Color.white;
 
                 itemCount.text = slot.Stack > 1 ? slot.Stack.ToString() : "";
-            } else ClearSlot();
+            }
+            else ClearSlot();
         }
-        
+
         void UpdateUISlot()
         {
-            if(assignedSlot != null) UpdateUISlot(assignedSlot);
+            if (assignedSlot != null) UpdateUISlot(assignedSlot);
         }
 
         public void ClearSlot()
