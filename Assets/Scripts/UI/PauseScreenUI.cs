@@ -6,14 +6,10 @@ namespace UI
 {
     public class PauseScreenUI : MonoBehaviour
     {
-        private RectTransform _rectTransform;
-        private RectTransform[] _hideableObjects;
+        [SerializeField] private RectTransform[] hideableObjects;
 
         private void Awake()
         {
-            _rectTransform = GetComponent<RectTransform>();
-            _hideableObjects = Array.FindAll(GetComponentsInChildren<RectTransform>(), hideableObject => hideableObject != _rectTransform);
-
             SetActiveInventoryBar(false);
         }
         
@@ -29,7 +25,7 @@ namespace UI
 
         private void SetActiveInventoryBar(bool isActive)
         {
-            foreach (RectTransform hideableObject in _hideableObjects)
+            foreach (RectTransform hideableObject in hideableObjects)
             {
                 hideableObject.gameObject.SetActive(isActive);
             }

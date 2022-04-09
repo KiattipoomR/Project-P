@@ -16,6 +16,7 @@ MonoBehaviour:
   itemName: Pumpkin
   itemDescription: Just a pumpkin. Totally not "Pumpkip".
   itemIcon: {fileID: 21300000, guid: 709947d08509b408db26e4136a0232ee, type: 3}
-  maxStack: 1
+  itemType: 0
+  maxStack: 99
   buyPrice: 0
   sellPrice: 10
