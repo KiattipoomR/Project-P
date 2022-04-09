@@ -1,6 +1,7 @@
 using DateTime = GameTime.DateTime;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 namespace Manager
 {
@@ -23,6 +24,7 @@ namespace Manager
         [SerializeField] private float timeBetweenTicks = 1f;
 
         public static UnityAction<DateTime> OnDateTimeChanged;
+        public static UnityAction OnDayChanged;
 
         private float _currentTimeBetweenTicks;
         private bool _isPaused;
@@ -57,15 +59,23 @@ namespace Manager
             if (_isPaused) return;
 
             _currentTimeBetweenTicks += Time.deltaTime;
-            if (_currentTimeBetweenTicks < timeBetweenTicks) return;
+            if (_currentTimeBetweenTicks >= timeBetweenTicks)
+            {
+                _currentTimeBetweenTicks = 0;
+                TimeAdvance();
+            }
 
+            if (!Keyboard.current.iKey.wasPressedThisFrame) return;
             _currentTimeBetweenTicks = 0;
-            TimeAdvance();
+            _currentTime.AdvanceDay();
+            OnDateTimeChanged?.Invoke(_currentTime);
+            OnDayChanged?.Invoke();
         }
 
         private void TimeAdvance()
         {
-            _currentTime.AdvanceMinute(tickMinutesIncrease);
+            // Check if a day has been advanced.
+            if (_currentTime.AdvanceMinute(tickMinutesIncrease)) OnDayChanged?.Invoke();
             OnDateTimeChanged?.Invoke(_currentTime);
         }
 

@@ -1,3 +1,5 @@
+using Crop;
+using Entity;
 using Manager;
 using Misc;
 using UnityEngine;
@@ -32,6 +34,23 @@ namespace Player
         {
             SetInactiveControlPlayerInput(true);
             PauseManager.OnPauseTriggered -= SetInactiveControlPlayerInput;
+        }
+
+        private void Update()
+        {
+            if (Keyboard.current.tKey.wasPressedThisFrame)
+            {
+                CropEntity crop = Instantiate(
+                    DataManager.GetPrefabByName("Crop"),
+                    gameObject.transform.position,
+                    gameObject.transform.rotation
+                ).GetComponent<CropEntity>();
+                
+                Debug.Log(crop);
+
+                CropData cropData = DataManager.GetCropDataByCropID("Crop_Pumpkin");
+                crop.Init(cropData);
+            }
         }
 
         private void FixedUpdate()

@@ -36,14 +36,16 @@ namespace GameTime
             _totalDaysPassed = date + ((int)_season * 28) + ((_year - 1) * 28 * 4);
         }
 
-        public void AdvanceMinute(int deltaMinutes)
+        // Returns boolean representing if a day has been advanced.
+        public bool AdvanceMinute(int deltaMinutes)
         {
             _minute = (_minute + deltaMinutes) % 60;
             if (_minute == 0) AdvanceHour();
 
-            if (!(_hour == 1 && _minute == 10)) return;
+            if (!(_hour == 1 && _minute == 10)) return false;
 
             AdvanceDay();
+            return true;
         }
 
         private void AdvanceHour()
@@ -51,7 +53,7 @@ namespace GameTime
             _hour = (_hour + 1) % 24;
         }
 
-        private void AdvanceDay()
+        public void AdvanceDay()
         {
             _day = (Day)(((int)_day + 1) % 7);
             _date = (_date + 1) % 29;

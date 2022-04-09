@@ -7,7 +7,7 @@ namespace Entity
 {
     public class ItemEntity : MonoBehaviour
     {
-        [Header("Components")]
+        [Header("Attributes")]
         [SerializeField] private ItemData item;
 
         private SpriteRenderer _renderer;
