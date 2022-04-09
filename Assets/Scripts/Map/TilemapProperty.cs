@@ -4,6 +4,7 @@ using UnityEngine.Tilemaps;
 
 namespace Map
 {
+    [ExecuteAlways]
     public class TilemapProperty : MonoBehaviour
     {
         [Header("Attributes")]

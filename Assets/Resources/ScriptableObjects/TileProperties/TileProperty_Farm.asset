@@ -17,4 +17,84 @@ MonoBehaviour:
   mapHeight: 61
   originX: -40
   originY: -30
-  tileProperty: []
+  tileProperty:
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
+  - propertyType: 0
+    propertyValue: 1
