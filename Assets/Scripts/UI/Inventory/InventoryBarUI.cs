@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Inventory;
 using Manager;
+using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,8 +12,8 @@ namespace UI.Inventory
     {
         [Header("Components")]
         [SerializeField] private InventoryBarSlotUI[] barSlots;
-        [SerializeField] private InventoryHolder inventoryHolder;
-            
+        [SerializeField] private PlayerInventoryHolder playerInventoryHolder;
+
         private Dictionary<InventoryBarSlotUI, ItemStack> _slotDictionary;
 
         private RectTransform _rectTransform;
@@ -22,20 +23,17 @@ namespace UI.Inventory
         {
             _rectTransform = GetComponent<RectTransform>();
             _hideableObjects = Array.FindAll(GetComponentsInChildren<RectTransform>(), hideableObject => hideableObject != _rectTransform);
-        }
-
-        private void Start()
-        {
-            if (!inventoryHolder)
+            
+            if (!playerInventoryHolder)
             {
                 Debug.LogWarning($"No inventory assigned to {this.gameObject}");
-                return;   
+                return;
             }
-            
-            InventoryManager inventoryManager = inventoryHolder.Inventory;
-            inventoryManager.OnInventorySlotUpdated += UpdateSlot;
-            
-            AssignSlot(inventoryManager);
+
+            playerInventoryHolder.OnFocusSlotChanged += UpdateFocusSlot;
+            playerInventoryHolder.Inventory.OnInventorySlotUpdated += UpdateSlot;
+
+            AssignSlot(playerInventoryHolder.Inventory);
         }
 
         private void Update()
@@ -74,21 +72,18 @@ namespace UI.Inventory
                 hideableObject.gameObject.SetActive(!isInactive);
             }
         }
-        
+
         private void AssignSlot(InventoryManager inventoryToDisplay)
         {
             _slotDictionary = new Dictionary<InventoryBarSlotUI, ItemStack>();
 
-            if(barSlots.Length != inventoryHolder.Inventory.InventorySize)
-                Debug.Log($"Inventory slots out of sync on {gameObject}");
-            
-            for (var i = 0; i < inventoryHolder.Inventory.InventorySize; i++)
+            for (var i = 0; i < 9; i++)
             {
-                _slotDictionary.Add(barSlots[i], inventoryHolder.Inventory.Slots[i]);
-                barSlots[i].Init(inventoryHolder.Inventory.Slots[i]);
+                _slotDictionary.Add(barSlots[i], playerInventoryHolder.Inventory.Slots[i]);
+                barSlots[i].Init(playerInventoryHolder.Inventory.Slots[i]);
             }
         }
-        
+
         private void UpdateSlot(ItemStack updatedSlot)
         {
             foreach (var (key, value) in _slotDictionary)
@@ -97,6 +92,14 @@ namespace UI.Inventory
                 {
                     key.UpdateUISlot(updatedSlot);
                 }
+            }
+        }
+
+        private void UpdateFocusSlot(int slotIndex)
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                barSlots[i].SetFocus(i == slotIndex);
             }
         }
     }

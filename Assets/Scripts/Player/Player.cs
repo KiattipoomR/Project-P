@@ -3,6 +3,7 @@ using Entity;
 using Manager;
 using Misc;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace Player
@@ -14,6 +15,8 @@ namespace Player
 
         [Header("Attributes")]
         [SerializeField] private float movementSpeed = 5f;
+
+        public static UnityAction<int> OnInventoryFocusSlotChanged;
 
         private InputActionAsset _playerInput;
         private Vector2 _playerMovement;
@@ -45,7 +48,7 @@ namespace Player
                     gameObject.transform.position,
                     gameObject.transform.rotation
                 ).GetComponent<CropEntity>();
-                
+
                 Debug.Log(crop);
 
                 CropData cropData = DataManager.GetCropDataByCropID("Crop_Pumpkin");
@@ -61,6 +64,14 @@ namespace Player
         private void OnMovement(InputValue ctx)
         {
             _playerMovement = ctx.Get<Vector2>();
+        }
+
+        private void OnInventoryChange(InputValue ctx)
+        {
+            int val = (int)ctx.Get<float>();
+            if (val < 1) return;
+
+            OnInventoryFocusSlotChanged?.Invoke(val - 1);
         }
 
         private void SetInactiveControlPlayerInput(bool isInactive)

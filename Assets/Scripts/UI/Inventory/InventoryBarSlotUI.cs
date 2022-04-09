@@ -9,6 +9,7 @@ namespace UI.Inventory
     {
         [Header("Components")]
         [SerializeField] private Image itemImage;
+        [SerializeField] private Image focusOverlay;
         [SerializeField] private TextMeshProUGUI itemCount;
         [SerializeField] private ItemStack assignedSlot;
         
@@ -33,7 +34,6 @@ namespace UI.Inventory
 
                 itemCount.text = slot.Stack > 1 ? slot.Stack.ToString() : "";
             } else ClearSlot();
-            
         }
         
         void UpdateUISlot()
@@ -47,6 +47,11 @@ namespace UI.Inventory
             itemImage.sprite = null;
             itemImage.color = Color.clear;
             itemCount.text = "";
+        }
+
+        public void SetFocus(bool isFocused)
+        {
+            focusOverlay.gameObject.SetActive(isFocused);
         }
     }
 }

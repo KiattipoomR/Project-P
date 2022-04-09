@@ -11,7 +11,7 @@ namespace Inventory
 
         public InventoryManager Inventory => inventory;
 
-        private void Awake()
+        protected void Awake()
         {
             inventory = new InventoryManager(inventorySize);
         }
