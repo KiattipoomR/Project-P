@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb6a4b108b434b909261af907cfbddf7, type: 3}
-  m_Name: Item_Tool_Hoe
+  m_Name: Item_Tool_WateringCan
   m_EditorClassIdentifier: 
-  itemID: Item_Tool_Hoe
-  itemName: Hoe
-  itemDescription: Just a hoe.
-  itemIcon: {fileID: 21300000, guid: 71ca9227166f34790bb8b1c7948d491f, type: 3}
-  itemType: 4
+  itemID: Item_Tool_WateringCan
+  itemName: Watering Can
+  itemDescription: Just a watering can.
+  itemIcon: {fileID: 21300000, guid: 5b98b5b289f8549f9bbd017e5f0aa5c7, type: 3}
+  itemType: 5
   maxStack: 1
   buyPrice: 0
   sellPrice: 0

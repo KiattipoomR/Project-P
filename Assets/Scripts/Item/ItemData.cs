@@ -7,24 +7,24 @@ namespace Item
     public class ItemData : ScriptableObject
     {
         [Header("General Attributes")]
-        [SerializeField] private string itemID;
-        [SerializeField] private string itemName;
+        [SerializeField] protected string itemID;
+        [SerializeField] protected string itemName;
         [TextArea(1, 4)]
-        [SerializeField] private string itemDescription;
-        [SerializeField] private Sprite itemIcon;
-
-        [Header("Max Item Attributes")]
+        [SerializeField] protected string itemDescription;
+        [SerializeField] protected Sprite itemIcon;
+        [SerializeField] protected ItemType itemType;
         [Range(1, 99)]
-        [SerializeField] private int maxStack;
+        [SerializeField] protected int maxStack;
 
         [Header("Price Attributes")]
-        [SerializeField] private int buyPrice;
-        [SerializeField] private int sellPrice;
+        [SerializeField] protected int buyPrice;
+        [SerializeField] protected int sellPrice;
 
         public string ItemID => itemID;
         public string ItemName => itemName;
         public string ItemDescription => itemDescription;
         public Sprite ItemIcon => itemIcon;
+        public virtual ItemType ItemType => itemType;
         public virtual int MaxStack => maxStack;
         public virtual int BuyPrice => buyPrice;
         public virtual int SellPrice => sellPrice;
@@ -33,5 +33,18 @@ namespace Item
         {
             return SellPrice > 0;
         }
+    }
+    
+    [System.Serializable]
+    public enum ItemType
+    {
+        Misc,
+        Pickaxe,
+        Axe,
+        Scythe,
+        Hoe,
+        WateringCan,
+        Crop,
+        Seed,
     }
 }

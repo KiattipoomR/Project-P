@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb6a4b108b434b909261af907cfbddf7, type: 3}
-  m_Name: Item_Tool_Hoe
+  m_Name: Item_Tool_Pickaxe
   m_EditorClassIdentifier: 
-  itemID: Item_Tool_Hoe
-  itemName: Hoe
-  itemDescription: Just a hoe.
-  itemIcon: {fileID: 21300000, guid: 71ca9227166f34790bb8b1c7948d491f, type: 3}
-  itemType: 4
+  itemID: Item_Tool_Pickaxe
+  itemName: Pickaxe
+  itemDescription: Just a pickaxe.
+  itemIcon: {fileID: 21300000, guid: ab9788b07a759404293670018c76ec0f, type: 3}
+  itemType: 1
   maxStack: 1
   buyPrice: 0
   sellPrice: 0
