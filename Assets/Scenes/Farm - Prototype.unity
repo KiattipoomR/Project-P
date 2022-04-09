@@ -57940,6 +57940,7 @@ GameObject:
   - component: {fileID: 1866904914}
   - component: {fileID: 1866904916}
   - component: {fileID: 1866904915}
+  - component: {fileID: 1866904917}
   m_Layer: 0
   m_Name: IsDiggable
   m_TagString: Untagged
@@ -58049,6 +58050,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1866904917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866904913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5db7e0e30925402cb4e5328778a59d33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilePropertyLayer: {fileID: 11400000, guid: 7daae202b8984124090fd65303145069, type: 2}
+  tilePropertyType: 0
 --- !u!1001 &1948317827
 PrefabInstance:
   m_ObjectHideFlags: 0
