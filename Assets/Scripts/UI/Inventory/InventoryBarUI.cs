@@ -23,7 +23,10 @@ namespace UI.Inventory
         {
             _rectTransform = GetComponent<RectTransform>();
             _hideableObjects = Array.FindAll(GetComponentsInChildren<RectTransform>(), hideableObject => hideableObject != _rectTransform);
+        }
 
+        private void Start()
+        {
             if (!playerInventoryHolder)
             {
                 Debug.LogWarning($"No inventory assigned to {this.gameObject}");
@@ -33,7 +36,7 @@ namespace UI.Inventory
             playerInventoryHolder.OnFocusSlotChanged += UpdateFocusSlot;
             playerInventoryHolder.Inventory.OnInventorySlotUpdated += UpdateSlot;
 
-            AssignSlot(playerInventoryHolder.Inventory);
+            AssignSlot();
         }
 
         private void Update()
@@ -73,7 +76,7 @@ namespace UI.Inventory
             }
         }
 
-        private void AssignSlot(InventoryManager inventoryToDisplay)
+        private void AssignSlot()
         {
             _slotDictionary = new Dictionary<InventoryBarSlotUI, ItemStack>();
 
