@@ -7,7 +7,7 @@
             "actions": [
                 {
                     "name": "Movement",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "c3cbbd28-3da8-4fa0-858b-803f3c9cd349",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -16,16 +16,16 @@
                 },
                 {
                     "name": "Inventory Change",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "256e910b-608a-48ba-aace-d60f4dd4b903",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
                     "name": "Aim",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "9c6cf19c-fcfe-4c4d-be40-03f7a6ab5e8b",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -34,9 +34,9 @@
                 },
                 {
                     "name": "Interact",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "e60b6458-08cc-42a4-9dde-24c81e509a34",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true

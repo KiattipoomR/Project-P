@@ -17,9 +17,12 @@ namespace Player
         [SerializeField] private float movementSpeed = 5f;
 
         public static UnityAction<int> OnInventoryFocusSlotChanged;
+        public static UnityAction<Vector3> OnAimed;
+        public static UnityAction OnInteracted;
 
         private InputActionAsset _playerInput;
         private Vector2 _playerMovement;
+        private Vector3 _mousePosition;
 
         protected override void Awake()
         {
@@ -76,7 +79,8 @@ namespace Player
 
         private void OnAim(InputValue ctx)
         {
-            Debug.Log($"Mouse Position: {ctx.Get<Vector2>()}");
+            _mousePosition = ctx.Get<Vector2>();
+            OnAimed?.Invoke(_mousePosition);
         }
 
         private void OnInteract(InputValue ctx)
@@ -84,7 +88,7 @@ namespace Player
             int val = (int)ctx.Get<float>();
             if (val < 1) return;
 
-            Debug.Log("Mouse Clicked !");
+            OnInteracted?.Invoke();
         }
 
         private void SetInactiveControlPlayerInput(bool isInactive)
