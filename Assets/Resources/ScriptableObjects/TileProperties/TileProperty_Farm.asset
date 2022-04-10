@@ -18,83 +18,203 @@ MonoBehaviour:
   originX: -40
   originY: -30
   tileProperty:
-  - propertyType: 0
+  - coordinate:
+      x: 5
+      y: 10
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 5
+      y: 11
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 6
+      y: 10
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 6
+      y: 11
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 7
+      y: 10
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 7
+      y: 11
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 8
+      y: 10
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 8
+      y: 11
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 9
+      y: 10
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 9
+      y: 11
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 10
+      y: 10
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 10
+      y: 11
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 13
+      y: 6
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 13
+      y: 7
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 13
+      y: 10
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 13
+      y: 11
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 14
+      y: 6
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 14
+      y: 7
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 14
+      y: 10
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 14
+      y: 11
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 15
+      y: 6
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 15
+      y: 7
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 15
+      y: 10
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 15
+      y: 11
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 16
+      y: 6
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 16
+      y: 7
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 16
+      y: 10
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 16
+      y: 11
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 17
+      y: 6
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 17
+      y: 7
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 17
+      y: 10
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 17
+      y: 11
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 18
+      y: 6
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 18
+      y: 7
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 18
+      y: 10
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 18
+      y: 11
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 19
+      y: 6
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 19
+      y: 7
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 19
+      y: 10
+    propertyType: 0
     propertyValue: 1
-  - propertyType: 0
+  - coordinate:
+      x: 19
+      y: 11
+    propertyType: 0
     propertyValue: 1

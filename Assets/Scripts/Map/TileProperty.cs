@@ -15,6 +15,7 @@ namespace Map
         }
     }
 
+    [System.Serializable]
     public enum TilePropertyType
     {
         IsDiggable,

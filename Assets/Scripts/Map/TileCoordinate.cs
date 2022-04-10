@@ -5,16 +5,16 @@ namespace Map
     [System.Serializable]
     public struct TileCoordinate
     {
-        private int _x;
-        private int _y;
+        [SerializeField] private int x;
+        [SerializeField] private int y;
 
-        public int X => _x;
-        public int Y => _y;
+        public int X => x;
+        public int Y => y;
 
         public TileCoordinate(int x, int y)
         {
-            _x = x;
-            _y = y;
+            this.x = x;
+            this.y = y;
         }
 
         public static explicit operator Vector2(TileCoordinate tile)

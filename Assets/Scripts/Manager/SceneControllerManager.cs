@@ -21,6 +21,8 @@ namespace Manager
         public static UnityAction OnSceneLoaded;
         public static UnityAction OnSceneFadedIn;
 
+        public string StartingSceneName => startingSceneName;
+
         private bool _isFading;
 
         private IEnumerator Start()

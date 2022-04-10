@@ -12723,6 +12723,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503919813}
   m_CullTransparentMesh: 1
+--- !u!1 &1507905565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1507905566}
+  - component: {fileID: 1507905567}
+  m_Layer: 0
+  m_Name: Tile Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1507905566
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507905565}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1513992596}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1507905567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507905565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2b5b5a397d54df692bdcd6b7d939048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilePropertyLayers:
+  - {fileID: 11400000, guid: 7daae202b8984124090fd65303145069, type: 2}
+  grid: {fileID: 0}
 --- !u!1 &1511919524
 GameObject:
   m_ObjectHideFlags: 0
@@ -12858,6 +12905,7 @@ Transform:
   - {fileID: 2128085433}
   - {fileID: 525376577}
   - {fileID: 1710044610}
+  - {fileID: 1507905566}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12876,6 +12924,7 @@ MonoBehaviour:
   dataManager: {fileID: 879653618}
   pauseManager: {fileID: 525376579}
   sceneControllerManager: {fileID: 1710044611}
+  tileManager: {fileID: 0}
   timeManager: {fileID: 2128085434}
 --- !u!1 &1556658724
 GameObject:

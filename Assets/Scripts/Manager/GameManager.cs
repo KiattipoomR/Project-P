@@ -7,6 +7,7 @@ namespace Manager
         public DataManager dataManager;
         public PauseManager pauseManager;
         public SceneControllerManager sceneControllerManager;
+        public TileManager tileManager;
         public TimeManager timeManager;
     }
 }

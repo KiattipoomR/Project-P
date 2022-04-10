@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Map
 {
+    [System.Serializable]
     [CreateAssetMenu(menuName = "Scriptable Object/Tile Property", fileName = "")]
     public class TilePropertyLayer : ScriptableObject
     {
