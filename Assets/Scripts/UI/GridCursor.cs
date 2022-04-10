@@ -1,4 +1,6 @@
+using Inventory;
 using Manager;
+using Player;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +13,8 @@ namespace UI
         [SerializeField] private Image cursorImage;
         [SerializeField] private Sprite gridAvailableIcon;
         [SerializeField] private Sprite gridUnavailableIcon;
+        [SerializeField] private PlayerInventoryHolder playerInventory;
+        
 
         private Canvas _canvas;
         private Camera _camera;
@@ -28,6 +32,7 @@ namespace UI
             PauseManager.OnPauseTriggered += SetInactiveGridCursor;
             SceneControllerManager.OnSceneLoaded += LoadGrid;
             Player.Player.OnAimed += ShowCursor;
+            playerInventory.OnItemFocused += CheckFocusItem;
         }
 
         private void OnDisable()
@@ -35,13 +40,9 @@ namespace UI
             PauseManager.OnPauseTriggered -= SetInactiveGridCursor;
             SceneControllerManager.OnSceneLoaded -= LoadGrid;
             Player.Player.OnAimed -= ShowCursor;
+            playerInventory.OnItemFocused -= CheckFocusItem;
         }
 
-        private void Test(Vector3 mousePosition)
-        {
-            Debug.Log(_camera.ScreenToWorldPoint(mousePosition));
-        }
-        
         private void LoadGrid()
         {
             grid = FindObjectOfType<Grid>();
@@ -64,11 +65,7 @@ namespace UI
             SetCursorAvailability(true);
 
             int distance = ((Vector2Int) (cursorGridPosition - playerGridPosition)).sqrMagnitude;
-            if (distance > 2)
-            {
-                SetCursorAvailability(false);
-                return;
-            }
+            if (distance > 2) SetCursorAvailability(false);
         }
 
         private void SetCursorAvailability(bool isAvailable)
@@ -81,6 +78,17 @@ namespace UI
             Vector3 gridWorldPosition = grid.CellToWorld(gridPosition);
             Vector2 gridScreenPosition = _camera.WorldToScreenPoint(gridWorldPosition);
             return RectTransformUtility.PixelAdjustPoint(gridScreenPosition, cursorTransform, _canvas);
+        }
+
+        private void CheckFocusItem(ItemStack item)
+        {
+            if (item.ItemData == null || item.ItemData.IsNonPlaceableItem())
+            {
+                SetEnableCursor(false);
+                return;
+            }
+            
+            SetEnableCursor(true);
         }
 
         private void SetEnableCursor(bool isEnabled)

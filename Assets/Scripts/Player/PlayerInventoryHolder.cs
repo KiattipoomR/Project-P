@@ -9,6 +9,8 @@ namespace Player
         [SerializeField] private int focusSlot;
 
         public UnityAction<int> OnFocusSlotChanged;
+        public UnityAction<ItemStack> OnItemFocused;
+        public UnityAction<ItemStack> OnInteracted;
 
         private void Start()
         {
@@ -29,6 +31,12 @@ namespace Player
         {
             focusSlot = slotIndex;
             OnFocusSlotChanged?.Invoke(focusSlot);
+            OnItemFocused?.Invoke(GetCurrentSlot());
+        }
+
+        private ItemStack GetCurrentSlot()
+        {
+            return Inventory.Slots[focusSlot];
         }
     }
 }

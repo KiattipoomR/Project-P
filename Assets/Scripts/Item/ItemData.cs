@@ -33,6 +33,11 @@ namespace Item
         {
             return SellPrice > 0;
         }
+
+        public bool IsNonPlaceableItem()
+        {
+            return ItemType is ItemType.Misc or ItemType.Crop;
+        }
     }
 
     [System.Serializable]
