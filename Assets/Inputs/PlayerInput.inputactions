@@ -7,21 +7,39 @@
             "actions": [
                 {
                     "name": "Movement",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "c3cbbd28-3da8-4fa0-858b-803f3c9cd349",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Inventory Change",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "256e910b-608a-48ba-aace-d60f4dd4b903",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Aim",
+                    "type": "Value",
+                    "id": "9c6cf19c-fcfe-4c4d-be40-03f7a6ab5e8b",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Interact",
+                    "type": "Value",
+                    "id": "e60b6458-08cc-42a4-9dde-24c81e509a34",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -42,7 +60,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Scheme",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -53,7 +71,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Scheme",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -64,7 +82,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Scheme",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -75,7 +93,7 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Scheme",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -86,7 +104,7 @@
                     "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "Scale",
-                    "groups": "",
+                    "groups": "Scheme",
                     "action": "Inventory Change",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -97,7 +115,7 @@
                     "path": "<Keyboard>/2",
                     "interactions": "",
                     "processors": "Scale(factor=2)",
-                    "groups": "",
+                    "groups": "Scheme",
                     "action": "Inventory Change",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -108,7 +126,7 @@
                     "path": "<Keyboard>/3",
                     "interactions": "",
                     "processors": "Scale(factor=3)",
-                    "groups": "",
+                    "groups": "Scheme",
                     "action": "Inventory Change",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -119,7 +137,7 @@
                     "path": "<Keyboard>/4",
                     "interactions": "",
                     "processors": "Scale(factor=4)",
-                    "groups": "",
+                    "groups": "Scheme",
                     "action": "Inventory Change",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -130,7 +148,7 @@
                     "path": "<Keyboard>/5",
                     "interactions": "",
                     "processors": "Scale(factor=5)",
-                    "groups": "",
+                    "groups": "Scheme",
                     "action": "Inventory Change",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -141,7 +159,7 @@
                     "path": "<Keyboard>/6",
                     "interactions": "",
                     "processors": "Scale(factor=6)",
-                    "groups": "",
+                    "groups": "Scheme",
                     "action": "Inventory Change",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -152,7 +170,7 @@
                     "path": "<Keyboard>/7",
                     "interactions": "",
                     "processors": "Scale(factor=7)",
-                    "groups": "",
+                    "groups": "Scheme",
                     "action": "Inventory Change",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -163,7 +181,7 @@
                     "path": "<Keyboard>/8",
                     "interactions": "",
                     "processors": "Scale(factor=8)",
-                    "groups": "",
+                    "groups": "Scheme",
                     "action": "Inventory Change",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -174,13 +192,52 @@
                     "path": "<Keyboard>/9",
                     "interactions": "",
                     "processors": "Scale(factor=9)",
-                    "groups": "",
+                    "groups": "Scheme",
                     "action": "Inventory Change",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ddbd0a9d-d085-43c2-8cf2-bf48c1985a82",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Scheme",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ceeb086c-b945-4d15-a680-ea0e0555b4a7",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Scheme",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Scheme",
+            "bindingGroup": "Scheme",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }

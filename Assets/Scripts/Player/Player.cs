@@ -74,6 +74,19 @@ namespace Player
             OnInventoryFocusSlotChanged?.Invoke(val - 1);
         }
 
+        private void OnAim(InputValue ctx)
+        {
+            Debug.Log($"Mouse Position: {ctx.Get<Vector2>()}");
+        }
+
+        private void OnInteract(InputValue ctx)
+        {
+            int val = (int)ctx.Get<float>();
+            if (val < 1) return;
+
+            Debug.Log("Mouse Clicked !");
+        }
+
         private void SetInactiveControlPlayerInput(bool isInactive)
         {
             if (isInactive) _playerInput.Disable();
