@@ -18,7 +18,7 @@ namespace Player
 
         public static UnityAction<int> OnInventoryFocusSlotChanged;
         public static UnityAction<Vector3> OnAimed;
-        public static UnityAction OnInteracted;
+        public static UnityAction<Vector3> OnInteracted;
 
         private InputActionAsset _playerInput;
         private Vector2 _playerMovement;
@@ -88,7 +88,7 @@ namespace Player
             int val = (int)ctx.Get<float>();
             if (val < 1) return;
 
-            OnInteracted?.Invoke();
+            OnInteracted?.Invoke(_mousePosition);
         }
 
         private void SetInactiveControlPlayerInput(bool isInactive)

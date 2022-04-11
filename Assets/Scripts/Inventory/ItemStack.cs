@@ -51,7 +51,7 @@ namespace Inventory
             stack += amount;
         }
 
-        private void RemoveFromStack(int amount)
+        public void RemoveFromStack(int amount)
         {
             stack -= amount;
         }

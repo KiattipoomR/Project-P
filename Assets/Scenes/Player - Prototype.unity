@@ -12955,6 +12955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilePropertyLayers:
   - {fileID: 11400000, guid: 7daae202b8984124090fd65303145069, type: 2}
+  playerInventory: {fileID: 2032295007}
   grid: {fileID: 0}
 --- !u!1 &1511919524
 GameObject:

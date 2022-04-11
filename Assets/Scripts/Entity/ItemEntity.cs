@@ -1,5 +1,5 @@
-using Inventory;
 using Item;
+using Player;
 using UnityEngine;
 
 namespace Entity
@@ -24,10 +24,10 @@ namespace Entity
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            InventoryHolder inventoryHolder = other.GetComponent<InventoryHolder>();
-            if (!inventoryHolder) return;
+            PlayerInventoryHolder playerInventory = other.GetComponent<PlayerInventoryHolder>();
+            if (!playerInventory) return;
 
-            if (!inventoryHolder.Inventory.AddToInventory(item, 1)) return;
+            if (!playerInventory.AddItemToInventory(item, 1)) return;
             Destroy(gameObject);
         }
     }

@@ -82,7 +82,7 @@ namespace UI
 
         private void CheckFocusItem(ItemStack item)
         {
-            if (item.ItemData == null || item.ItemData.IsNonPlaceableItem())
+            if (item.ItemData == null || item.ItemData.IsUnusableItem())
             {
                 SetEnableCursor(false);
                 return;

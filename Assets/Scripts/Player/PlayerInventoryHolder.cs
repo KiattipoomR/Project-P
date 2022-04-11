@@ -1,4 +1,5 @@
 using Inventory;
+using Item;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,7 +11,7 @@ namespace Player
 
         public UnityAction<int> OnFocusSlotChanged;
         public UnityAction<ItemStack> OnItemFocused;
-        public UnityAction<ItemStack> OnInteracted;
+        public UnityAction<Vector3, ItemStack> OnItemUsed;
 
         private void Start()
         {
@@ -20,11 +21,27 @@ namespace Player
         private void OnEnable()
         {
             Player.OnInventoryFocusSlotChanged += SetFocusSlot;
+            Player.OnInteracted += UseItem;
         }
 
         private void OnDisable()
         {
             Player.OnInventoryFocusSlotChanged -= SetFocusSlot;
+            Player.OnInteracted -= UseItem;
+        }
+
+        public bool AddItemToInventory(ItemData item, int amount)
+        {
+            bool addSuccess = Inventory.AddToInventory(item, amount);
+            if (addSuccess && item == GetCurrentSlot().ItemData)  OnItemFocused?.Invoke(GetCurrentSlot());
+            
+            return addSuccess;
+        }
+
+        public void RemoveItemFromInventory(ItemData item, int amount)
+        {
+            Inventory.RemoveFromInventory(item, amount);
+            OnItemFocused?.Invoke(GetCurrentSlot());
         }
 
         private void SetFocusSlot(int slotIndex)
@@ -32,6 +49,11 @@ namespace Player
             focusSlot = slotIndex;
             OnFocusSlotChanged?.Invoke(focusSlot);
             OnItemFocused?.Invoke(GetCurrentSlot());
+        }
+
+        private void UseItem(Vector3 mousePosition)
+        {
+            OnItemUsed?.Invoke(mousePosition, GetCurrentSlot());
         }
 
         private ItemStack GetCurrentSlot()

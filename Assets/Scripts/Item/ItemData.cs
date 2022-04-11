@@ -34,7 +34,7 @@ namespace Item
             return SellPrice > 0;
         }
 
-        public bool IsNonPlaceableItem()
+        public bool IsUnusableItem()
         {
             return ItemType is ItemType.Misc or ItemType.Crop;
         }
