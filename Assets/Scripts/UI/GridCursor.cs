@@ -14,7 +14,6 @@ namespace UI
         [SerializeField] private Sprite gridAvailableIcon;
         [SerializeField] private Sprite gridUnavailableIcon;
         [SerializeField] private PlayerInventoryHolder playerInventory;
-        
 
         private Canvas _canvas;
         private Camera _camera;
@@ -56,7 +55,7 @@ namespace UI
             Vector3Int playerGridPosition = grid.WorldToCell(Player.Player.Instance.transform.position);
 
             CheckCursorAvailability(cursorGridPosition, playerGridPosition);
-            
+
             cursorTransform.position = GetCursorRectTransformPosition(cursorGridPosition);
         }
 
@@ -64,13 +63,26 @@ namespace UI
         {
             SetCursorAvailability(true);
 
-            int distance = ((Vector2Int) (cursorGridPosition - playerGridPosition)).sqrMagnitude;
-            if (distance > 2) SetCursorAvailability(false);
+            int distance = ((Vector2Int)(cursorGridPosition - playerGridPosition)).sqrMagnitude;
+            if (distance > 2)
+            {
+                SetCursorAvailability(false);
+                return;
+            }
+
+            GameObject obj = GetObjectByGridPosition((Vector2Int)cursorGridPosition);
+            if (obj != null && obj.GetComponent<Player.Player>() == null) SetCursorAvailability(false);
         }
 
         private void SetCursorAvailability(bool isAvailable)
         {
             cursorImage.sprite = isAvailable ? gridAvailableIcon : gridUnavailableIcon;
+        }
+
+        private GameObject GetObjectByGridPosition(Vector2Int position)
+        {
+            Vector3 worldPosition = grid.GetCellCenterWorld(new Vector3Int(position.x, position.y, 0));
+            return Physics2D.OverlapPoint(worldPosition)?.gameObject;
         }
 
         private Vector2 GetCursorRectTransformPosition(Vector3Int gridPosition)
@@ -87,7 +99,7 @@ namespace UI
                 SetEnableCursor(false);
                 return;
             }
-            
+
             SetEnableCursor(true);
         }
 

@@ -86,12 +86,12 @@ namespace Manager
             int distance = ((Vector2Int)(cursorGridPosition - playerGridPosition)).sqrMagnitude;
             if (distance > 2) return;
 
+            GameObject obj = GetObjectByGridPosition((Vector2Int)cursorGridPosition);
+            if (obj != null && obj.GetComponent<Player.Player>() == null) return;
+
             switch (item.ItemData.ItemType)
             {
                 case ItemType.Seed:
-                    GameObject obj = GetObjectByGridPosition((Vector2Int)cursorGridPosition);
-                    if (obj != null && obj.GetComponent<Player.Player>() == null) break;
-
                     Vector3 cropSpawnPosition = grid.GetCellCenterWorld(cursorGridPosition);
                     CropEntity newCrop = Instantiate(
                         DataManager.GetPrefabByName("Crop"),
