@@ -1578,7 +1578,7 @@ public class RPGTalk : MonoBehaviour {
             if(currentChar < rpgtalkElements[cutscenePosition - 1].dialogText.Length) {
 
                 //ensure that we don't accidentally blow past the end of the string
-                currentChar = Mathf.Min(currentChar + actualTextSpeed * Time.deltaTime,
+                currentChar = Mathf.Min(currentChar + actualTextSpeed * Time.unscaledDeltaTime,
                     rpgtalkElements[cutscenePosition - 1].dialogText.Length);
 
                 //Do what we have to do if the the text just ended

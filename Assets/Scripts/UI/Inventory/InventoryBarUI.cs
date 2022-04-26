@@ -68,8 +68,10 @@ namespace UI.Inventory
             PauseManager.OnPauseTriggered -= SetInactiveInventoryBar;
         }
 
-        private void SetInactiveInventoryBar(bool isInactive)
+        private void SetInactiveInventoryBar(bool isInactive, bool fromPlayer)
         {
+            if (!fromPlayer) return;
+            
             foreach (RectTransform hideableObject in _hideableObjects)
             {
                 hideableObject.gameObject.SetActive(!isInactive);
