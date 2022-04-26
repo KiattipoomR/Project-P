@@ -9,5 +9,6 @@ namespace Manager
         public SceneControllerManager sceneControllerManager;
         public TileManager tileManager;
         public TimeManager timeManager;
+        public CurrencyManager currencyManager;
     }
 }
