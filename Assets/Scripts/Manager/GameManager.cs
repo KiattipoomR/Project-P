@@ -10,5 +10,6 @@ namespace Manager
         public TileManager tileManager;
         public TimeManager timeManager;
         public CurrencyManager currencyManager;
+        public WorkerManager workerManager;
     }
 }

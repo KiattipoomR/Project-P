@@ -1,0 +1,34 @@
+{
+    "name": "TestWorkerInput",
+    "maps": [
+        {
+            "name": "TestWorker",
+            "id": "23c75019-3bd4-4868-a78b-935e594e2dfb",
+            "actions": [
+                {
+                    "name": "Toggle",
+                    "type": "Button",
+                    "id": "5ba92cf7-d7c6-49d9-a374-227fc00b0806",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9c91a355-5eca-48a3-8c20-8f864b7e356f",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Toggle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
