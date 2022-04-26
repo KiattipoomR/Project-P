@@ -1,5 +1,3 @@
-using Crop;
-using Entity;
 using Manager;
 using Misc;
 using UnityEngine;
@@ -24,39 +22,31 @@ namespace Player
         private Vector2 _playerMovement;
         private Vector3 _mousePosition;
 
+        private UnityAction _setPlayerControlsInactive;
+        private UnityAction _setPlayerControlsActive;
+
         protected override void Awake()
         {
             base.Awake();
             _playerInput = GetComponent<PlayerInput>().actions;
+            _setPlayerControlsInactive = () => SetInactiveControlPlayerInput(true, true);
+            _setPlayerControlsActive = () => SetInactiveControlPlayerInput(false, true);
         }
 
         private void OnEnable()
         {
-            SetInactiveControlPlayerInput(false);
+            SetInactiveControlPlayerInput(false, true);
             PauseManager.OnPauseTriggered += SetInactiveControlPlayerInput;
+            DialogueManager.OnDialogueStarted += _setPlayerControlsInactive;
+            DialogueManager.OnDialogueEnded += _setPlayerControlsActive;
         }
 
         private void OnDisable()
         {
-            SetInactiveControlPlayerInput(true);
+            SetInactiveControlPlayerInput(true, true);
             PauseManager.OnPauseTriggered -= SetInactiveControlPlayerInput;
-        }
-
-        private void Update()
-        {
-            if (Keyboard.current.tKey.wasPressedThisFrame)
-            {
-                CropEntity crop = Instantiate(
-                    DataManager.GetPrefabByName("Crop"),
-                    gameObject.transform.position,
-                    gameObject.transform.rotation
-                ).GetComponent<CropEntity>();
-
-                Debug.Log(crop);
-
-                CropData cropData = DataManager.GetCropDataByCropID("Crop_Pumpkin");
-                crop.Init(cropData);
-            }
+            DialogueManager.OnDialogueStarted -= _setPlayerControlsInactive;
+            DialogueManager.OnDialogueEnded -= _setPlayerControlsActive;
         }
 
         private void FixedUpdate()
@@ -91,7 +81,7 @@ namespace Player
             OnInteracted?.Invoke(_mousePosition);
         }
 
-        private void SetInactiveControlPlayerInput(bool isInactive)
+        private void SetInactiveControlPlayerInput(bool isInactive, bool _)
         {
             if (isInactive) _playerInput.Disable();
             else _playerInput.Enable();
