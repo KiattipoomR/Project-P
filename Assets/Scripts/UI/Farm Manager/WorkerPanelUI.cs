@@ -1,5 +1,5 @@
 using UnityEngine;
-using Worker;
+using FarmManager;
 using UnityEngine.UI;
 using TMPro;
 using Manager;
@@ -8,27 +8,42 @@ namespace UI
 {
   public class WorkerPanelUI : MonoBehaviour
   {
-    [SerializeField] private WorkerData workerData;
+    [SerializeField] private string workerId;
     [SerializeField] private Image workerPanelImage;
-    [SerializeField] private TextMeshProUGUI workerPanelText;
+    [SerializeField] private TextMeshProUGUI workerPanelNameText;
+    [SerializeField] private TextMeshProUGUI workerPanelStaminaText;
+    [SerializeField] private Toggle workerPanelsActiveToggle;
 
-    public void SetWorker(WorkerData newWorkerData)
+    public void SetWorker(Worker worker)
     {
-      workerData = newWorkerData;
-      workerPanelImage.sprite = workerData.WorkerImage;
-      workerPanelText.text = workerData.WorkerName;
+      workerId = worker.WorkerId;
+      workerPanelImage.sprite = worker.WorkerData.WorkerImage;
+      workerPanelNameText.text = worker.WorkerData.WorkerName;
+      if (workerPanelStaminaText)
+      {
+        workerPanelStaminaText.text = string.Format("Stamina: {0}/{1}", worker.WorkerStamina, worker.WorkerData.WorkerMaxStamina);
+      }
+      if (workerPanelsActiveToggle && (worker.IsActive ^ workerPanelsActiveToggle.isOn))
+      {
+        workerPanelsActiveToggle.SetIsOnWithoutNotify(worker.IsActive);
+      }
     }
 
     public void RecruitThisWorker()
     {
-      Debug.Log("Recruit " + workerData.WorkerName + "!");
-      GameManager.Instance.workerManager.RecruitWorker(workerData);
+      Debug.Log("Recruit " + workerPanelNameText.text + "!");
+      GameManager.Instance.workerManager.RecruitWorkerFromRecruitableList(workerId);
     }
 
     public void FireThisWorker()
     {
-      Debug.Log("Fire " + workerData.WorkerName + "!");
-      GameManager.Instance.workerManager.FireWorker(workerData);
+      Debug.Log("Fire " + workerPanelNameText.text + "!");
+      GameManager.Instance.workerManager.FireWorker(workerId);
+    }
+
+    public void SetWorkerIsActive()
+    {
+      GameManager.Instance.workerManager.SetRecruitedWorkerIsActive(workerId, workerPanelsActiveToggle.isOn);
     }
   }
 }

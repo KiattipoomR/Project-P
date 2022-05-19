@@ -1,5 +1,5 @@
 using UnityEngine;
-using Worker;
+using FarmManager;
 using System.Collections.Generic;
 
 namespace UI
@@ -9,7 +9,7 @@ namespace UI
     [SerializeField] private GameObject workerPanelPrefab;
     [SerializeField] private Transform workerPanelParent;
 
-    protected void UpdateWorkerPanelList(List<WorkerData> workers)
+    protected void UpdateWorkerPanelList(List<Worker> workers)
     {
       foreach (Transform child in workerPanelParent)
       {
