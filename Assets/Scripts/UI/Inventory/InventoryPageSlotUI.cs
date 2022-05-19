@@ -5,14 +5,13 @@ using UnityEngine.UI;
 
 namespace UI.Inventory
 {
-    public class InventoryBarSlotUI : MonoBehaviour
+    public class InventoryPageSlotUI : MonoBehaviour
     {
         [Header("Components")]
         [SerializeField] private Image itemImage;
-        [SerializeField] private Image focusOverlay;
         [SerializeField] private TextMeshProUGUI itemCount;
         [SerializeField] private ItemStack assignedSlot;
-
+        
         public ItemStack AssignedItemSlot => assignedSlot;
 
         private void Awake()
@@ -49,11 +48,6 @@ namespace UI.Inventory
             itemImage.sprite = null;
             itemImage.color = Color.clear;
             itemCount.text = "";
-        }
-
-        public void SetFocus(bool isFocused)
-        {
-            focusOverlay.gameObject.SetActive(isFocused);
         }
     }
 }
