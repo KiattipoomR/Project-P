@@ -6,6 +6,7 @@ namespace UI
   public class TabButtonBarUI : MonoBehaviour
   {
     [SerializeField] private Transform tabParent;
+    [SerializeField] private Transform inventoryBar;
 
     private Color inactiveColor = new Color(0.6f, 0.6f, 0.6f, 1f);
     private Color activeColor = new Color(1f, 1f, 1f, 1f);
@@ -26,6 +27,7 @@ namespace UI
         childTab.gameObject.SetActive(false);
       }
       activeTab.gameObject.SetActive(true);
+      inventoryBar.gameObject.SetActive(true);
     }
   }
 }
