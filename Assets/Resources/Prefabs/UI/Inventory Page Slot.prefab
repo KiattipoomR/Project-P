@@ -173,6 +173,7 @@ MonoBehaviour:
   assignedSlot:
     itemData: {fileID: 0}
     stack: -1
+  button: {fileID: 3577454778541488893}
 --- !u!114 &3577454778541488893
 MonoBehaviour:
   m_ObjectHideFlags: 0

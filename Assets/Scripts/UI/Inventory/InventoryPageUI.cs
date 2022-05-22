@@ -10,6 +10,7 @@ namespace UI.Inventory
         [Header("Components")]
         [SerializeField] private InventoryPageSlotUI[] slots;
         [SerializeField] private PlayerInventoryHolder playerInventoryHolder;
+        [SerializeField] private MouseItem mouseItem;
 
         private Dictionary<InventoryPageSlotUI, ItemStack> _slotDictionary;
         
@@ -45,6 +46,32 @@ namespace UI.Inventory
                 {
                     key.UpdateUISlot(updatedSlot);
                 }
+            }
+        }
+
+        public void OnSlotClicked(InventoryPageSlotUI slot)
+        {
+            // Debug.Log(mouseItem.AssignedItemSlot.ItemData == null);
+            // Debug.Log(slot.AssignedItemSlot.ItemData != null);
+            if (mouseItem.AssignedItemSlot.ItemData == null && slot.AssignedItemSlot.ItemData != null)
+            {
+                mouseItem.UpdateMouseSlot(slot.AssignedItemSlot, slot);
+                slot.ClearSlot();
+            }
+            else if (mouseItem.AssignedItemSlot.ItemData != null && slot.AssignedItemSlot.ItemData == null)
+            {
+                slot.AssignItem(mouseItem.AssignedItemSlot);
+                mouseItem.ClearSlot();
+            }
+        }
+
+        private void OnEnable()
+        {
+            if (_slotDictionary == null) return;
+            for (var i = 0; i < 36; i++)
+            {
+                bool found = _slotDictionary.TryGetValue(slots[i], out ItemStack invSlot);
+                if (found) slots[i].UpdateUISlot(invSlot);
             }
         }
     }

@@ -11,10 +11,10 @@ namespace UI.Inventory
         [SerializeField] protected Image itemImage;
         [SerializeField] protected TextMeshProUGUI itemCount;
         [SerializeField] protected ItemStack assignedSlot;
-        
+
         public ItemStack AssignedItemSlot => assignedSlot;
-        
-        private void Awake()
+
+        protected virtual void Awake()
         {
             ClearSlot();
         }
@@ -22,6 +22,12 @@ namespace UI.Inventory
         public void Init(ItemStack slot)
         {
             assignedSlot = slot;
+            UpdateUISlot();
+        }
+
+        public void AssignItem(ItemStack slot)
+        {
+            assignedSlot.AssignItem(slot);
             UpdateUISlot();
         }
 
