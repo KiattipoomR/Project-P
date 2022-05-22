@@ -21,3 +21,4 @@ MonoBehaviour:
   buyPrice: 10
   sellPrice: 5
   cropData: {fileID: 11400000, guid: 0cf068c1a40448646b528c30a802159a, type: 2}
+  staminaPerSeedPlanting: 1

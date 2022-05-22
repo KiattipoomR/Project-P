@@ -13,7 +13,7 @@ namespace UI.Inventory
         [SerializeField] private MouseItem mouseItem;
 
         private Dictionary<InventoryPageSlotUI, ItemStack> _slotDictionary;
-        
+
         private void Start()
         {
             if (!playerInventoryHolder)
@@ -26,7 +26,7 @@ namespace UI.Inventory
 
             AssignSlot();
         }
-        
+
         private void AssignSlot()
         {
             _slotDictionary = new Dictionary<InventoryPageSlotUI, ItemStack>();
@@ -51,8 +51,6 @@ namespace UI.Inventory
 
         public void OnSlotClicked(InventoryPageSlotUI slot)
         {
-            // Debug.Log(mouseItem.AssignedItemSlot.ItemData == null);
-            // Debug.Log(slot.AssignedItemSlot.ItemData != null);
             if (mouseItem.AssignedItemSlot.ItemData == null && slot.AssignedItemSlot.ItemData != null)
             {
                 mouseItem.UpdateMouseSlot(slot.AssignedItemSlot, slot);
@@ -60,8 +58,26 @@ namespace UI.Inventory
             }
             else if (mouseItem.AssignedItemSlot.ItemData != null && slot.AssignedItemSlot.ItemData == null)
             {
-                slot.AssignItem(mouseItem.AssignedItemSlot);
+                slot.AssignedItemSlot.AssignItem(mouseItem.AssignedItemSlot);
+                slot.UpdateUISlot();
+
                 mouseItem.ClearSlot();
+            }
+            else if (mouseItem.AssignedItemSlot.ItemData != null && slot.AssignedItemSlot.ItemData != null)
+            {
+                // if (mouseItem.AssignedItemSlot.ItemData == slot.AssignedItemSlot.ItemData)
+                // {
+                //     return;
+                // }
+                // else
+                // {
+                ItemStack tempItemSlot = new ItemStack(slot.AssignedItemSlot.ItemData, slot.AssignedItemSlot.Stack);
+                slot.AssignedItemSlot.AssignItem(mouseItem.AssignedItemSlot);
+                slot.UpdateUISlot();
+
+                mouseItem.UpdateMouseSlot(tempItemSlot, null);
+                //     return;
+                // }
             }
         }
 

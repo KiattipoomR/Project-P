@@ -25,12 +25,6 @@ namespace UI.Inventory
             UpdateUISlot();
         }
 
-        public void AssignItem(ItemStack slot)
-        {
-            assignedSlot.AssignItem(slot);
-            UpdateUISlot();
-        }
-
         public void UpdateUISlot(ItemStack slot)
         {
             if (slot.ItemData)
@@ -43,7 +37,7 @@ namespace UI.Inventory
             else ClearSlot();
         }
 
-        private void UpdateUISlot()
+        public void UpdateUISlot()
         {
             if (AssignedItemSlot != null) UpdateUISlot(AssignedItemSlot);
         }

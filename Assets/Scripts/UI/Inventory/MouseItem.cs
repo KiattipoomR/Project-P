@@ -33,6 +33,7 @@ namespace UI.Inventory
         {
             if (assignedSlot.ItemData == null) return;
             transform.position = Mouse.current.position.ReadValue();
+            
         }
 
         public void UpdateMouseSlot(ItemStack stack, InventoryPageSlotUI reference)
