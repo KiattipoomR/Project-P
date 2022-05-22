@@ -17,7 +17,7 @@ namespace UI.Inventory
 
         private void OnButtonClick()
         {
-            reference.OnSlotClicked(this);
+            if (reference != null) reference.OnSlotClicked(this);
         }
     }
 }

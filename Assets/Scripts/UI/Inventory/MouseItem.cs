@@ -2,6 +2,7 @@ using System;
 using Inventory;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace UI.Inventory
@@ -30,7 +31,8 @@ namespace UI.Inventory
 
         private void Update()
         {
-            // transform.position = Mouse.current.position.ReadValue();
+            if (assignedSlot.ItemData == null) return;
+            transform.position = Mouse.current.position.ReadValue();
         }
 
         public void UpdateMouseSlot(ItemStack stack, InventoryPageSlotUI reference)
