@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70f361d7a1ce49ca877bad7abf02008d, type: 3}
-  m_Name: Crop_Pumpkin
+  m_Name: Crop_Tomato
   m_EditorClassIdentifier: 
-  id: Crop_Pumpkin
+  id: Crop_Tomato
   stages:
   - growthDays: 1
-    growthStageSprite: {fileID: -171679066, guid: 0f8fa26bd67a74039b2bfcc93554e8a2, type: 3}
+    growthStageSprite: {fileID: -2007405922, guid: cfbc4902a2e4349e2986894ea4d8330b, type: 3}
     staminaPerDay: 1
   - growthDays: 1
-    growthStageSprite: {fileID: 2025822110, guid: 0f8fa26bd67a74039b2bfcc93554e8a2, type: 3}
+    growthStageSprite: {fileID: 875008789, guid: cfbc4902a2e4349e2986894ea4d8330b, type: 3}
     staminaPerDay: 2
   - growthDays: 1
-    growthStageSprite: {fileID: 1261225977, guid: 0f8fa26bd67a74039b2bfcc93554e8a2, type: 3}
+    growthStageSprite: {fileID: 1324347211, guid: cfbc4902a2e4349e2986894ea4d8330b, type: 3}
     staminaPerDay: 3
   - growthDays: 1
-    growthStageSprite: {fileID: 1188135482, guid: 0f8fa26bd67a74039b2bfcc93554e8a2, type: 3}
+    growthStageSprite: {fileID: 1065365656, guid: cfbc4902a2e4349e2986894ea4d8330b, type: 3}
     staminaPerDay: 4
   - growthDays: 0
-    growthStageSprite: {fileID: 1454489578, guid: 0f8fa26bd67a74039b2bfcc93554e8a2, type: 3}
+    growthStageSprite: {fileID: 675625077, guid: cfbc4902a2e4349e2986894ea4d8330b, type: 3}
     staminaPerDay: 5
   harvestedItem: {fileID: 11400000, guid: af4be38949846414aac50a0001e18546, type: 2}
   staminaPerHarvest: 10
