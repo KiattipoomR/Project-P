@@ -9,7 +9,7 @@ namespace UI
 
         private void Awake()
         {
-            SetActiveInventoryBar(false, true);
+            SetActiveInventoryBar(false, "Player");
         }
 
         private void OnEnable()
@@ -22,10 +22,10 @@ namespace UI
             PauseManager.OnPauseTriggered -= SetActiveInventoryBar;
         }
 
-        private void SetActiveInventoryBar(bool isActive, bool fromPlayer)
+        private void SetActiveInventoryBar(bool isActive, string source)
         {
-            if (!fromPlayer) return;
-            
+            if (source != "Player") return;
+
             foreach (RectTransform hideableObject in hideableObjects)
             {
                 hideableObject.gameObject.SetActive(isActive);

@@ -109,7 +109,7 @@ namespace UI
             _cursorIsEnabled = isEnabled;
         }
 
-        private void SetInactiveGridCursor(bool isInactive, bool _)
+        private void SetInactiveGridCursor(bool isInactive, string _)
         {
             _isPaused = isInactive;
             // May change to setActive the cursor component instead. Hmm

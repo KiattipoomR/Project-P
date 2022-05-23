@@ -47,16 +47,18 @@ namespace Manager
 
     private void OnEnable()
     {
-      SetInactiveControlPlayerInput(false);
+      SetInactiveControlPlayerInput(false, "Worker");
       TimeManager.OnDayChanged += RenewRecruitableWorkerList;
       TimeManager.OnDayChanged += ExecuteFarmPlan;
+      PauseManager.OnPauseTriggered += SetInactiveControlPlayerInput;
     }
 
     private void OnDisable()
     {
-      SetInactiveControlPlayerInput(true);
+      SetInactiveControlPlayerInput(true, "Worker");
       TimeManager.OnDayChanged -= RenewRecruitableWorkerList;
       TimeManager.OnDayChanged -= ExecuteFarmPlan;
+      PauseManager.OnPauseTriggered -= SetInactiveControlPlayerInput;
     }
 
     private void OnToggle()
@@ -108,8 +110,10 @@ namespace Manager
       return false;
     }
 
-    private void SetInactiveControlPlayerInput(bool isInactive)
+    private void SetInactiveControlPlayerInput(bool isInactive, string _)
     {
+      // if (source == "Worker") return;
+      
       if (isInactive) _playerInput.Disable();
       else _playerInput.Enable();
     }
