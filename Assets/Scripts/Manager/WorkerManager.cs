@@ -110,9 +110,9 @@ namespace Manager
       return false;
     }
 
-    private void SetInactiveControlPlayerInput(bool isInactive, string _)
+    private void SetInactiveControlPlayerInput(bool isInactive, string source)
     {
-      // if (source == "Worker") return;
+      if (source == "Worker") return;
       
       if (isInactive) _playerInput.Disable();
       else _playerInput.Enable();
@@ -134,6 +134,17 @@ namespace Manager
     {
       seedListForNextDay.Add(seedStack);
       ProjectedStaminaNeededForTomorrowWithPlan();
+    }
+
+    public SeedAndCropStack RemoveSeedFromList()
+    {
+      if (seedListForNextDay.Count < 1) return null;
+      
+      SeedAndCropStack latestSeedStack = seedListForNextDay[seedListForNextDay.Count - 1];
+      seedListForNextDay.RemoveAt(seedListForNextDay.Count - 1);
+      ProjectedStaminaNeededForTomorrowWithPlan();
+      
+      return latestSeedStack;
     }
 
     private void ReduceTodayWorkerStamina(int staminaUsed)
