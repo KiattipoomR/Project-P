@@ -18,6 +18,7 @@ namespace UI
         private Canvas _canvas;
         private Camera _camera;
         private bool _isPaused, _cursorIsEnabled;
+        [SerializeField] private ItemStack _reference = new ItemStack();
 
         private void Start()
         {
@@ -50,6 +51,12 @@ namespace UI
         private void ShowCursor(Vector3 mousePosition)
         {
             if (_isPaused || !_cursorIsEnabled || grid == null) return;
+
+            if (_reference.ItemData == null || _reference.ItemData.IsUnusableItem())
+            {
+                SetEnableCursor(false);
+                return;
+            }
 
             Vector3Int cursorGridPosition = grid.WorldToCell(_camera.ScreenToWorldPoint(mousePosition));
             Vector3Int playerGridPosition = grid.WorldToCell(Player.Player.Instance.transform.position);
@@ -94,12 +101,14 @@ namespace UI
 
         private void CheckFocusItem(ItemStack item)
         {
+            _reference.UpdateStack(item.ItemData, item.Stack);
+            
             if (item.ItemData == null || item.ItemData.IsUnusableItem())
             {
                 SetEnableCursor(false);
                 return;
             }
-
+            
             SetEnableCursor(true);
         }
 

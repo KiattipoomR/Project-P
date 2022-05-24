@@ -9,7 +9,7 @@ namespace Manager
         public static UnityAction<bool, string> OnPauseTriggered;
 
         private InputActionAsset _playerInput;
-        private bool _isPaused = false;
+        private bool _isPaused;
 
         private UnityAction _setPlayerControlsInactive;
         private UnityAction _setPlayerControlsActive;
