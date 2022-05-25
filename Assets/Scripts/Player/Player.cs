@@ -29,13 +29,13 @@ namespace Player
         {
             base.Awake();
             _playerInput = GetComponent<PlayerInput>().actions;
-            _setPlayerControlsInactive = () => SetInactiveControlPlayerInput(true, true);
-            _setPlayerControlsActive = () => SetInactiveControlPlayerInput(false, true);
+            _setPlayerControlsInactive = () => SetInactiveControlPlayerInput(true, "");
+            _setPlayerControlsActive = () => SetInactiveControlPlayerInput(false, "");
         }
 
         private void OnEnable()
         {
-            SetInactiveControlPlayerInput(false, true);
+            SetInactiveControlPlayerInput(false, "");
             PauseManager.OnPauseTriggered += SetInactiveControlPlayerInput;
             DialogueManager.OnDialogueStarted += _setPlayerControlsInactive;
             DialogueManager.OnDialogueEnded += _setPlayerControlsActive;
@@ -43,7 +43,7 @@ namespace Player
 
         private void OnDisable()
         {
-            SetInactiveControlPlayerInput(true, true);
+            SetInactiveControlPlayerInput(true, "");
             PauseManager.OnPauseTriggered -= SetInactiveControlPlayerInput;
             DialogueManager.OnDialogueStarted -= _setPlayerControlsInactive;
             DialogueManager.OnDialogueEnded -= _setPlayerControlsActive;
@@ -81,7 +81,7 @@ namespace Player
             OnInteracted?.Invoke(_mousePosition);
         }
 
-        private void SetInactiveControlPlayerInput(bool isInactive, bool _)
+        private void SetInactiveControlPlayerInput(bool isInactive, string _)
         {
             if (isInactive) _playerInput.Disable();
             else _playerInput.Enable();

@@ -68,13 +68,20 @@ namespace UI.Inventory
             PauseManager.OnPauseTriggered -= SetInactiveInventoryBar;
         }
 
-        private void SetInactiveInventoryBar(bool isInactive, bool fromPlayer)
+        private void SetInactiveInventoryBar(bool isInactive, string source)
         {
-            if (!fromPlayer) return;
-            
+            // if (source != "Player") return;
+
             foreach (RectTransform hideableObject in _hideableObjects)
             {
                 hideableObject.gameObject.SetActive(!isInactive);
+            }
+
+            if (isInactive) return;
+            for (var i = 0; i < 9; i++)
+            {
+                bool found = _slotDictionary.TryGetValue(barSlots[i], out ItemStack invSlot);
+                if (found) barSlots[i].UpdateUISlot(invSlot);
             }
         }
 

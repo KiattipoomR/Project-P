@@ -1,23 +1,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Worker
+namespace FarmManager
 {
   public class WorkerList
   {
-    private List<WorkerData> workers;
+    private List<Worker> workers;
     private int maxCapacity;
 
-    public List<WorkerData> Workers => workers;
+    public List<Worker> Workers => workers;
     public int MaxCapacity => maxCapacity;
 
     public WorkerList(int maxCapacity)
     {
-      workers = new List<WorkerData>();
+      this.workers = new List<Worker>();
       this.maxCapacity = maxCapacity;
     }
 
-    public bool AddWorker(WorkerData worker)
+    public bool Contains(string workerId)
+    {
+      return workers.Find(s => s.WorkerId == workerId) != null;
+    }
+
+    public Worker GetWorkerById(string workerId)
+    {
+      return workers.Find(s => s.WorkerId == workerId);
+    }
+
+    public bool AddWorker(Worker worker)
     {
       if (workers.Count >= maxCapacity)
       {
@@ -27,9 +37,23 @@ namespace Worker
       return true;
     }
 
-    public bool RemoveWorker(WorkerData worker)
+    public bool SetWorkerIsActive(string workerId, bool newIsActive)
     {
-      int pos = workers.IndexOf(worker);
+      int i = workers.FindIndex(s => s.WorkerId == workerId);
+      if (i == -1)
+      {
+        return false;
+      }
+      else
+      {
+        workers[i].SetIsActive(newIsActive);
+        return true;
+      }
+    }
+
+    public bool RemoveWorker(string workerId)
+    {
+      int pos = workers.FindIndex(s => s.WorkerId == workerId);
       if (pos == -1)
       {
         return false;
@@ -41,11 +65,27 @@ namespace Worker
       }
     }
 
+    public void Work(int staminaUsed)
+    {
+      int n = workers.FindAll(s => s.IsActive).Count;
+      foreach (Worker worker in workers)
+      {
+        if (worker.IsActive)
+        {
+          worker.SpendStamina(Mathf.RoundToInt(staminaUsed / n), true);
+        }
+        else
+        {
+          worker.RecoverStamina(10);
+        }
+      }
+    }
+
     public void GenerateWorkerListToFull()
     {
       while (true)
       {
-        if (!AddWorker(WorkerData.GenerateRandomWorker()))
+        if (!AddWorker(new Worker(WorkerData.GenerateRandomWorker())))
         {
           break;
         }
@@ -54,7 +94,7 @@ namespace Worker
 
     public void ClearWorkerList()
     {
-      workers = new List<WorkerData>();
+      workers = new List<Worker>();
     }
   }
 }

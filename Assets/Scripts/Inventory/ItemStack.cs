@@ -29,6 +29,15 @@ namespace Inventory
             stack = -1;
         }
 
+        public void AssignItem(ItemStack stack)
+        {
+            if(itemData == stack.itemData) AddToStack(stack.Stack);
+
+            itemData = stack.itemData;
+            this.stack = 0;
+            AddToStack(stack.Stack);
+        }
+
         public void UpdateStack(ItemData data, int amount)
         {
             itemData = data;

@@ -8,6 +8,7 @@ namespace UI
     public void OnEnable()
     {
       WorkerManager.OnRecruitableWorkerListChanged += UpdateWorkerPanelList;
+      UpdateWorkerPanelList(GameManager.Instance.workerManager.RecruitableWorkerList.Workers);
     }
 
     private void OnDisable()

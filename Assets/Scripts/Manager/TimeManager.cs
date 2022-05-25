@@ -79,19 +79,19 @@ namespace Manager
             OnDateTimeChanged?.Invoke(_currentTime);
         }
 
-        private void ControlTime(bool isPaused, bool _)
+        private void ControlTime(bool isPaused, string _)
         {
             _isPaused = isPaused;
         }
 
         private void PauseTime()
         {
-            ControlTime(true, true);
+            ControlTime(true, "");
         }
 
         private void UnpauseTime()
         {
-            ControlTime(false, true);
+            ControlTime(false, "");
         }
     }
 }

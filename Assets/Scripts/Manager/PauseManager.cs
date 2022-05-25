@@ -6,10 +6,10 @@ namespace Manager
 {
     public class PauseManager : MonoBehaviour
     {
-        public static UnityAction<bool, bool> OnPauseTriggered;
+        public static UnityAction<bool, string> OnPauseTriggered;
 
         private InputActionAsset _playerInput;
-        private bool _isPaused = false;
+        private bool _isPaused;
 
         private UnityAction _setPlayerControlsInactive;
         private UnityAction _setPlayerControlsActive;
@@ -28,6 +28,8 @@ namespace Manager
             DialogueManager.OnDialogueStarted += SystemPause;
             DialogueManager.OnDialogueEnded += _setPlayerControlsActive;
             DialogueManager.OnDialogueEnded += SystemPause;
+            WorkerManager.OnToggleTriggered += SetInactiveControlPlayerInput;
+            WorkerManager.OnToggleTriggered += PlayerPause;
         }
 
         private void OnDisable()
@@ -37,20 +39,30 @@ namespace Manager
             DialogueManager.OnDialogueStarted -= SystemPause;
             DialogueManager.OnDialogueEnded -= _setPlayerControlsActive;
             DialogueManager.OnDialogueEnded -= SystemPause;
+            WorkerManager.OnToggleTriggered -= SetInactiveControlPlayerInput;
+            WorkerManager.OnToggleTriggered -= PlayerPause;
+
         }
 
         private void OnPause()
         {
             TriggerPause();
 
-            OnPauseTriggered?.Invoke(_isPaused, true);
+            OnPauseTriggered?.Invoke(_isPaused, "Player");
         }
-        
+
         private void SystemPause()
         {
             TriggerPause();
 
-            OnPauseTriggered?.Invoke(_isPaused, false);
+            OnPauseTriggered?.Invoke(_isPaused, "Dialogue");
+        }
+
+        private void PlayerPause(bool _)
+        {
+            TriggerPause();
+
+            OnPauseTriggered?.Invoke(_isPaused, "Worker");
         }
 
         private void TriggerPause()

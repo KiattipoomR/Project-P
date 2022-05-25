@@ -1,3 +1,4 @@
+using UnityEngine;
 using Manager;
 
 namespace UI
@@ -7,6 +8,7 @@ namespace UI
     private void OnEnable()
     {
       WorkerManager.OnRecruitedWorkerListChanged += UpdateWorkerPanelList;
+      UpdateWorkerPanelList(GameManager.Instance.workerManager.RecruitedWorkerList.Workers);
     }
 
     private void OnDisable()
