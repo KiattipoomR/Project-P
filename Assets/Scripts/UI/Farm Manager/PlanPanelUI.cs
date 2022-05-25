@@ -51,4 +51,9 @@ public class PlanPanelUI : MonoBehaviour
             mouseItem.ClearSlot();
         }
     }
+
+    public void HarvestCrops()
+    {
+        GameManager.Instance.workerManager.HarvestCrops();
+    }
 }

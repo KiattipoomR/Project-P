@@ -2,6 +2,8 @@ using Inventory;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Manager;
+using DateTime = GameTime.DateTime;
 
 public class SeedSlotUI : MonoBehaviour
 {
@@ -16,6 +18,7 @@ public class SeedSlotUI : MonoBehaviour
 
     private void Awake()
     {
+        TimeManager.OnDateTimeChanged += ResetSlotAfterDayChanged;
         ClearSlot();
         if (button != null) button.onClick.AddListener(OnButtonClick);
     }
@@ -40,6 +43,11 @@ public class SeedSlotUI : MonoBehaviour
     public void UpdateUISlot()
     {
         if (AssignedItemSlot != null) UpdateUISlot(AssignedItemSlot);
+    }
+
+    private void ResetSlotAfterDayChanged(DateTime _)
+    {
+        ClearSlot();
     }
 
     private void ClearSlot()
