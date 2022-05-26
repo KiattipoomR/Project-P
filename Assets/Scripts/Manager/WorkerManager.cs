@@ -197,5 +197,21 @@ namespace Manager
             }
             harvestedCropList = new List<ItemStack>();
         }
+
+        public int GetStaminaNeeded()
+        {
+            int staminaUsedInProcessToday = 0;
+            foreach (SeedAndCropStack i in seedAndCropListInProcess)
+            {
+                staminaUsedInProcessToday += i.GetStaminaNeeded();
+            }
+            seedAndCropListInProcess.RemoveAll(s => s.Status == PlantingStatus.DEAD);
+            foreach (SeedAndCropStack i in seedListForNextDay)
+            {
+                seedAndCropListInProcess.Add(i);
+                staminaUsedInProcessToday += i.GetStaminaNeeded();
+            }
+            return staminaUsedInProcessToday;
+        }
     }
 }

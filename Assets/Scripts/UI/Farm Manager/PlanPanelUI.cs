@@ -15,6 +15,7 @@ public class PlanPanelUI : MonoBehaviour
     private void OnEnable()
     {
         WorkerManager.OnRecalculatingStaminaNeeded += UpdateStaminaNeeded;
+        UpdateStaminaNeeded(GameManager.Instance.workerManager.GetStaminaNeeded());
     }
 
     private void OnDisable()
