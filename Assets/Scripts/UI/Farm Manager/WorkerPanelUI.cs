@@ -21,7 +21,7 @@ namespace UI
       workerPanelNameText.text = worker.WorkerData.WorkerName;
       if (workerPanelStaminaText)
       {
-        workerPanelStaminaText.text = string.Format("Stamina: {0}/{1}", worker.WorkerStamina, worker.WorkerData.WorkerMaxStamina);
+        workerPanelStaminaText.text = string.Format("Stamina: {0}/{1}", Mathf.FloorToInt(worker.WorkerStamina), worker.WorkerData.WorkerMaxStamina);
       }
       if (workerPanelsActiveToggle && (worker.IsActive ^ workerPanelsActiveToggle.isOn))
       {
