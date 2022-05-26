@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using FarmManager;
 using Inventory;
 using Player;
+using GameTime;
 
 namespace Manager
 {
@@ -20,6 +21,8 @@ namespace Manager
 
     [SerializeField] private int recruitedWorkerLimit = 5;
     [SerializeField] private int recruitableWorkerLimit = 5;
+    [SerializeField] private int planTimeLimitHour = 12;
+    [SerializeField] private int planTimeLimitMinute = 0;
     private WorkerList recruitedWorkerList;
     private WorkerList recruitableWorkerList;
 
@@ -28,6 +31,7 @@ namespace Manager
     private List<ItemStack> harvestedCropList;
 
     private bool _isToggled = false;
+    private bool _timeLimitPassed = false;
 
     public WorkerList RecruitedWorkerList => recruitedWorkerList;
     public WorkerList RecruitableWorkerList => recruitableWorkerList;
@@ -54,6 +58,7 @@ namespace Manager
       TimeManager.OnDayChanged += RenewRecruitableWorkerList;
       TimeManager.OnDayChanged += ExecuteFarmPlan;
       PauseManager.OnPauseTriggered += SetInactiveControlPlayerInput;
+      TimeManager.OnDateTimeChanged += CheckTimeLimit;
     }
 
     private void OnDisable()
@@ -62,10 +67,22 @@ namespace Manager
       TimeManager.OnDayChanged -= RenewRecruitableWorkerList;
       TimeManager.OnDayChanged -= ExecuteFarmPlan;
       PauseManager.OnPauseTriggered -= SetInactiveControlPlayerInput;
+      TimeManager.OnDateTimeChanged -= CheckTimeLimit;
+    }
+
+    private void CheckTimeLimit(DateTime currentTime)
+    {
+      _timeLimitPassed = (currentTime.Hour > planTimeLimitHour)
+          || (currentTime.Hour == planTimeLimitHour && currentTime.Minute > planTimeLimitMinute);
     }
 
     private void OnToggle()
     {
+      if (_timeLimitPassed)
+      {
+        Debug.Log("Plan time is passed.");
+        return;
+      }
       _isToggled = !_isToggled;
       OnToggleTriggered?.Invoke(_isToggled);
       //RefreshWorkerList();
@@ -204,10 +221,8 @@ namespace Manager
       {
         staminaUsedInProcessToday += i.GetStaminaNeeded();
       }
-      seedAndCropListInProcess.RemoveAll(s => s.Status == PlantingStatus.DEAD);
       foreach (SeedAndCropStack i in seedListForNextDay)
       {
-        seedAndCropListInProcess.Add(i);
         staminaUsedInProcessToday += i.GetStaminaNeeded();
       }
       return staminaUsedInProcessToday;
