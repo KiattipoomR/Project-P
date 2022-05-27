@@ -205,13 +205,17 @@ namespace Manager
       ReduceTodayWorkerStamina(staminaUsedInProcessToday);
     }
 
-    public void HarvestCrops()
+    public void CollectCrops()
     {
       foreach (ItemStack harvestedCrop in harvestedCropList)
       {
         playerInventoryHolder.AddItemToInventory(harvestedCrop.ItemData, harvestedCrop.Stack);
       }
       harvestedCropList = new List<ItemStack>();
+    }
+
+    public int GetCollectableCrops() {
+      return harvestedCropList.Count;
     }
 
     public int GetStaminaNeeded()

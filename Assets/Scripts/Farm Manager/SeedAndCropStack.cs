@@ -1,12 +1,10 @@
-using Crop;
-using Manager;
 using UnityEngine;
 using Item;
 using Inventory;
 
 namespace FarmManager
 {
-  public enum PlantingStatus
+    public enum PlantingStatus
   {
     SEED,
     PLANT,
@@ -71,7 +69,7 @@ namespace FarmManager
       {
         return cropEntity.StaminaNeededForHarvestDay * stack;
       }
-      return 1;
+      return 0;
     }
   }
 }

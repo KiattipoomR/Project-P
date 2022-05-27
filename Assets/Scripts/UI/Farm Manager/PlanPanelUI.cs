@@ -5,6 +5,7 @@ using FarmManager;
 using InventoryUI = UI.Inventory;
 using Item;
 using Inventory;
+using UnityEngine.UI;
 
 public class PlanPanelUI : MonoBehaviour
 {
@@ -12,10 +13,17 @@ public class PlanPanelUI : MonoBehaviour
     [SerializeField] private SeedSlotUI slot;
     [SerializeField] private InventoryUI.MouseItem mouseItem;
 
+    [SerializeField] private TextMeshProUGUI cropsToBeCollectedText;
+    [SerializeField] private Button collectCropsButton;
+
     private void OnEnable()
     {
         WorkerManager.OnRecalculatingStaminaNeeded += UpdateStaminaNeeded;
         UpdateStaminaNeeded(GameManager.Instance.workerManager.GetStaminaNeeded());
+        
+        int collectableCrops = GameManager.Instance.workerManager.GetCollectableCrops();
+        SetEnableCollectCrops(collectableCrops > 0);
+        if (collectableCrops > 0) SetCropsToBeCollectedText(collectableCrops);
     }
 
     private void OnDisable()
@@ -53,8 +61,18 @@ public class PlanPanelUI : MonoBehaviour
         }
     }
 
-    public void HarvestCrops()
+    public void CollectCrops()
     {
-        GameManager.Instance.workerManager.HarvestCrops();
+        GameManager.Instance.workerManager.CollectCrops();
+        SetEnableCollectCrops(false);
+    }
+
+    private void SetCropsToBeCollectedText(int cropsToBeCollected) {
+        cropsToBeCollectedText.text = $"{cropsToBeCollected} crop(s) to be collected.";
+    }
+
+    private void SetEnableCollectCrops(bool isEnable) {
+        cropsToBeCollectedText.gameObject.SetActive(isEnable);
+        collectCropsButton.gameObject.SetActive(isEnable);
     }
 }
