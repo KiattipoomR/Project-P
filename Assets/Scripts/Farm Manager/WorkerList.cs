@@ -72,7 +72,7 @@ namespace FarmManager
       {
         if (worker.IsActive)
         {
-          worker.SpendStamina(Mathf.RoundToInt(staminaUsed / n), true);
+          worker.SpendStamina((float)staminaUsed / n, true);
         }
         else
         {

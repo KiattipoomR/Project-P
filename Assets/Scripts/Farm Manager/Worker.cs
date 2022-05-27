@@ -6,13 +6,13 @@ namespace FarmManager
   {
     private string workerId;
     private WorkerData workerData;
-    private int workerStamina;
+    private float workerStamina;
     private bool isActive;
     private int overworkCounter;
 
     public string WorkerId => workerId;
     public WorkerData WorkerData => workerData;
-    public int WorkerStamina => workerStamina;
+    public float WorkerStamina => workerStamina;
     public bool IsActive => isActive;
 
     public Worker(WorkerData workerData)
@@ -24,7 +24,7 @@ namespace FarmManager
       this.overworkCounter = 0;
     }
 
-    public bool RecoverStamina(int n)
+    public bool RecoverStamina(float n)
     {
       if (workerStamina >= workerData.WorkerMaxStamina)
       {
@@ -38,7 +38,7 @@ namespace FarmManager
       return true;
     }
 
-    public bool SpendStamina(int n, bool overworkPossible)
+    public bool SpendStamina(float n, bool overworkPossible)
     {
       if (workerStamina < n && !overworkPossible)
       {
