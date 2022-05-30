@@ -2,43 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CurrencyManager : MonoBehaviour
+namespace Manager
 {
     
-    [Header("Init currency")]
-    
-    [SerializeField] private int rune;
-
-    private static int _currentRune;
-
-    private void Awake()
+    public class CurrencyManager : MonoBehaviour
     {
-        _currentRune = rune;
+    
+        [Header("Init currency")]
+        [SerializeField] private int rune;
+
+        private static int _currentRune;
+
+      
+        private void Awake()
+        {
+            _currentRune = rune;
        
-    }
+        }
+        
     
 
-    private bool incomeRune(int incomeRune)
-    {
-        rune += incomeRune;
-        return true;
-    }
-
-    private bool subtraceRune(int runeToSubtract)
-    {
-        if (rune - runeToSubtract < 0)
+        public bool incomeRune(int incomeRune)
         {
-            return false;
-        }
-        else
-        {
-            rune = rune - runeToSubtract;
+            _currentRune += incomeRune;
             return true;
         }
+
+        public bool subtraceRune(int runeToSubtract)
+        {
+            if ( _currentRune - runeToSubtract < 0)
+            {
+                return false;
+            }
+            else
+            {
+                _currentRune =  _currentRune - runeToSubtract;
+                return true;
+            }
+        }
+
+        public static string getCurrentRune()
+        {
+            return  _currentRune.ToString();
+        }
     }
 
-    public static string getCurrentRune()
-    {
-        return _currentRune.ToString();
-    }
+    
 }
