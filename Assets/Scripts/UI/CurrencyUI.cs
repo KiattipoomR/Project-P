@@ -10,14 +10,10 @@ public class CurrencyUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI rune;
     
     
-    private void Awake()
+    private void Update()
     {
         rune.text = CurrencyManager.getCurrentRune();
     }
     
-    private void OnEnable()
-    {
-       rune.text = CurrencyManager.getCurrentRune();
-    }
-   
+
 }
