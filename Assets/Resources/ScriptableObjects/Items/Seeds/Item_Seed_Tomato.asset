@@ -18,7 +18,7 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: cfbba8cf50d164f2182e614389427136, type: 3}
   itemType: 7
   maxStack: 99
-  buyPrice: 10
-  sellPrice: 5
+  buyPrice: 6
+  sellPrice: 3
   cropData: {fileID: 11400000, guid: 0cf068c1a40448646b528c30a802159a, type: 2}
   staminaPerSeedPlanting: 5

@@ -50,7 +50,7 @@ namespace Inventory
     public bool RemoveFromInventory(ItemData item, int amount)
     {
       List<ItemStack> slotsContainingItem = slots.FindAll(invSlot => invSlot.ItemData == item);
-      int totalAmountInInventory = slots.Sum(slot => slot.Stack);
+      int totalAmountInInventory = slotsContainingItem.Sum(slot => slot.Stack);
       Debug.Log(totalAmountInInventory);
       if (totalAmountInInventory < amount) return false;
 
