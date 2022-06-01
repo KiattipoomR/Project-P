@@ -35,10 +35,6 @@ namespace Manager
     private void SaveChoice(string questionId, int choiceId)
     {
       Debug.Log("Save choice " + questionId + " " + choiceId);
-      if (questionId == "yasmin_whattodo" && choiceId == 0)
-      {
-        shopPanel.SetActiveShopPanel(true);
-      }
     }
 
     public void StartDialogue(DialogueStartEnd dialogueStartEnd, TextAsset dialogueTextAsset)
@@ -53,6 +49,10 @@ namespace Manager
     {
       _dialogueInProcess = false;
       OnDialogueEnded?.Invoke();
+      if (PlayerPrefs.GetInt("yasmin_whattodo", -1) == 0)
+      {
+        shopPanel.SetActiveShopPanel(true);
+      }
     }
   }
 }
