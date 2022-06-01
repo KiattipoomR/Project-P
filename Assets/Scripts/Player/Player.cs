@@ -10,6 +10,7 @@ namespace Player
     {
         [Header("Components")]
         [SerializeField] private Rigidbody2D rb;
+        [SerializeField] private Animator animator;
 
         [Header("Attributes")]
         [SerializeField] private float movementSpeed = 5f;
@@ -24,6 +25,17 @@ namespace Player
 
         private UnityAction _setPlayerControlsInactive;
         private UnityAction _setPlayerControlsActive;
+
+        private string _currentAnimationState;
+
+        private const string PLAYER_IDLE_UP = "BodyIdleUp";
+        private const string PLAYER_IDLE_DOWN = "BodyIdleDown";
+        private const string PLAYER_IDLE_RIGHT = "BodyIdleRight";
+        private const string PLAYER_IDLE_LEFT = "BodyIdleLeft";
+        private const string PLAYER_WALK_UP = "BodyWalkUp";
+        private const string PLAYER_WALK_DOWN = "BodyWalkDown";
+        private const string PLAYER_WALK_RIGHT = "BodyWalkRight";
+        private const string PLAYER_WALK_LEFT = "BodyWalkLeft";
 
         protected override void Awake()
         {
@@ -57,6 +69,47 @@ namespace Player
         private void OnMovement(InputValue ctx)
         {
             _playerMovement = ctx.Get<Vector2>();
+
+            if (_playerMovement.x > 0)
+        {
+            ChangeAnimationState(PLAYER_WALK_RIGHT);
+        }
+        else if (_playerMovement.x < 0)
+        {
+            ChangeAnimationState(PLAYER_WALK_LEFT);
+        }
+        else if (_playerMovement.y > 0)
+        {
+            ChangeAnimationState(PLAYER_WALK_UP);
+        }
+        else if (_playerMovement.y < 0)
+        {
+            ChangeAnimationState(PLAYER_WALK_DOWN);
+        }
+        else
+        {
+            string newAnimationState;
+            switch (_currentAnimationState)
+            {
+                case PLAYER_WALK_UP:
+                    newAnimationState = PLAYER_IDLE_UP;
+                    break;
+                case PLAYER_WALK_DOWN:
+                    newAnimationState = PLAYER_IDLE_DOWN;
+                    break;
+                case PLAYER_WALK_RIGHT:
+                    newAnimationState = PLAYER_IDLE_RIGHT;
+                    break;
+                case PLAYER_WALK_LEFT:
+                    newAnimationState = PLAYER_IDLE_LEFT;
+                    break;
+                default:
+                    newAnimationState = PLAYER_IDLE_DOWN;
+                    break;
+            }
+
+            ChangeAnimationState(newAnimationState);
+        }
         }
 
         private void OnInventoryChange(InputValue ctx)
@@ -85,6 +138,19 @@ namespace Player
         {
             if (isInactive) _playerInput.Disable();
             else _playerInput.Enable();
+        }
+
+        private void ChangeAnimationState(string newAnimationState)
+        {
+            // Prevent animation from interrupting itself
+            if (_currentAnimationState == newAnimationState) return;
+
+            // Play new animation
+            animator.Play(newAnimationState);
+
+            // Update current state
+            
+            _currentAnimationState = newAnimationState;
         }
     }
 }
