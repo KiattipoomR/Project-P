@@ -101,7 +101,6 @@ namespace Manager
 
                     newCrop.Init(((SeedData)item.ItemData).CropData);
 
-                    playerInventory.RemoveItemFromInventory(item.ItemData, 1);
                     break;
             }
         }

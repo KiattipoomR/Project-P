@@ -33,15 +33,17 @@ namespace Player
         public bool AddItemToInventory(ItemData item, int amount)
         {
             bool addSuccess = Inventory.AddToInventory(item, amount);
-            if (addSuccess && item == GetCurrentSlot().ItemData)  OnItemFocused?.Invoke(GetCurrentSlot());
-            
+            if (addSuccess && item == GetCurrentSlot().ItemData) OnItemFocused?.Invoke(GetCurrentSlot());
+
             return addSuccess;
         }
 
-        public void RemoveItemFromInventory(ItemData item, int amount)
+        public bool RemoveItemFromInventory(ItemData item, int amount)
         {
-            Inventory.RemoveFromInventory(item, amount);
-            OnItemFocused?.Invoke(GetCurrentSlot());
+            bool result = Inventory.RemoveFromInventory(item, amount);
+            if (result) OnItemFocused?.Invoke(GetCurrentSlot());
+
+            return result;
         }
 
         private void SetFocusSlot(int slotIndex)

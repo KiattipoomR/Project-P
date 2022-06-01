@@ -47,24 +47,29 @@ namespace Inventory
             return true;
         }
 
-        public void RemoveFromInventory(ItemData item, int amount)
+        public bool RemoveFromInventory(ItemData item, int amount)
         {
             List<ItemStack> slotsContainingItem = slots.FindAll(invSlot => invSlot.ItemData == item);
+            int totalAmountInInventory = slots.Sum(slot => slot.Stack);
+            if (totalAmountInInventory < amount) return false;
+
             foreach (ItemStack slot in slotsContainingItem)
             {
                 if (slot.Stack > amount)
                 {
                     slot.RemoveFromStack(amount);
                     OnInventorySlotUpdated?.Invoke(slot);
-                    return;
+                    break;
                 }
 
                 amount -= slot.Stack;
                 slot.ClearStack();
                 OnInventorySlotUpdated?.Invoke(slot);
 
-                if (amount < 1) return;
+                if (amount < 1) break;
             }
+
+            return true;
         }
 
         public bool ContainsItem(ItemData item, out List<ItemStack> invSlots)
