@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Item;
 using TMPro;
 using Manager;
 using Player;
-using Inventory;
 
 
 namespace UI
@@ -19,7 +16,7 @@ namespace UI
 
         private static int amount = 0 ;
 
-        public GameObject popupPanel;
+        [SerializeField] private TextMeshProUGUI errorText;
         
         public GameObject BuyPopupPanel;
         public SeedData seedData;
@@ -30,11 +27,10 @@ namespace UI
 
         public TextMeshProUGUI priceText;
 
-        public TextMeshProUGUI popupMessage;
         
         public TextMeshProUGUI AmountText;
 
-       
+        
         
       
         public void Buy()
@@ -49,12 +45,10 @@ namespace UI
 
             }else if (!validBuy)
             {
-                popupMessage.text = "Not have enough money";
-                popupPanel.SetActive(true);
+                ShowErrorText("Not have enough money");
             } else if (!validInventory )
             { 
-                popupMessage.text = "Your bag is full.";
-                popupPanel.SetActive(true);
+                ShowErrorText("Your bag is full.");
             }
         }
         public void PopupAmount()
@@ -65,9 +59,9 @@ namespace UI
             
         }
 
-        public void ClosePopUp()
-        {
-            popupPanel.SetActive(false);
+        private void ShowErrorText(string reason) {
+            errorText.text = reason;
+            errorText.gameObject.SetActive(true);
         }
 
         public void ClosePopUpAmount()
@@ -86,8 +80,7 @@ namespace UI
         {
             if (amount - 1 < 0)
             {
-                popupMessage.text = "Amount cannot less than 0";
-                popupPanel.SetActive(true);
+                ShowErrorText("Amount cannot less than 0");
             }
             else
             {
@@ -100,7 +93,6 @@ namespace UI
         void Start()
         {
 
-            popupPanel.SetActive(false);
             priceText.text = seedData.BuyPrice.ToString();
             artworkImage.sprite = seedData.ItemIcon;
 
