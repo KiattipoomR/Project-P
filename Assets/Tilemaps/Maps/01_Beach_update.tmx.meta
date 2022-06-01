@@ -10,74 +10,10 @@ ScriptedImporter:
   script: {fileID: 11500000, guid: 1fa25d03934ea624a82bf2fcee6f0873, type: 3}
   missingFiles: []
   errors:
-  - 'Missing texture asset: D:/UnityProjects/Project P/Assets/TemporarySprites/M
-    Studio/Art/Maps/BaseMap2@20.png'
-  - 'Missing texture asset: D:/UnityProjects/Project P/Assets/TemporarySprites/M
-    Studio/Art/Maps/BaseMap1@20.png'
   - "Missing texture asset: D:/\u0E07\u0E32\u0E19\u0E40\u0E23\u0E35\u0E22\u0E19/edu
     prog/preset map/Tree01/Tree01_Stage03.png"
   - "Missing texture asset: D:/\u0E07\u0E32\u0E19\u0E40\u0E23\u0E35\u0E22\u0E19/edu
     prog/preset map/Tree02/Tree02_Stage03.png"
-  - Could not find tile 967. Make sure the tilesets were successfully imported.
-  - Could not find tile 169. Make sure the tilesets were successfully imported.
-  - Could not find tile 1112. Make sure the tilesets were successfully imported.
-  - Could not find tile 1113. Make sure the tilesets were successfully imported.
-  - Could not find tile 1049. Make sure the tilesets were successfully imported.
-  - Could not find tile 1144. Make sure the tilesets were successfully imported.
-  - Could not find tile 1145. Make sure the tilesets were successfully imported.
-  - Could not find tile 1176. Make sure the tilesets were successfully imported.
-  - Could not find tile 1177. Make sure the tilesets were successfully imported.
-  - Could not find tile 460. Make sure the tilesets were successfully imported.
-  - Could not find tile 1049. Make sure the tilesets were successfully imported.
-  - Could not find tile 786. Make sure the tilesets were successfully imported.
-  - Could not find tile 787. Make sure the tilesets were successfully imported.
-  - Could not find tile 788. Make sure the tilesets were successfully imported.
-  - Could not find tile 1112. Make sure the tilesets were successfully imported.
-  - Could not find tile 1113. Make sure the tilesets were successfully imported.
-  - Could not find tile 1022. Make sure the tilesets were successfully imported.
-  - Could not find tile 1048. Make sure the tilesets were successfully imported.
-  - Could not find tile 1020. Make sure the tilesets were successfully imported.
-  - Could not find tile 1081. Make sure the tilesets were successfully imported.
-  - Could not find tile 1144. Make sure the tilesets were successfully imported.
-  - Could not find tile 1145. Make sure the tilesets were successfully imported.
-  - Could not find tile 1054. Make sure the tilesets were successfully imported.
-  - Could not find tile 1080. Make sure the tilesets were successfully imported.
-  - Could not find tile 1052. Make sure the tilesets were successfully imported.
-  - Could not find tile 1176. Make sure the tilesets were successfully imported.
-  - Could not find tile 1177. Make sure the tilesets were successfully imported.
-  - Could not find tile 1086. Make sure the tilesets were successfully imported.
-  - Could not find tile 818. Make sure the tilesets were successfully imported.
-  - Could not find tile 819. Make sure the tilesets were successfully imported.
-  - Could not find tile 820. Make sure the tilesets were successfully imported.
-  - Could not find tile 1084. Make sure the tilesets were successfully imported.
-  - Could not find tile 1118. Make sure the tilesets were successfully imported.
-  - Could not find tile 1116. Make sure the tilesets were successfully imported.
-  - Could not find tile 1150. Make sure the tilesets were successfully imported.
-  - Could not find tile 1072. Make sure the tilesets were successfully imported.
-  - Could not find tile 1073. Make sure the tilesets were successfully imported.
-  - Could not find tile 1148. Make sure the tilesets were successfully imported.
-  - Could not find tile 1182. Make sure the tilesets were successfully imported.
-  - Could not find tile 1104. Make sure the tilesets were successfully imported.
-  - Could not find tile 1105. Make sure the tilesets were successfully imported.
-  - Could not find tile 1180. Make sure the tilesets were successfully imported.
-  - Could not find tile 1135. Make sure the tilesets were successfully imported.
-  - Could not find tile 1136. Make sure the tilesets were successfully imported.
-  - Could not find tile 1137. Make sure the tilesets were successfully imported.
-  - Could not find tile 1138. Make sure the tilesets were successfully imported.
-  - Could not find tile 1167. Make sure the tilesets were successfully imported.
-  - Could not find tile 1168. Make sure the tilesets were successfully imported.
-  - Could not find tile 1169. Make sure the tilesets were successfully imported.
-  - Could not find tile 1170. Make sure the tilesets were successfully imported.
-  - Could not find tile 526. Make sure the tilesets were successfully imported.
-  - Could not find tile 462. Make sure the tilesets were successfully imported.
-  - Could not find tile 522. Make sure the tilesets were successfully imported.
-  - Could not find tile 461. Make sure the tilesets were successfully imported.
-  - Could not find tile 873. Make sure the tilesets were successfully imported.
-  - Could not find tile 770. Make sure the tilesets were successfully imported.
-  - Could not find tile 842. Make sure the tilesets were successfully imported.
-  - Could not find tile 451. Make sure the tilesets were successfully imported.
-  - Could not find tile 738. Make sure the tilesets were successfully imported.
-  - Could not find tile 739. Make sure the tilesets were successfully imported.
   - Could not find tile 1441. Make sure the tilesets were successfully imported.
   - Could not find tile 1442. Make sure the tilesets were successfully imported.
   - Could not find tile 1443. Make sure the tilesets were successfully imported.
@@ -109,7 +45,7 @@ ScriptedImporter:
   importerVersion: 24
   pixelsPerUnit: 20
   edgesPerEllipse: 32
-  numberOfObjectsImported: 6
+  numberOfObjectsImported: 2888
   tilesAsObjects: 0
   sortingMode: 0
   isIsometric: 0
