@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 872a85ab13e39534cb0672ac8187ed0e, type: 3}
+  m_Name: DialogueTestNPC
+  m_EditorClassIdentifier: 
+  npcName: 
+  npcSprite: {fileID: -1291131760149906504, guid: f994fee8748d14563837658ccb47c37c, type: 3}
+  dialogueTextAsset: {fileID: 4900000, guid: 5e5a9dd523ece924eb6f373f103287fb, type: 3}
+  dialogueFlowGraph:
+  - startEndLine:
+      startLine: question1_start
+      endLine: question1_end
+    links:
+    - conditions:
+      - choiceId: IDOFQUESTION
+        value: 0
+      nextDialogueIndex: 1
+    - conditions:
+      - choiceId: IDOFQUESTION
+        value: 1
+      nextDialogueIndex: 2
+  - startEndLine:
+      startLine: answerYesTalkAgain_begin
+      endLine: answerYesTalkAgain_end
+    links: []
+  - startEndLine:
+      startLine: answeredNo_begin
+      endLine: answeredNo_end
+    links: []
+  startDialogueState: 0
