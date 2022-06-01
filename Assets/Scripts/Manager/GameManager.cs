@@ -12,5 +12,6 @@ namespace Manager
     public CurrencyManager currencyManager;
     public WorkerManager workerManager;
     public DialogueManager dialogueManager;
+    public CutsceneManager cutsceneManager;
   }
 }

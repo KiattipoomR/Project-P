@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using NPC;
+using Dialogue;
 
 namespace Manager
 {

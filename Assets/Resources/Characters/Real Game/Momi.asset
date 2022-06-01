@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46921e71e9f04ccb83ec685be24573c, type: 3}
   m_Name: Momi
   m_EditorClassIdentifier: 
-  dialoger: Momi
+  dialoger: "\u0E42\u0E21\u0E21\u0E34"
   photo: {fileID: 21300000, guid: 2626ec260f1cc11428421de960a7d177, type: 3}
   expressions:
   - name: negative

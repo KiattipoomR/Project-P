@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46921e71e9f04ccb83ec685be24573c, type: 3}
   m_Name: Chaweng
   m_EditorClassIdentifier: 
-  dialoger: Chaweng
+  dialoger: "\u0E40\u0E0A\u0E27\u0E07"
   photo: {fileID: 21300000, guid: b1ffa8ca8c18f1e4fbb5e8c475c2e4a5, type: 3}
   expressions:
   - name: negative

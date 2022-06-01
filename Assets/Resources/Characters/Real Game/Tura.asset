@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46921e71e9f04ccb83ec685be24573c, type: 3}
   m_Name: Tura
   m_EditorClassIdentifier: 
-  dialoger: Tura
+  dialoger: "\u0E17\u0E39\u0E23\u0E30"
   photo: {fileID: 21300000, guid: 30821051bdc0c2f4290fe400f46a02fb, type: 3}
   expressions:
   - name: negative

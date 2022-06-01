@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using NPC;
 using Manager;
+using Dialogue;
 
 namespace Entity
 {

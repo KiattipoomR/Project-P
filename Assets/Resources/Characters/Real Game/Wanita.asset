@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46921e71e9f04ccb83ec685be24573c, type: 3}
   m_Name: Wanita
   m_EditorClassIdentifier: 
-  dialoger: Wanita
+  dialoger: "\u0E27\u0E32\u0E19\u0E34\u0E15\u0E32"
   photo: {fileID: 21300000, guid: db402f35f73a32241886e5eb62893c02, type: 3}
   expressions:
   - name: negative

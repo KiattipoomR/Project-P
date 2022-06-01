@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46921e71e9f04ccb83ec685be24573c, type: 3}
   m_Name: Ramut
   m_EditorClassIdentifier: 
-  dialoger: Ramut
+  dialoger: "\u0E23\u0E32\u0E21\u0E31\u0E15"
   photo: {fileID: 21300000, guid: ca65073449d8f8242b505eea6f2d7810, type: 3}
   expressions:
   - name: negative
