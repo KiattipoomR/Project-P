@@ -2,6 +2,8 @@
 Test Girl:[expression=Normal] [question=IDOFQUESTION]Will you save the world?
 [choice] You betcha! [newtalk start=answeredYes_begin break=answeredYes_end]
 [choice] Nope. [newtalk start=answeredNo_begin break=answeredNo_end]
+[choice] Nope. [newtalk start=answeredNo_begin break=answeredNo_end]
+[choice] Nope. [newtalk start=answeredNo_begin break=answeredNo_end]
 [title=question1_end]
  
 [title=answeredYes_begin]
