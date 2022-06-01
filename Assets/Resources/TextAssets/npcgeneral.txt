@@ -1,11 +1,20 @@
 [title=jhaviet_start]
-จฮาเวียด:[expression=neutral]อยากให้ช่วยอะไรเหรอครับ
+จฮาเวียด:[expression=neutral][question=jhaviet_whattodo]อยากให้ช่วยอะไรเหรอครับ
+[choice]ขอคำแนะนำ[newtalk start=jhaviet_advice_start break=jhaviet_advice_end]
+[choice]ไม่มีอะไร
 [title=jhaviet_end]
+
+[title=jhaviet_advice_start]
+จฮาเวียด:[expression=neutral]เราสามารถหาเมล็ดได้ 2 แบบ คือการซื้อจากร้านค้าและเก็บจากในป่า
+จฮาเวียด:[expression=positive]ถ้าอยากให้ช่วยนำทางเข้าไปในป่า สามารถเรียกผมได้ทุกเมื่อเลยครับ!
+[title=jhaviet_advice_end]
 
 [title=nun_start]
 หนั่น:[expression=negative]เห้อ มาเอาที่ทำกินไม่พอ ยังมาขอนู่นขอนี่อีก น่าจะไล่กลับเกาะมันไปให้หมดๆ
 [title=nun_end]
 
 [title=yasmin_start]
-ยาสมิน:[expression=neutral]มีอะไรให้ช่วยไหมค่ะ
+ยาสมิน:[expression=neutral][question=yasmin_whattodo]มีอะไรให้ช่วยไหมค่ะ
+[choice]ซื้อของ
+[choice]ไม่มีอะไร
 [title=yasmin_end]
