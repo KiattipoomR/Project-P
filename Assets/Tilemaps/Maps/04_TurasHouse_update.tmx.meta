@@ -1,0 +1,184 @@
+fileFormatVersion: 2
+guid: f907459de97109342b925424f28e5355
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 1fa25d03934ea624a82bf2fcee6f0873, type: 3}
+  missingFiles: []
+  errors:
+  - "Missing texture asset: D:/\u0E07\u0E32\u0E19\u0E40\u0E23\u0E35\u0E22\u0E19/edu
+    prog/preset map/mv_trees_by_schwarzenacht_dazcdmq.png"
+  - "Missing texture asset: D:/\u0E07\u0E32\u0E19\u0E40\u0E23\u0E35\u0E22\u0E19/edu
+    prog/preset map/Tree02/Tree02_Top.png"
+  - "Missing texture asset: D:/\u0E07\u0E32\u0E19\u0E40\u0E23\u0E35\u0E22\u0E19/edu
+    prog/preset map/Tree02/Tree02_Bottom.png"
+  - "Missing texture asset: D:/\u0E07\u0E32\u0E19\u0E40\u0E23\u0E35\u0E22\u0E19/edu
+    prog/preset map/Tree02/Tree02_Stage03.png"
+  - "Missing texture asset: D:/\u0E07\u0E32\u0E19\u0E40\u0E23\u0E35\u0E22\u0E19/edu
+    prog/preset map/Tree01/Tree01_Stage03.png"
+  - Could not find tile 2263. Make sure the tilesets were successfully imported.
+  - Could not find tile 2264. Make sure the tilesets were successfully imported.
+  - Could not find tile 2265. Make sure the tilesets were successfully imported.
+  - Could not find tile 2266. Make sure the tilesets were successfully imported.
+  - Could not find tile 2269. Make sure the tilesets were successfully imported.
+  - Could not find tile 2270. Make sure the tilesets were successfully imported.
+  - Could not find tile 2271. Make sure the tilesets were successfully imported.
+  - Could not find tile 2272. Make sure the tilesets were successfully imported.
+  - Could not find tile 2275. Make sure the tilesets were successfully imported.
+  - Could not find tile 2276. Make sure the tilesets were successfully imported.
+  - Could not find tile 2277. Make sure the tilesets were successfully imported.
+  - Could not find tile 2278. Make sure the tilesets were successfully imported.
+  - Could not find tile 1439. Make sure the tilesets were successfully imported.
+  - Could not find tile 1440. Make sure the tilesets were successfully imported.
+  - Could not find tile 1441. Make sure the tilesets were successfully imported.
+  - Could not find tile 1442. Make sure the tilesets were successfully imported.
+  - Could not find tile 1443. Make sure the tilesets were successfully imported.
+  - Could not find tile 1444. Make sure the tilesets were successfully imported.
+  - Could not find tile 1445. Make sure the tilesets were successfully imported.
+  - Could not find tile 1446. Make sure the tilesets were successfully imported.
+  - Could not find tile 1458. Make sure the tilesets were successfully imported.
+  - Could not find tile 1459. Make sure the tilesets were successfully imported.
+  - Could not find tile 1460. Make sure the tilesets were successfully imported.
+  - Could not find tile 1461. Make sure the tilesets were successfully imported.
+  - Could not find tile 1462. Make sure the tilesets were successfully imported.
+  - Could not find tile 1463. Make sure the tilesets were successfully imported.
+  - Could not find tile 1464. Make sure the tilesets were successfully imported.
+  - Could not find tile 1465. Make sure the tilesets were successfully imported.
+  - Could not find tile 1477. Make sure the tilesets were successfully imported.
+  - Could not find tile 1478. Make sure the tilesets were successfully imported.
+  - Could not find tile 1479. Make sure the tilesets were successfully imported.
+  - Could not find tile 1480. Make sure the tilesets were successfully imported.
+  - Could not find tile 1481. Make sure the tilesets were successfully imported.
+  - Could not find tile 1482. Make sure the tilesets were successfully imported.
+  - Could not find tile 1483. Make sure the tilesets were successfully imported.
+  - Could not find tile 1484. Make sure the tilesets were successfully imported.
+  - Could not find tile 1496. Make sure the tilesets were successfully imported.
+  - Could not find tile 1497. Make sure the tilesets were successfully imported.
+  - Could not find tile 1498. Make sure the tilesets were successfully imported.
+  - Could not find tile 1499. Make sure the tilesets were successfully imported.
+  - Could not find tile 1500. Make sure the tilesets were successfully imported.
+  - Could not find tile 1501. Make sure the tilesets were successfully imported.
+  - Could not find tile 1502. Make sure the tilesets were successfully imported.
+  - Could not find tile 1503. Make sure the tilesets were successfully imported.
+  - Could not find tile 1515. Make sure the tilesets were successfully imported.
+  - Could not find tile 1516. Make sure the tilesets were successfully imported.
+  - Could not find tile 1517. Make sure the tilesets were successfully imported.
+  - Could not find tile 1518. Make sure the tilesets were successfully imported.
+  - Could not find tile 1519. Make sure the tilesets were successfully imported.
+  - Could not find tile 1520. Make sure the tilesets were successfully imported.
+  - Could not find tile 1521. Make sure the tilesets were successfully imported.
+  - Could not find tile 1522. Make sure the tilesets were successfully imported.
+  - Could not find tile 2279. Make sure the tilesets were successfully imported.
+  - Could not find tile 2280. Make sure the tilesets were successfully imported.
+  - Could not find tile 2281. Make sure the tilesets were successfully imported.
+  - Could not find tile 2282. Make sure the tilesets were successfully imported.
+  - Could not find tile 2283. Make sure the tilesets were successfully imported.
+  - Could not find tile 2284. Make sure the tilesets were successfully imported.
+  - Could not find tile 2285. Make sure the tilesets were successfully imported.
+  - Could not find tile 2286. Make sure the tilesets were successfully imported.
+  - Could not find tile 2287. Make sure the tilesets were successfully imported.
+  - Could not find tile 2288. Make sure the tilesets were successfully imported.
+  - Could not find tile 2289. Make sure the tilesets were successfully imported.
+  - Could not find tile 2290. Make sure the tilesets were successfully imported.
+  - Could not find tile 2291. Make sure the tilesets were successfully imported.
+  - Could not find tile 2292. Make sure the tilesets were successfully imported.
+  - Could not find tile 2293. Make sure the tilesets were successfully imported.
+  - Could not find tile 2294. Make sure the tilesets were successfully imported.
+  - Could not find tile 2295. Make sure the tilesets were successfully imported.
+  - Could not find tile 2296. Make sure the tilesets were successfully imported.
+  - Could not find tile 2297. Make sure the tilesets were successfully imported.
+  - Could not find tile 2298. Make sure the tilesets were successfully imported.
+  - Could not find tile 2227. Make sure the tilesets were successfully imported.
+  - Could not find tile 2228. Make sure the tilesets were successfully imported.
+  - Could not find tile 2229. Make sure the tilesets were successfully imported.
+  - Could not find tile 2230. Make sure the tilesets were successfully imported.
+  - Could not find tile 2231. Make sure the tilesets were successfully imported.
+  - Could not find tile 2232. Make sure the tilesets were successfully imported.
+  - Could not find tile 2233. Make sure the tilesets were successfully imported.
+  - Could not find tile 2234. Make sure the tilesets were successfully imported.
+  - Could not find tile 2235. Make sure the tilesets were successfully imported.
+  - Could not find tile 2236. Make sure the tilesets were successfully imported.
+  - Could not find tile 2237. Make sure the tilesets were successfully imported.
+  - Could not find tile 2238. Make sure the tilesets were successfully imported.
+  - Could not find tile 2239. Make sure the tilesets were successfully imported.
+  - Could not find tile 2240. Make sure the tilesets were successfully imported.
+  - Could not find tile 2241. Make sure the tilesets were successfully imported.
+  - Could not find tile 2242. Make sure the tilesets were successfully imported.
+  - Could not find tile 2243. Make sure the tilesets were successfully imported.
+  - Could not find tile 2244. Make sure the tilesets were successfully imported.
+  - Could not find tile 2245. Make sure the tilesets were successfully imported.
+  - Could not find tile 2246. Make sure the tilesets were successfully imported.
+  - Could not find tile 2247. Make sure the tilesets were successfully imported.
+  - Could not find tile 2248. Make sure the tilesets were successfully imported.
+  - Could not find tile 2249. Make sure the tilesets were successfully imported.
+  - Could not find tile 2250. Make sure the tilesets were successfully imported.
+  - Could not find tile 2251. Make sure the tilesets were successfully imported.
+  - Could not find tile 2252. Make sure the tilesets were successfully imported.
+  - Could not find tile 2253. Make sure the tilesets were successfully imported.
+  - Could not find tile 2254. Make sure the tilesets were successfully imported.
+  - Could not find tile 2255. Make sure the tilesets were successfully imported.
+  - Could not find tile 2256. Make sure the tilesets were successfully imported.
+  - Could not find tile 2257. Make sure the tilesets were successfully imported.
+  - Could not find tile 2258. Make sure the tilesets were successfully imported.
+  - Could not find tile 2259. Make sure the tilesets were successfully imported.
+  - Could not find tile 2260. Make sure the tilesets were successfully imported.
+  - Could not find tile 2261. Make sure the tilesets were successfully imported.
+  - Could not find tile 2262. Make sure the tilesets were successfully imported.
+  - Could not find tile 2299. Make sure the tilesets were successfully imported.
+  - Could not find tile 2300. Make sure the tilesets were successfully imported.
+  - Could not find tile 2301. Make sure the tilesets were successfully imported.
+  - Could not find tile 2302. Make sure the tilesets were successfully imported.
+  - Could not find tile 2303. Make sure the tilesets were successfully imported.
+  - Could not find tile 2304. Make sure the tilesets were successfully imported.
+  - Could not find tile 2305. Make sure the tilesets were successfully imported.
+  - Could not find tile 2306. Make sure the tilesets were successfully imported.
+  - Could not find tile 2307. Make sure the tilesets were successfully imported.
+  - Could not find tile 2308. Make sure the tilesets were successfully imported.
+  - Could not find tile 2309. Make sure the tilesets were successfully imported.
+  - Could not find tile 2310. Make sure the tilesets were successfully imported.
+  - Could not find tile 2311. Make sure the tilesets were successfully imported.
+  - Could not find tile 2312. Make sure the tilesets were successfully imported.
+  - Could not find tile 2313. Make sure the tilesets were successfully imported.
+  - Could not find tile 2314. Make sure the tilesets were successfully imported.
+  - Could not find tile 2315. Make sure the tilesets were successfully imported.
+  - Could not find tile 2316. Make sure the tilesets were successfully imported.
+  - Could not find tile 2317. Make sure the tilesets were successfully imported.
+  - Could not find tile 2318. Make sure the tilesets were successfully imported.
+  - Could not find tile 2319. Make sure the tilesets were successfully imported.
+  - Could not find tile 2320. Make sure the tilesets were successfully imported.
+  - Could not find tile 2321. Make sure the tilesets were successfully imported.
+  - Could not find tile 2322. Make sure the tilesets were successfully imported.
+  warnings:
+  - Tileset 'BaseMap1@20' is an embedded tileset. Exported tilesets are preferred.
+  - Tileset 'House03@20' is an embedded tileset. Exported tilesets are preferred.
+  - Tileset 'mv_trees_by_schwarzenacht_dazcdmq' is an embedded tileset. Exported
+    tilesets are preferred.
+  - Tileset 'BaseMap2@20' is an embedded tileset. Exported tilesets are preferred.
+  - Tileset 'Tree02_Top' is an embedded tileset. Exported tilesets are preferred.
+  - Tileset 'Tree02_Bottom' is an embedded tileset. Exported tilesets are preferred.
+  - Tileset 'Tree02_Stage03' is an embedded tileset. Exported tilesets are preferred.
+  - Tileset 'Tree01_Stage03' is an embedded tileset. Exported tilesets are preferred.
+  missingSortingLayers: []
+  missingLayers: []
+  missingTags: []
+  importerVersion: 24
+  pixelsPerUnit: 20
+  edgesPerEllipse: 32
+  numberOfObjectsImported: 3309
+  tilesAsObjects: 0
+  sortingMode: 0
+  isIsometric: 0
+  customImporterClassName: 
+  internalTilesets:
+  - {instanceID: 0}
+  - {instanceID: 0}
+  - {instanceID: 0}
+  - {instanceID: 0}
+  - {instanceID: 0}
+  - {instanceID: 0}
+  - {instanceID: 0}
+  - {instanceID: 0}
