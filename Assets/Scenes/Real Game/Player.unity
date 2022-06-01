@@ -6595,8 +6595,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1585905700}
         m_TargetAssemblyTypeName: UI.ShopPanelUI, Assembly-CSharp
-        m_MethodName: SetActiveBuyPanel
-        m_Mode: 6
+        m_MethodName: HideAll
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12702,8 +12702,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1585905700}
         m_TargetAssemblyTypeName: UI.ShopPanelUI, Assembly-CSharp
-        m_MethodName: SetActiveSellPanel
-        m_Mode: 6
+        m_MethodName: HideAll
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -14360,7 +14360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &949350548
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19949,9 +19949,9 @@ RectTransform:
   m_Father: {fileID: 1585905699}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -95.7}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 205.257, y: 16.6847}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1291667535
@@ -23768,7 +23768,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2620761, y: 1}
+    m_SensorSize: {x: 2.2912724, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -24519,9 +24519,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa142b43c7ccfa4fb984bc29b5ef5a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectsToHide:
+  - {fileID: 201753762}
+  - {fileID: 949350547}
+  - {fileID: 536501962}
+  - {fileID: 890312525}
+  - {fileID: 1704790153}
+  - {fileID: 1259633195}
+  - {fileID: 1291667533}
   buyPanel: {fileID: 201753762}
   sellPanel: {fileID: 949350547}
-  errorText: {fileID: 1291667535}
 --- !u!1 &1590415691
 GameObject:
   m_ObjectHideFlags: 0
@@ -24834,7 +24841,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0

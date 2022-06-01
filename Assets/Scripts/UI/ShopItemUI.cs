@@ -6,7 +6,6 @@ using Manager;
 using Player;
 using System.Collections;
 
-
 namespace UI
 {
   public class ShopItemUI : MonoBehaviour
@@ -31,6 +30,8 @@ namespace UI
     public TextMeshProUGUI priceText;
 
     public TextMeshProUGUI AmountText;
+
+    private float _errorOpenTime;
 
     public void Buy()
     {
@@ -82,13 +83,14 @@ namespace UI
     {
       errorText.text = reason;
       errorText.gameObject.SetActive(true);
-      StartCoroutine(CloseWithDelay());
+      _errorOpenTime = Time.realtimeSinceStartup;
+      StartCoroutine(CloseWithDelay(_errorOpenTime));
     }
 
-    private IEnumerator CloseWithDelay()
+    private IEnumerator CloseWithDelay(float errorOpenTimeOfThisError)
     {
       yield return new WaitForSeconds(3);
-      errorText.gameObject.SetActive(false);
+      if (errorOpenTimeOfThisError == _errorOpenTime) errorText.gameObject.SetActive(false);
     }
 
     public void ClosePopUpAmount()

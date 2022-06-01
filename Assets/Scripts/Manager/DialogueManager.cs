@@ -37,11 +37,11 @@ namespace Manager
       Debug.Log("Save choice " + questionId + " " + choiceId);
       if (questionId == "yasmin_whattodo" && choiceId == 0)
       {
-        shopPanel.SetActiveBuyPanel(true);
+        shopPanel.OpenBuyPanel();
       }
       if (questionId == "yasmin_whattodo" && choiceId == 1)
       {
-        shopPanel.SetActiveSellPanel(true);
+        shopPanel.OpenSellPanel();
       }
     }
 

@@ -5,25 +5,31 @@ namespace UI
 {
   public class ShopPanelUI : MonoBehaviour
   {
+    [SerializeField] private GameObject[] objectsToHide;
     [SerializeField] private GameObject buyPanel;
     [SerializeField] private GameObject sellPanel;
-    [SerializeField] private TextMeshProUGUI errorText;
 
     private void Awake()
     {
-      SetActiveBuyPanel(false);
-      SetActiveSellPanel(false);
-      errorText.gameObject.SetActive(false);
+      HideAll();
     }
 
-    public void SetActiveBuyPanel(bool isActive)
+    public void OpenBuyPanel()
     {
-      buyPanel.SetActive(isActive);
+      buyPanel.SetActive(true);
     }
 
-    public void SetActiveSellPanel(bool isActive)
+    public void OpenSellPanel()
     {
-      sellPanel.SetActive(isActive);
+      sellPanel.SetActive(true);
+    }
+
+    public void HideAll()
+    {
+      foreach (GameObject g in objectsToHide)
+      {
+        g.SetActive(false);
+      }
     }
   }
 }
