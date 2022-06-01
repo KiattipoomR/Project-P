@@ -65,9 +65,14 @@ namespace FarmManager
       }
     }
 
+    public int GetActiveWorker()
+    {
+      return workers.FindAll(s => s.IsActive).Count;
+    }
+
     public void Work(int staminaUsed)
     {
-      int n = workers.FindAll(s => s.IsActive).Count;
+      int n = GetActiveWorker();
       foreach (Worker worker in workers)
       {
         if (worker.IsActive)

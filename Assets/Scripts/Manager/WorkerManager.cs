@@ -191,6 +191,7 @@ namespace Manager
         seedAndCropListInProcess.Add(i);
       }
       seedListForNextDay = new List<SeedAndCropStack>();
+      if (recruitedWorkerList.GetActiveWorker() == 0) return;
       foreach (SeedAndCropStack i in seedAndCropListInProcess)
       {
         staminaUsedInProcessToday += i.GetStaminaNeeded();
@@ -202,7 +203,7 @@ namespace Manager
         staminaNeededInProcessTomorrow += i.GetStaminaNeeded();
       }
       seedAndCropListInProcess.RemoveAll(s => s.Status == PlantingStatus.DEAD);
-      OnRecalculatingStaminaNeeded?.Invoke(staminaNeededInProcessTomorrow);
+      //OnRecalculatingStaminaNeeded?.Invoke(staminaNeededInProcessTomorrow);
       ReduceTodayWorkerStamina(staminaUsedInProcessToday);
     }
 
