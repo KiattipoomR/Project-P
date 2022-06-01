@@ -19,6 +19,8 @@ namespace UI
 
     [SerializeField] private TextMeshProUGUI errorText;
 
+    [SerializeField] bool buy;
+
     public GameObject BuyPopupPanel;
     public ItemData itemData;
 
@@ -57,7 +59,7 @@ namespace UI
     {
       bool validSell = true;
       print(itemData.SellPrice * amount);
-      // Check Item here validSell = 
+      validSell = playerInventory.Inventory.RemoveFromInventory(itemData, amount);
       if (validSell)
       {
         currencyManager.AddRune(itemData.SellPrice * amount);
@@ -116,7 +118,14 @@ namespace UI
 
     void Start()
     {
-      priceText.text = itemData.BuyPrice.ToString();
+      if (buy)
+      {
+        priceText.text = itemData.BuyPrice.ToString();
+      }
+      else
+      {
+        priceText.text = itemData.SellPrice.ToString();
+      }
       artworkImage.sprite = itemData.ItemIcon;
     }
   }

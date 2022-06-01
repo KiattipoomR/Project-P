@@ -16,5 +16,6 @@
 [title=yasmin_start]
 ยาสมิน:[expression=neutral][question=yasmin_whattodo]มีอะไรให้ช่วยไหมค่ะ
 [choice]ซื้อของ
+[choice]ขายของ
 [choice]ไม่มีอะไร
 [title=yasmin_end]
