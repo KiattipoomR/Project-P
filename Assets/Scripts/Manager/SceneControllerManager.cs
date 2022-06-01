@@ -20,7 +20,7 @@ namespace Manager
     public static UnityAction OnSceneUnloaded;
     public static UnityAction OnSceneLoaded;
     public static UnityAction OnSceneFadedIn;
-    public static UnityAction OnScreenFinishedFadeIn;
+    public static UnityAction OnSceneFinishedFadeIn;
 
     public string StartingSceneName => startingSceneName;
 
@@ -63,7 +63,6 @@ namespace Manager
 
     private IEnumerator FadeScreen(float finalAlpha)
     {
-
       _isFading = true;
       faderCanvasGroup.blocksRaycasts = true;
 
@@ -78,7 +77,7 @@ namespace Manager
 
       _isFading = !_isFading;
       faderCanvasGroup.blocksRaycasts = false;
-      OnScreenFinishedFadeIn?.Invoke();
+      OnSceneFinishedFadeIn?.Invoke();
     }
 
     private IEnumerator LoadSceneAndSetActive(string sceneName)

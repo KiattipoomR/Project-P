@@ -6,7 +6,7 @@ using Entity;
 
 namespace Manager
 {
-    public class CutsceneManager : MonoBehaviour
+  public class CutsceneManager : MonoBehaviour
   {
     CutsceneEntry _currentCutsceneEntry;
     int _nextPlayingOrder = 0;
@@ -17,14 +17,14 @@ namespace Manager
     private void OnEnable()
     {
       SceneControllerManager.OnSceneLoaded += CheckOnLoadNewScene;
-      SceneControllerManager.OnScreenFinishedFadeIn += CheckEventDialogue;
+      SceneControllerManager.OnSceneFinishedFadeIn += CheckEventDialogue;
       DialogueManager.OnDialogueEnded += CheckEventDialogue;
     }
 
     private void OnDisable()
     {
       SceneControllerManager.OnSceneLoaded -= CheckOnLoadNewScene;
-      SceneControllerManager.OnScreenFinishedFadeIn -= CheckEventDialogue;
+      SceneControllerManager.OnSceneFinishedFadeIn -= CheckEventDialogue;
       DialogueManager.OnDialogueEnded -= CheckEventDialogue;
     }
 
@@ -33,7 +33,7 @@ namespace Manager
       _currentCutsceneEntry = DataManager.GetCutsceneEntryByName(SceneManager.GetActiveScene().name);
       _nextPlayingOrder = 0;
 
-      if(_currentCutsceneEntry == null) return;
+      if (_currentCutsceneEntry == null) return;
       switch (SceneManager.GetActiveScene().name)
       {
         case "01 - Beach":
@@ -43,7 +43,7 @@ namespace Manager
         case "04 - Tura's House":
           GameObject.Find("Nun").GetComponent<NpcEntity>().ChangeAnimationState("NunIdleUp");
           break;
-        
+
         default:
           return;
       }

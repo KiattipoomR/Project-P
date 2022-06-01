@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UI;
 
 namespace Manager
 {
@@ -30,6 +31,10 @@ namespace Manager
       DialogueManager.OnDialogueEnded += SystemPause;
       WorkerManager.OnToggleTriggered += SetInactiveControlPlayerInput;
       WorkerManager.OnToggleTriggered += PlayerPause;
+      ShopPanelUI.OnShopOpened += _setPlayerControlsInactive;
+      ShopPanelUI.OnShopOpened += SystemPause;
+      ShopPanelUI.OnShopClosed += _setPlayerControlsActive;
+      ShopPanelUI.OnShopClosed += SystemPause;
     }
 
     private void OnDisable()
@@ -41,7 +46,10 @@ namespace Manager
       DialogueManager.OnDialogueEnded -= SystemPause;
       WorkerManager.OnToggleTriggered -= SetInactiveControlPlayerInput;
       WorkerManager.OnToggleTriggered -= PlayerPause;
-
+      ShopPanelUI.OnShopOpened -= _setPlayerControlsInactive;
+      ShopPanelUI.OnShopOpened -= SystemPause;
+      ShopPanelUI.OnShopClosed -= _setPlayerControlsActive;
+      ShopPanelUI.OnShopClosed -= SystemPause;
     }
 
     private void OnPause()
