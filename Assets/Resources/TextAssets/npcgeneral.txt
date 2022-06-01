@@ -1,0 +1,11 @@
+[title=jhaviet_start]
+จฮาเวียด:[expression=neutral]อยากให้ช่วยอะไรเหรอครับ
+[title=jhaviet_end]
+
+[title=nun_start]
+หนั่น:[expression=negative]เห้อ มาเอาที่ทำกินไม่พอ ยังมาขอนู่นขอนี่อีก น่าจะไล่กลับเกาะมันไปให้หมดๆ
+[title=nun_end]
+
+[title=yasmin_start]
+ยาสมิน:[expression=neutral]มีอะไรให้ช่วยไหมค่ะ
+[title=yasmin_end]

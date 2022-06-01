@@ -14,26 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: 
   npcSprite: {fileID: 1698981943, guid: eab1e27522314dc45850748bb830f9de, type: 3}
-  dialogueTextAsset: {fileID: 4900000, guid: 5e5a9dd523ece924eb6f373f103287fb, type: 3}
-  dialogueFlowGraph:
-  - startEndLine:
-      startLine: question1_start
-      endLine: question1_end
-    links:
-    - conditions:
-      - choiceId: IDOFQUESTION
-        value: 0
-      nextDialogueIndex: 1
-    - conditions:
-      - choiceId: IDOFQUESTION
-        value: 1
-      nextDialogueIndex: 2
-  - startEndLine:
-      startLine: answerYesTalkAgain_begin
-      endLine: answerYesTalkAgain_end
-    links: []
-  - startEndLine:
-      startLine: answeredNo_begin
-      endLine: answeredNo_end
-    links: []
+  dialogueTextAsset: {fileID: 0}
+  dialogueFlowGraph: []
   startDialogueState: 0
