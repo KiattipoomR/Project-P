@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 872a85ab13e39534cb0672ac8187ed0e, type: 3}
-  m_Name: Yasmin 1
+  m_Name: Duwa
   m_EditorClassIdentifier: 
   npcName: 
-  npcSprite: {fileID: -1050632150, guid: ad76f974990291b4f9ec82dee17dca55, type: 3}
+  npcSprite: {fileID: 1698981943, guid: eab1e27522314dc45850748bb830f9de, type: 3}
   dialogueTextAsset: {fileID: 4900000, guid: 5e5a9dd523ece924eb6f373f103287fb, type: 3}
   dialogueFlowGraph:
   - startEndLine:
