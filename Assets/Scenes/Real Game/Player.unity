@@ -1454,7 +1454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &95070735
 Transform:
   m_ObjectHideFlags: 0
@@ -14399,7 +14399,7 @@ SpriteRenderer:
   m_SortingLayerID: -633970509
   m_SortingLayer: 6
   m_SortingOrder: 1
-  m_Sprite: {fileID: 114716977, guid: afd1fa5148882459aad3d22f4460047c, type: 3}
+  m_Sprite: {fileID: -1717391257, guid: 4297d5214c9710041a9f5e9099f81927, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -20631,7 +20631,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2528148, y: 1}
+    m_SensorSize: {x: 1.778607, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -22710,7 +22710,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1717965766
 Transform:
   m_ObjectHideFlags: 0
@@ -24281,7 +24281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1806747080
 Transform:
   m_ObjectHideFlags: 0
@@ -24366,7 +24366,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1810062791
 Transform:
   m_ObjectHideFlags: 0
@@ -26913,6 +26913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2032295001}
+  animator: {fileID: 1092899392}
   movementSpeed: 5
 --- !u!114 &2032295004
 MonoBehaviour:
