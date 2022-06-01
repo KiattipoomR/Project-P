@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d46921e71e9f04ccb83ec685be24573c, type: 3}
+  m_Name: Wanita
+  m_EditorClassIdentifier: 
+  dialoger: Wanita
+  photo: {fileID: 21300000, guid: db402f35f73a32241886e5eb62893c02, type: 3}
+  expressions:
+  - name: negative
+    photo: {fileID: 21300000, guid: a6381e99b8637614aa3a0bdff6bd1d00, type: 3}
+    boolInAnimator: 
+    audio: {fileID: 0}
+  - name: neutral
+    photo: {fileID: 21300000, guid: db402f35f73a32241886e5eb62893c02, type: 3}
+    boolInAnimator: 
+    audio: {fileID: 0}
+  - name: positive
+    photo: {fileID: 21300000, guid: 0848894ff169b8c43ad983c792672a3c, type: 3}
+    boolInAnimator: 
+    audio: {fileID: 0}

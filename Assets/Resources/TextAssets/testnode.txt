@@ -1,0 +1,12 @@
+[title=Cutscene_3_begin]
+Player Name:[question=Test1]What should I do?
+[choice]Talk about the request[newtalk start=FollowUp_Cutscene_3_Choice_0_begin break=FollowUp_Cutscene_3_Choice_0_end]
+[choice](Walk away)
+[title=Cutscene_3_end]
+[title=FollowUp_Cutscene_3_Choice_0_begin]
+Test Girl:Ok
+[save  data=Test1 mod=1]
+[title=FollowUp_Cutscene_3_Choice_0_end]
+[title=FollowUp_Save Node_begin]
+Test Girl:Go to work on the request!
+[title=FollowUp_Save Node_end]

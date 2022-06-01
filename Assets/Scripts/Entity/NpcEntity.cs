@@ -19,6 +19,8 @@ namespace Entity
 
     private bool interactable = false;
 
+    private int _currentDialogueState;
+
     private void Awake()
     {
       _renderer = GetComponentInChildren<SpriteRenderer>();
@@ -27,6 +29,7 @@ namespace Entity
       if (!npc) Destroy(gameObject);
       _renderer.sprite = npc.NpcSprite;
       _collider.isTrigger = false;
+      _currentDialogueState = npc.StartDialogueState;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -42,7 +45,34 @@ namespace Entity
     private void Update()
     {
       if (!Keyboard.current.tKey.wasPressedThisFrame || !interactable) return;
-      GameManager.Instance.dialogueManager.StartDialogue(npc.DialogueTextAsset);
+      UpdateState();
+      GameManager.Instance.dialogueManager.StartDialogue(GetNextDialogueLine(), npc.DialogueTextAsset);
+    }
+
+    private DialogueStartEnd GetNextDialogueLine()
+    {
+      return npc.DialogueFlowGraph[_currentDialogueState].startEndLine;
+    }
+
+    public void UpdateState()
+    {
+      foreach (DialogueFlowLink link in npc.DialogueFlowGraph[_currentDialogueState].links)
+      {
+        bool walkable = true;
+        foreach (DialogueFlowLinkCondition condition in link.conditions)
+        {
+          if (!PlayerPrefs.HasKey(condition.choiceId) || PlayerPrefs.GetInt(condition.choiceId) != condition.value)
+          {
+            walkable = false;
+            break;
+          }
+        }
+        if (walkable)
+        {
+          _currentDialogueState = link.nextDialogueIndex;
+          break;
+        }
+      }
     }
   }
 }

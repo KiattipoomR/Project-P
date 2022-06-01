@@ -1,6 +1,5 @@
 [title=TestChoice_Start]
-Girle: This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text?
-[question=0]\n
+Girle: [question=0]This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text?
 [choice]Sure!
 [choice]I'm not im the mood.
 [choice](Walk away silently)

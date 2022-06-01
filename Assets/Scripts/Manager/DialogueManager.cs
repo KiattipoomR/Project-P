@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using NPC;
 
 namespace Manager
 {
@@ -11,6 +12,7 @@ namespace Manager
 
     public static UnityAction OnDialogueStarted;
     public static UnityAction OnDialogueEnded;
+    public static UnityAction<string, int> OnSaveChoice;
 
     bool _dialogueInProcess;
 
@@ -19,12 +21,28 @@ namespace Manager
       _dialogueInProcess = false;
     }
 
-    public void StartDialogue(TextAsset dialogueTextAsset)
+    private void OnEnable()
+    {
+      rpgTalk.OnMadeChoice += SaveChoice;
+    }
+
+    private void OnDisable()
+    {
+      rpgTalk.OnMadeChoice -= SaveChoice;
+    }
+
+    private void SaveChoice(string questionId, int choiceId)
+    {
+      Debug.Log("Save choice " + questionId + " " + choiceId);
+      OnSaveChoice?.Invoke(questionId, choiceId);
+    }
+
+    public void StartDialogue(DialogueStartEnd dialogueStartEnd, TextAsset dialogueTextAsset)
     {
       if (_dialogueInProcess) return;
       _dialogueInProcess = true;
       OnDialogueStarted?.Invoke();
-      rpgTalk.NewTalk("TestChoice_Start", "TestChoice_End", dialogueTextAsset);
+      rpgTalk.NewTalk(dialogueStartEnd.startLine, dialogueStartEnd.endLine, dialogueTextAsset);
     }
 
     public void EndDialogue()

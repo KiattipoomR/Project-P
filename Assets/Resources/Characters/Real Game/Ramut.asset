@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d46921e71e9f04ccb83ec685be24573c, type: 3}
+  m_Name: Ramut
+  m_EditorClassIdentifier: 
+  dialoger: Ramut
+  photo: {fileID: 21300000, guid: ca65073449d8f8242b505eea6f2d7810, type: 3}
+  expressions:
+  - name: negative
+    photo: {fileID: 21300000, guid: b49746d2fbc9bbf489c05b68151c1e41, type: 3}
+    boolInAnimator: 
+    audio: {fileID: 0}
+  - name: neutral
+    photo: {fileID: 21300000, guid: ca65073449d8f8242b505eea6f2d7810, type: 3}
+    boolInAnimator: 
+    audio: {fileID: 0}
+  - name: positive
+    photo: {fileID: 21300000, guid: ba60e35a3c96bfa43b217d983d2b6c8d, type: 3}
+    boolInAnimator: 
+    audio: {fileID: 0}

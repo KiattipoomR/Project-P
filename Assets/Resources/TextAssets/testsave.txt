@@ -1,0 +1,18 @@
+[title=question1_start]
+Test Girl:[expression=Normal] [question=IDOFQUESTION]Will you save the world?
+[choice] You betcha! [newtalk start=answeredYes_begin break=answeredYes_end]
+[choice] Nope. [newtalk start=answeredNo_begin break=answeredNo_end]
+[title=question1_end]
+ 
+[title=answeredYes_begin]
+Test Girl:[expression=Surprise] Hey! You are the hero that said that would save the world!
+*PlayerName*:[expression=Normal] Tell me how.
+[title=answeredYes_end]
+
+[title=answeredNo_begin]
+Test Girl: Get out of here! No cowards allowed!
+[title=answeredNo_end]
+
+[title=answerYesTalkAgain_begin]
+Test Girl: Good luck on your adventure!
+[title=answerYesTalkAgain_end]
