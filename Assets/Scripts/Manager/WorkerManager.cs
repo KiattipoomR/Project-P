@@ -85,6 +85,7 @@ namespace Manager
       }
       _isToggled = !_isToggled;
       OnToggleTriggered?.Invoke(_isToggled);
+      GameManager.Instance.soundManager.PlayToggleUISound(_isToggled);
       //RefreshWorkerList();
     }
 
@@ -214,7 +215,8 @@ namespace Manager
       harvestedCropList = new List<ItemStack>();
     }
 
-    public int GetCollectableCrops() {
+    public int GetCollectableCrops()
+    {
       return harvestedCropList.Count;
     }
 

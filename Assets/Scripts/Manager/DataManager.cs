@@ -12,12 +12,14 @@ namespace Manager
     private static Dictionary<string, GameObject> _prefabDictionary;
     private static Dictionary<string, CropData> _cropDictionary;
     private static Dictionary<string, CutsceneEntry> _cutscenesDictionary;
+    private static Sprite _defaultWorkerImage;
 
     private void Awake()
     {
       LoadItemData();
       LoadPrefabData();
       LoadCutsceneData();
+      LoadDefaultWorkerImage();
 
       // TODO : Remove later
       LoadCropData();
@@ -69,6 +71,11 @@ namespace Manager
       }
     }
 
+    private static void LoadDefaultWorkerImage()
+    {
+      _defaultWorkerImage = Resources.Load<Sprite>("Sprites/blank profile");
+    }
+
     // TODO : Remove later
     public static CropData GetCropDataByCropID(string cropID)
     {
@@ -88,6 +95,11 @@ namespace Manager
     public static CutsceneEntry GetCutsceneEntryByName(string sceneName)
     {
       return _cutscenesDictionary.TryGetValue(sceneName, out CutsceneEntry cutscene) ? cutscene : null;
+    }
+
+    public static Sprite GetDefaultWorkerImage()
+    {
+      return _defaultWorkerImage;
     }
   }
 }

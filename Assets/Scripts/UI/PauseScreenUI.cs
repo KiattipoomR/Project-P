@@ -3,33 +3,33 @@ using UnityEngine;
 
 namespace UI
 {
-    public class PauseScreenUI : MonoBehaviour
+  public class PauseScreenUI : MonoBehaviour
+  {
+    [SerializeField] private RectTransform[] hideableObjects;
+
+    private void Awake()
     {
-        [SerializeField] private RectTransform[] hideableObjects;
-
-        private void Awake()
-        {
-            SetActiveInventoryBar(false, "Player");
-        }
-
-        private void OnEnable()
-        {
-            PauseManager.OnPauseTriggered += SetActiveInventoryBar;
-        }
-
-        private void OnDisable()
-        {
-            PauseManager.OnPauseTriggered -= SetActiveInventoryBar;
-        }
-
-        private void SetActiveInventoryBar(bool isActive, string source)
-        {
-            if (source != "Player") return;
-
-            foreach (RectTransform hideableObject in hideableObjects)
-            {
-                hideableObject.gameObject.SetActive(isActive);
-            }
-        }
+      SetActiveInventoryBar(false, "Player");
     }
+
+    private void OnEnable()
+    {
+      PauseManager.OnPauseTriggered += SetActiveInventoryBar;
+    }
+
+    private void OnDisable()
+    {
+      PauseManager.OnPauseTriggered -= SetActiveInventoryBar;
+    }
+
+    private void SetActiveInventoryBar(bool isActive, string source)
+    {
+      if (source != "Player") return;
+
+      foreach (RectTransform hideableObject in hideableObjects)
+      {
+        hideableObject.gameObject.SetActive(isActive);
+      }
+    }
+  }
 }

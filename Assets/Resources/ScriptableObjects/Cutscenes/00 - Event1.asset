@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9196acac64ad0764b9ad9411288b84c6, type: 3}
-  m_Name: Event1
+  m_Name: 00 - Event1
   m_EditorClassIdentifier: 
-  sceneName: Event1
+  sceneName: 00 - Event1
   dialogueFile: {fileID: 4900000, guid: 2ae173fdb0ff0f243b9a5dbb6bb9bb2b, type: 3}
+  backgroundMusic: {fileID: 0}
   dialogueStartEnd:
-  - startLine: event1_start
-    endLine: event1_end
-  nextScene: Temp
+  - startLine: event1_start_1
+    endLine: event1_end_1
+  nextScene: 01 - Beach

@@ -13,5 +13,6 @@ namespace Manager
     public WorkerManager workerManager;
     public DialogueManager dialogueManager;
     public CutsceneManager cutsceneManager;
+    public SoundManager soundManager;
   }
 }

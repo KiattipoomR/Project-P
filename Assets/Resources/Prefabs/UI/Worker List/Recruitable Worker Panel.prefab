@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a456f02dcf916694ba148db12a82adf3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -393,10 +393,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05065f445d6453b4c82236df7ce81872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  workerData: {fileID: 0}
+  workerId: 
   workerPanelImage: {fileID: 5610249649719372394}
   workerPanelNameText: {fileID: 5610249650660963146}
   workerPanelStaminaText: {fileID: 0}
+  workerPanelsActiveToggle: {fileID: 0}
 --- !u!1 &5610249650660963144
 GameObject:
   m_ObjectHideFlags: 0

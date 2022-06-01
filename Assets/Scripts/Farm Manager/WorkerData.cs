@@ -1,4 +1,5 @@
 using UnityEngine;
+using Manager;
 
 namespace FarmManager
 {
@@ -20,6 +21,7 @@ namespace FarmManager
     {
       WorkerData worker = ScriptableObject.CreateInstance<WorkerData>();
       worker.workerName = "Test_" + (char)('A' + Random.Range(0, 26));
+      worker.workerImage = DataManager.GetDefaultWorkerImage();
       worker.workerMaxStamina = 100;
       worker.workerCost = 0;
       return worker;

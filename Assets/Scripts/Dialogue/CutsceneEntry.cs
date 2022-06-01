@@ -10,6 +10,7 @@ namespace Dialogue
   {
     public string sceneName;
     public TextAsset dialogueFile;
+    public AudioClip backgroundMusic;
     public DialogueStartEnd[] dialogueStartEnd;
     public string nextScene;
   }

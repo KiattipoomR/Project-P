@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Dialogue;
+using UnityEngine.Events;
 
 namespace Manager
 {
@@ -10,6 +11,9 @@ namespace Manager
   {
     CutsceneEntry _currentCutsceneEntry;
     int _nextPlayingOrder = 0;
+
+    public static UnityAction OnCutsceneStart;
+    public static UnityAction OnCutsceneEnd;
 
     private void OnEnable()
     {
@@ -33,7 +37,12 @@ namespace Manager
 
     private void CheckEventDialogue()
     {
-      if (_currentCutsceneEntry == null) return;
+      if (_currentCutsceneEntry == null)
+      {
+        GameManager.Instance.soundManager.PlayBackgroundMusic(null, true);
+        return;
+      }
+      GameManager.Instance.soundManager.PlayBackgroundMusic(_currentCutsceneEntry.backgroundMusic, false);
       if (_nextPlayingOrder < _currentCutsceneEntry.dialogueStartEnd.Length)
       {
         GameManager.Instance.dialogueManager.StartDialogue(_currentCutsceneEntry.dialogueStartEnd[_nextPlayingOrder], _currentCutsceneEntry.dialogueFile);
@@ -51,6 +60,7 @@ namespace Manager
       {
         GameManager.Instance.sceneControllerManager.ChangeScene(_currentCutsceneEntry.nextScene, new Vector3());
       }
+      _currentCutsceneEntry = null;
     }
   }
 }
