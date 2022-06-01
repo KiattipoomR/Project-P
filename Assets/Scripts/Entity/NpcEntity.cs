@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using NPC;
 using Manager;
@@ -9,11 +6,12 @@ using Dialogue;
 
 namespace Entity
 {
-  public class NpcEntity : MonoBehaviour
+    public class NpcEntity : MonoBehaviour
   {
     //[SerializeField] UnityEvent OnInteract;
 
     [SerializeField] NpcData npc;
+    [SerializeField] Animator animator;
 
     private SpriteRenderer _renderer;
     private BoxCollider2D _collider;
@@ -21,6 +19,7 @@ namespace Entity
     private bool interactable = false;
 
     private int _currentDialogueState;
+    private string _currentAnimationState;
 
     private void Awake()
     {
@@ -75,6 +74,19 @@ namespace Entity
         }
       }
     }
+
+    public void ChangeAnimationState(string newAnimationState)
+        {
+            // Prevent animation from interrupting itself
+            if (_currentAnimationState == newAnimationState) return;
+
+            // Play new animation
+            animator.Play(newAnimationState);
+
+            // Update current state
+            
+            _currentAnimationState = newAnimationState;
+        }
   }
 }
 

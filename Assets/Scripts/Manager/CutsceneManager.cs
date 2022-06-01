@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Dialogue;
 using UnityEngine.Events;
+using Entity;
 
 namespace Manager
 {
-  public class CutsceneManager : MonoBehaviour
+    public class CutsceneManager : MonoBehaviour
   {
     CutsceneEntry _currentCutsceneEntry;
     int _nextPlayingOrder = 0;
@@ -33,6 +32,21 @@ namespace Manager
     {
       _currentCutsceneEntry = DataManager.GetCutsceneEntryByName(SceneManager.GetActiveScene().name);
       _nextPlayingOrder = 0;
+
+      if(_currentCutsceneEntry == null) return;
+      switch (SceneManager.GetActiveScene().name)
+      {
+        case "01 - Beach":
+          GameObject.Find("Player").GetComponent<Player.Player>().ChangeAnimationState("BodyIdleUp");
+          break;
+
+        case "04 - Tura's House":
+          GameObject.Find("Nun").GetComponent<NpcEntity>().ChangeAnimationState("NunIdleUp");
+          break;
+        
+        default:
+          return;
+      }
     }
 
     private void CheckEventDialogue()

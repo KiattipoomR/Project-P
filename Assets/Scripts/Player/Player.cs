@@ -88,7 +88,7 @@ namespace Player
         }
         else
         {
-            string newAnimationState;
+            string newAnimationState = "";
             switch (_currentAnimationState)
             {
                 case PLAYER_WALK_UP:
@@ -103,12 +103,9 @@ namespace Player
                 case PLAYER_WALK_LEFT:
                     newAnimationState = PLAYER_IDLE_LEFT;
                     break;
-                default:
-                    newAnimationState = PLAYER_IDLE_DOWN;
-                    break;
             }
 
-            ChangeAnimationState(newAnimationState);
+            if(newAnimationState != "") ChangeAnimationState(newAnimationState);
         }
         }
 
@@ -140,7 +137,7 @@ namespace Player
             else _playerInput.Enable();
         }
 
-        private void ChangeAnimationState(string newAnimationState)
+        public void ChangeAnimationState(string newAnimationState)
         {
             // Prevent animation from interrupting itself
             if (_currentAnimationState == newAnimationState) return;
