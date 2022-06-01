@@ -816,7 +816,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53421682}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.9999995, y: 4.5950003, z: -10}
+  m_LocalPosition: {x: 7, y: 4.5950003, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14775,6 +14775,7 @@ GameObject:
   - component: {fileID: 1119956865}
   - component: {fileID: 1119956867}
   - component: {fileID: 1119956866}
+  - component: {fileID: 1119956868}
   m_Layer: 0
   m_Name: Currency Bar
   m_TagString: Untagged
@@ -14841,6 +14842,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119956864}
   m_CullTransparentMesh: 1
+--- !u!114 &1119956868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119956864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b9288032d63246e6820a64963b88501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rune: {fileID: 2101693973}
 --- !u!1 &1131106002
 GameObject:
   m_ObjectHideFlags: 0
@@ -20631,7 +20645,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2528148, y: 1}
+    m_SensorSize: {x: 1.7780173, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -20648,7 +20662,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511919524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.9999995, y: 4.5950003, z: -10}
+  m_LocalPosition: {x: 7, y: 4.5950003, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
