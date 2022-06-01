@@ -4,29 +4,33 @@ using UnityEngine.InputSystem;
 
 namespace Manager
 {
-    public class DialogueManager : MonoBehaviour
+  public class DialogueManager : MonoBehaviour
+  {
+    [Header("Components")]
+    [SerializeField] private RPGTalk rpgTalk;
+
+    public static UnityAction OnDialogueStarted;
+    public static UnityAction OnDialogueEnded;
+
+    bool _dialogueInProcess;
+
+    private void Start()
     {
-        [Header("Components")]
-        [SerializeField] private RPGTalk rpgTalk;
-        
-        [Header("Attributes")]
-        [SerializeField] private TextAsset textAsset;
-
-        public static UnityAction OnDialogueStarted;
-        public static UnityAction OnDialogueEnded;
-        
-        private void Update()
-        {
-            if (!Keyboard.current.tKey.wasPressedThisFrame) return;
-            
-            OnDialogueStarted?.Invoke();
-            rpgTalk.NewTalk("1", "-1", textAsset);
-            
-        }
-
-        public void EndDialogue()
-        {
-            OnDialogueEnded?.Invoke();
-        }
+      _dialogueInProcess = false;
     }
+
+    public void StartDialogue(TextAsset dialogueTextAsset)
+    {
+      if (_dialogueInProcess) return;
+      _dialogueInProcess = true;
+      OnDialogueStarted?.Invoke();
+      rpgTalk.NewTalk("TestChoice_Start", "TestChoice_End", dialogueTextAsset);
+    }
+
+    public void EndDialogue()
+    {
+      _dialogueInProcess = false;
+      OnDialogueEnded?.Invoke();
+    }
+  }
 }

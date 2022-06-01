@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 872a85ab13e39534cb0672ac8187ed0e, type: 3}
+  m_Name: DialogueTestNPC
+  m_EditorClassIdentifier: 
+  npcName: Mister B
+  npcSprite: {fileID: -1291131760149906504, guid: f994fee8748d14563837658ccb47c37c, type: 3}
+  dialogueTextAsset: {fileID: 4900000, guid: 9b98dade0cb7fc242b7fd5c0c1b3a941, type: 3}

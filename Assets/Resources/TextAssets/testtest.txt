@@ -1,0 +1,8 @@
+[title=TestChoice_Start]
+Girle: This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text. This is a test text?
+[question=0]\n
+[choice]Sure!
+[choice]I'm not im the mood.
+[choice](Walk away silently)
+Girle: Text to be shown after the answer
+[title=TestChoice_End]
