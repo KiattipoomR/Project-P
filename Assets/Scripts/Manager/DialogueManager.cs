@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using Dialogue;
+using UI;
 
 namespace Manager
 {
@@ -9,10 +10,10 @@ namespace Manager
   {
     [Header("Components")]
     [SerializeField] private RPGTalk rpgTalk;
+    [SerializeField] private ShopPanelUI shopPanel;
 
     public static UnityAction OnDialogueStarted;
     public static UnityAction OnDialogueEnded;
-    public static UnityAction<string, int> OnSaveChoice;
 
     bool _dialogueInProcess;
 
@@ -34,7 +35,10 @@ namespace Manager
     private void SaveChoice(string questionId, int choiceId)
     {
       Debug.Log("Save choice " + questionId + " " + choiceId);
-      OnSaveChoice?.Invoke(questionId, choiceId);
+      if (questionId == "yasmin_whattodo" && choiceId == 0)
+      {
+        shopPanel.SetActiveShopPanel(true);
+      }
     }
 
     public void StartDialogue(DialogueStartEnd dialogueStartEnd, TextAsset dialogueTextAsset)
