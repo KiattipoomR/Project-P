@@ -20,7 +20,7 @@ namespace UI
     [SerializeField] private TextMeshProUGUI errorText;
 
     public GameObject BuyPopupPanel;
-    public SeedData seedData;
+    public ItemData itemData;
 
     public Image artworkImage;
 
@@ -28,36 +28,51 @@ namespace UI
 
     public TextMeshProUGUI priceText;
 
-
     public TextMeshProUGUI AmountText;
-
-
-
 
     public void Buy()
     {
       bool validBuy, validInventory;
-      print(seedData.BuyPrice * amount);
-      validBuy = currencyManager.subtraceRune(seedData.BuyPrice * amount);
-      validInventory = playerInventory.Inventory.AddToInventory(seedData, amount);
-      if (validBuy && validInventory)
+      print(itemData.BuyPrice * amount);
+      validBuy = currencyManager.SubtractRune(itemData.BuyPrice * amount);
+      if (validBuy)
       {
-        ClosePopUpAmount();
-
+        validInventory = playerInventory.Inventory.AddToInventory(itemData, amount);
+        if (validInventory)
+        {
+          ClosePopUpAmount();
+        }
+        else
+        {
+          ShowErrorText("Your bag is full.");
+        }
       }
-      else if (!validBuy)
+      else
       {
         ShowErrorText("Not have enough money");
       }
-      else if (!validInventory)
+    }
+
+    public void Sell()
+    {
+      bool validSell = true;
+      print(itemData.SellPrice * amount);
+      // Check Item here validSell = 
+      if (validSell)
       {
-        ShowErrorText("Your bag is full.");
+        currencyManager.AddRune(itemData.SellPrice * amount);
+        ClosePopUpAmount();
+      }
+      else if (!validSell)
+      {
+        ShowErrorText("Not have enough item");
       }
     }
+
     public void PopupAmount()
     {
       AmountText.text = amount.ToString();
-      artworkImageBuyPopUp.sprite = seedData.ItemIcon;
+      artworkImageBuyPopUp.sprite = itemData.ItemIcon;
       BuyPopupPanel.SetActive(true);
     }
 
@@ -78,8 +93,8 @@ namespace UI
     {
       amount = 0;
       BuyPopupPanel.SetActive(false);
-
     }
+
     public void AddAmount()
     {
       amount += 1;
@@ -97,18 +112,13 @@ namespace UI
         amount -= 1;
         AmountText.text = amount.ToString();
       }
-
     }
 
     void Start()
     {
-
-      priceText.text = seedData.BuyPrice.ToString();
-      artworkImage.sprite = seedData.ItemIcon;
-
+      priceText.text = itemData.BuyPrice.ToString();
+      artworkImage.sprite = itemData.ItemIcon;
     }
-
-
   }
 }
 
