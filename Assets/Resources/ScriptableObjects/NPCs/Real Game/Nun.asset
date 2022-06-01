@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 872a85ab13e39534cb0672ac8187ed0e, type: 3}
-  m_Name: DialogueTestNPC
+  m_Name: Nun
   m_EditorClassIdentifier: 
   npcName: 
-  npcSprite: {fileID: -1291131760149906504, guid: f994fee8748d14563837658ccb47c37c, type: 3}
+  npcSprite: {fileID: 1346405987, guid: d964f4e8cf4314347967db6e39d5e380, type: 3}
   dialogueTextAsset: {fileID: 4900000, guid: 5e5a9dd523ece924eb6f373f103287fb, type: 3}
   dialogueFlowGraph:
   - startEndLine:

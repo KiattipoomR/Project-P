@@ -58,7 +58,7 @@ namespace Manager
     {
       if (_currentCutsceneEntry.nextScene != "")
       {
-        GameManager.Instance.sceneControllerManager.ChangeScene(_currentCutsceneEntry.nextScene, new Vector3());
+        GameManager.Instance.sceneControllerManager.ChangeScene(_currentCutsceneEntry.nextScene, _currentCutsceneEntry.spawnPoint);
       }
       _currentCutsceneEntry = null;
     }

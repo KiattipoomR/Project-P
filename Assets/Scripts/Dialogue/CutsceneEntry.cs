@@ -13,5 +13,6 @@ namespace Dialogue
     public AudioClip backgroundMusic;
     public DialogueStartEnd[] dialogueStartEnd;
     public string nextScene;
+    public Vector3 spawnPoint;
   }
 }

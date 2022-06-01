@@ -18,4 +18,5 @@ MonoBehaviour:
   dialogueStartEnd:
   - startLine: event1_start_2
     endLine: event1_end_2
-  nextScene: Temp
+  nextScene: 04 - Tura's House
+  spawnPoint: {x: 1, y: 2, z: 0}
